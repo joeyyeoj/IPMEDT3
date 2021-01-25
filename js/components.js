@@ -45,30 +45,29 @@ AFRAME.registerComponent("puzzle4word", {
   play: function() {}
 });
 
-AFRAME.registerComponent("puzzle4lineset", {
+AFRAME.registerComponent("puzzle4buttonset", {
   init: function() {
     // Toggle state of LineSet
-    this.toggleLineset = function() {
-      console.log("Updating Lines");
+    this.toggleButtonSet = function() {
+      console.log("Toggling Buttons");
 
       switch (this.getAttribute("state")) {
         case "down":
-          console.log("maak boven groen en state up");
           setColor(this.object3D.children[0].el, "green");
           setColor(this.object3D.children[1].el, "black");
           this.setAttribute("state", "up");
           break;
         case "up":
-          console.log("maak onder groen en state down");
           setColor(this.object3D.children[0].el, "black");
           setColor(this.object3D.children[1].el, "green");
           this.setAttribute("state", "down");
           break;
       }
+      checkPuzzle4();
     }
 
     // Click => Switch Colors
-    this.el.addEventListener("mouseenter", this.toggleLineset);
+    this.el.addEventListener("mouseenter", this.toggleButtonSet);
   },
   update: function() {},
   tick: function() {},
