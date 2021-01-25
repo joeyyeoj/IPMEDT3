@@ -1,10 +1,123 @@
 <!DOCTYPE html>
 <html>
-<head>
-<title>Hello Git</title>
-</head>
-<body>
-<h1>Hallo als dit werkt dan werkt de git</h1>
-<h2>Dit is de development branch van Puzzel 1</h2>
-</body>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Individuele Opdracht 2</title>
+    <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+    <script src="js/puzzel1.js"></script>
+  </head>
+  <body>
+    <a-scene id="js--scene">
+      <a-camera id="js--camera" position="0 2 0">
+       <a-entity id="js--cursor"
+         cursor = "fuse: true; fuseTimeout: 1000"
+         material = "color: #7a7a7a; shader: flat"
+         geometry = "primitive: ring; radiusInner: 0.007; radiusOuter: 0.01"
+         position = "0 0 -0.5"
+         raycaster = "objects: .js--interact"
+       ></a-entity>
+     </a-camera>
+      <a-entity geometry="primitive: plane; width: 5; height: 7"  rotation="-90 0 0"  material="opacity: 1; color:#654321" position="1.5 0.7 3">
+          <!-- <a-text value="In het Swahili (gesproken in Tanzania) kun je in één woord hetzelfde zeggen als waar we in het Nederlands maar liefst drie woorden voor nodig hebben!
+           Deze taal is een meester in het gebruiken van voorvoegsels, bijvoorbeeld voor het onderwerp, het lijdend voorwerp en de verleden of tegenwoordige tijd.
+           Hoe zeg je in het Swahili “ik houd van jou”?"></a-text> -->
+          <a-plane width="5" height="5" color="#cb4154" position="0 -2.5 1.5" rotation="-90 0 0" material="side: double">
+            <!-- whiteboard -->
+            <a-plane color="#fff" width="2" height="4" position="1 -0.5 0.1">
+              <!-- zin 1 -->
+              <a-box class="js--puzzlebox js--interact" color="yellow" height="0.2" width="0.3" depth="0.2" position="0.5 -1.5 0" id="js--word1">
+                <a-text value="Ni" position="0 0 0.1" align="center" rotation="180 180 0"></a-text>
+              </a-box>
+                <a-text value="Ik-voltooid-slapen" position="0 -1.3 0" align="center" rotation="180 180 0" scale="0.5 0.5 0.5" color="black"></a-text>
+                <a-text value="'Ik heb geslapen'" position="0 -1.1 0" align="center" rotation="180 180 0" scale="0.5 0.5 0.5" color="black"></a-text>
+              <a-box class="js--interact js--puzzlebox" color="cyan"  height="0.2" width="0.3" depth="0.2" position="0 -1.5 0">
+                <a-text value="me" position="0 0 0.1" align="center" rotation="180 180 0"></a-text>
+              </a-box>
+              <a-box class="js--interact js--puzzlebox" color="green" height="0.2" width="0.4" depth="0.2" position="-0.5 -1.5 0">
+                <a-text value="lala" position="0 0 0.1" align="center" rotation="180 180 0"></a-text>
+              </a-box>
+
+              <!-- zin 2 -->
+              <a-box class="js--interact js--puzzlebox" color="yellow" height="0.2" width="0.3" depth="0.2" position="0.6 -0.8 0">
+                <a-text value="A" position="0 0 0.1" align="center" rotation="180 180 0"></a-text>
+              </a-box>
+              <a-box class="js--interact js--puzzlebox" color="cyan" height="0.2" width="0.3" depth="0.2" position="0.2 -0.8 0">
+                <a-text value="li" position="0 0 0.1" align="center" rotation="180 180 0"></a-text>
+              </a-box>
+                <a-text value="hij/zij-toen-jou-zien" position="0 -0.6 0" align="center" rotation="180 180 0" scale="0.5 0.5 0.5" color="black"></a-text>
+                <a-text value="'Hij/zij zag jou'" position="0 -0.4 0" align="center" rotation="180 180 0" scale="0.5 0.5 0.5" color="black"></a-text>
+              <a-box class="js--interact js--puzzlebox" color="purple"  height="0.2" width="0.3" depth="0.2" position="-0.2 -0.8 0">
+                <a-text value="ku" position="0 0 0.1" align="center" rotation="180 180 0"></a-text>
+              </a-box>
+              <a-box class="js--interact js--puzzlebox" color="green" height="0.2" width="0.4" depth="0.2" position="-0.6 -0.8 0">
+                <a-text value="ona" position="0 0 0.1" align="center" rotation="180 180 0"></a-text>
+              </a-box>
+
+              <!-- zin 3 -->
+              <a-box class="js--interact js--puzzlebox" color="yellow" height="0.2" width="0.3" depth="0.2" position="0.7 -0.1 0">
+                <a-text value="A" position="0 0 0.1" align="center" rotation="180 180 0"></a-text>
+              </a-box>
+              <a-box class="js--interact js--puzzlebox" color="cyan" height="0.2" width="0.3" depth="0.2" position="0.3 -0.1 0">
+                <a-text value="li" position="0 0 0.1" align="center" rotation="180 180 0"></a-text>
+              </a-box>
+                <a-text value="hij/zij-toen-ons-horen" position="0 0.1 0" align="center" rotation="180 180 0" scale="0.5 0.5 0.5" color="black"></a-text>
+                <a-text value="'Hij/zij hoorde ons'" position="0 0.3 0" align="center" rotation="180 180 0" scale="0.5 0.5 0.5" color="black"></a-text>
+              <a-box class="js--interact js--puzzlebox" color="purple"  height="0.2" width="0.3" depth="0.2" position="-0.1 -0.1 0">
+                <a-text value="tu" position="0 0 0.1" align="center" rotation="180 180 0"></a-text>
+              </a-box>
+              <a-box class="js--interact js--puzzlebox" color="green" height="0.2" width="0.5" depth="0.2" position="-0.6 -0.1 0">
+                <a-text value="sikia" position="0 0 0.1" align="center" rotation="180 180 0"></a-text>
+              </a-box>
+
+              <!-- zin 4 -->
+              <a-box class="js--interact js--puzzlebox" color="yellow" height="0.2" width="0.3" depth="0.2" position="0.6 0.6 0">
+                <a-text value="Tu" position="0 0 0.1" align="center" rotation="180 180 0"></a-text>
+              </a-box>
+              <a-box class="js--interact js--puzzlebox" color="cyan" height="0.2" width="0.3" depth="0.2" position="0.1 0.6 0" id="js--word2">
+                <a-text value="Na" position="0 0 0.1" align="center" rotation="180 180 0"></a-text>
+              </a-box>
+                <a-text value="hij/zij-toen-ons-horen" position="0 0.8 0" align="center" rotation="180 180 0" scale="0.5 0.5 0.5" color="black"></a-text>
+                <a-text value="'Hij/zij hoorde ons'" position="0 1 0" align="center" rotation="180 180 0" scale="0.5 0.5 0.5" color="black"></a-text>
+              <a-box class="js--interact js--puzzlebox" color="green" height="0.2" width="0.6" depth="0.2" position="-0.5 0.6 0">
+                <a-text value="soma" position="0 0 0.1" align="center" rotation="180 180 0"></a-text>
+              </a-box>
+
+              <!-- zin 5 -->
+              <a-box class="js--interact js--puzzlebox" color="yellow" height="0.2" width="0.3" depth="0.2" position="0.6 1.3 0">
+                <a-text value="Wa" position="0 0 0.1" align="center" rotation="180 180 0"></a-text>
+              </a-box>
+              <a-box class="js--interact js--puzzlebox" color="cyan" height="0.2" width="0.3" depth="0.2" position="0.1 1.3 0" id="js--word3">
+                <a-text value="Ta" position="0 0 0.1" align="center" rotation="180 180 0"></a-text>
+              </a-box>
+                <a-text value="zij-toekomstig-houden.van leeuw" position="0 1.5 0" align="center" rotation="180 180 0" scale="0.5 0.5 0.5" color="black"></a-text>
+                <a-text value="'Zij zullen van de leeuw houden'" position="0 1.7 0" align="center" rotation="180 180 0" scale="0.5 0.5 0.5" color="black"></a-text>
+              <a-box class="js--interact js--puzzlebox" color="green" height="0.2" width="0.6" depth="0.2" position="-0.5 1.3 0" id="js--word4">
+                <a-text value="penda" position="0 0 0.1" align="center" rotation="180 180 0"></a-text>
+              </a-box>
+
+            </a-plane>
+            <a-box class="js--interact" width="0.2" height="0.2" depth="0.1" position="-0.5 1 0.1" color="black">
+              <a-text value="ik" position="0 -0.7 0" align="center" rotation="180 180 0"></a-text>
+            </a-box>
+            <a-box class="js--interact" width="0.2" height="0.2" depth="0.1" position="-1 1 0.1" color="black">
+              <a-text value="houd" position="0 -0.7 0" align="center" rotation="180 180 0"></a-text>
+            </a-box>
+            <a-box class="js--interact" width="0.2" height="0.2" depth="0.1" position="-1.5 1 0.1" color="black">
+              <a-text value="van" position="0 -0.7 0" align="center" rotation="180 180 0"></a-text>
+            </a-box>
+            <a-box class="js--interact" width="0.2" height="0.2" depth="0.1" position="-2 1 0.1" color="black">
+              <a-text value="jou" position="0 -0.7 0" align="center" rotation="180 180 0"></a-text>
+            </a-box>
+          </a-plane>
+          <a-plane width="5" height="5" color="#cb4154" position="0 2.5 1.5" rotation="-90 0 0" material="side: double">
+          </a-plane>
+          <a-plane width="5" height="5" color="#cb4154" position="2.5 0 1.5" rotation="0 90 -90" material="side: double"></a-plane>
+          <a-plane width="5" height="5" color="#cb4154" position="-2.5 0 1.5" rotation="0 90 -90" material="side: double"></a-plane>
+      </a-entity>
+
+
+    </a-scene>
+  </body>
 </html>
