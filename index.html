@@ -1,9 +1,119 @@
 <!DOCTYPE html>
-<html>
-<head>
-<title>Hello Git</title>
-</head>
-<body>
-<h1>Hallo als dit werkt dan werkt de git</h1>
-</body>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title> Hello World! </title>
+    <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+    <script src="/js/main.js"></script>
+  </head>
+  <body>
+    <a-scene>
+      <a-assets>
+        <a-asset-item id="pallet-mtl" src="obj/paintpallet.mtl"> </a-asset-item>
+        <a-asset-item id="pallet-obj" src="obj/paintpallet.obj"> </a-asset-item>
+        <a-asset-item id="brush-mtl" src="obj/paintbrush.mtl"> </a-asset-item>
+        <a-asset-item id="brush-obj" src="obj/paintbrush.obj"> </a-asset-item>
+      </a-assets>
+
+      <a-camera id="js--camera" position="0 0 0">
+        <a-entity id="js--cursor"
+          cursor = "fuse: true; fuseTimeout: 1000"
+          material = "color: #7a7a7a; shader: flat"
+          geometry = "primitive: ring; radiusInner: 0.007; radiusOuter: 0.01"
+          position = "0 0 -0.5"
+          raycaster = "objects: .js--interact"
+        ></a-entity>
+        <a-obj-model src="#brush-obj" mtl="#brush-mtl" scale=".1 .1 .1" position="1.5 -1 -1" rotation="0 -90 45">
+          <a-cylinder id="js--paintbrush" color="#7a7a7a" radius=".8" height="16" position="0 8.5 1" rotation="90 0 0"></a-cylinder>
+        </a-obj-model>
+      </a-camera>
+
+
+      <a-obj-model id="js--paintpallet" src="#pallet-obj" mtl="#pallet-mtl" position="0 -2 -4" rotation="0 90 0">
+        <a-cylinder class="js--colorSphere js--interact" position=".5 .1 -.1" color="#ff4646" radius=".3" height=".02"> </a-cylinder>
+        <a-cylinder class="js--colorSphere js--interact" position=".4 .1 .5" color="#ffe038" radius=".3" height=".02"> </a-cylinder>
+        <a-cylinder class="js--colorSphere js--interact" position="-.1 .1 .9" color="#2969ff" radius=".3" height=".02"> </a-cylinder>
+
+        <a-cylinder class="js--colorMixer js--interact" position="-.5 .1 0" color="#7a7a7a" radius=".3" height=".02"> </a-cylinder>
+
+        <a-sphere class="js--reset js--interact" position="0 7 0" color="black" radius="0.2"> </a-sphere>
+      </a-obj-model>
+
+      <a-cylinder class="js--place js--interact" position="0 -2 0" color="#fa4646" radius=".5" height=".05"> </a-cylinder>
+      <a-cylinder class="js--place js--interact" position="-4 -2 -4" color="#fa4646" radius=".5" height=".05"> </a-cylinder>
+      <a-cylinder class="js--place js--interact" position="0 -2 -8" color="#fa4646" radius=".5" height=".05"> </a-cylinder>
+      <a-cylinder class="js--place js--interact" position="4 -2 -4" color="#fa4646" radius=".5" height=".05"> </a-cylinder>
+
+      <a-plane class="js--pixel js--interact" position="-.75 0 -3" color="#7a7a7a" width=".5" height=".5"> </a-plane>
+      <a-plane class="js--pixel js--interact" position="-.75 .5 -3" color="#7a7a7a" width=".5" height=".5"> </a-plane>
+      <a-plane class="js--pixel js--interact" position="-.75 1 -3" color="#7a7a7a" width=".5" height=".5"> </a-plane>
+      <a-plane class="js--pixel js--interact" position="-.75 1.5 -3" color="#7a7a7a" width=".5" height=".5"> </a-plane>
+      <a-plane class="js--pixel js--interact" position="-.25 0 -3" color="#7a7a7a" width=".5" height=".5"> </a-plane>
+      <a-plane class="js--pixel js--interact" position="-.25 .5 -3" color="#7a7a7a" width=".5" height=".5"> </a-plane>
+      <a-plane class="js--pixel js--interact" position="-.25 1 -3" color="#7a7a7a" width=".5" height=".5"> </a-plane>
+      <a-plane class="js--pixel js--interact" position="-.25 1.5 -3" color="#7a7a7a" width=".5" height=".5"> </a-plane>
+      <a-plane class="js--pixel js--interact" position=".25 0 -3" color="#7a7a7a" width=".5" height=".5"> </a-plane>
+      <a-plane class="js--pixel js--interact" position=".25 .5 -3" color="#7a7a7a" width=".5" height=".5"> </a-plane>
+      <a-plane class="js--pixel js--interact" position=".25 1 -3" color="#7a7a7a" width=".5" height=".5"> </a-plane>
+      <a-plane class="js--pixel js--interact" position=".25 1.5 -3" color="#7a7a7a" width=".5" height=".5"> </a-plane>
+      <a-plane class="js--pixel js--interact" position=".75 0 -3" color="#7a7a7a" width=".5" height=".5"> </a-plane>
+      <a-plane class="js--pixel js--interact" position=".75 .5 -3" color="#7a7a7a" width=".5" height=".5"> </a-plane>
+      <a-plane class="js--pixel js--interact" position=".75 1 -3" color="#7a7a7a" width=".5" height=".5"> </a-plane>
+      <a-plane class="js--pixel js--interact" position=".75 1.5 -3" color="#7a7a7a" width=".5" height=".5"> </a-plane>
+
+      <a-plane class="js--pixel js--interact" position="1 0 -3.25" color="#7a7a7a" width=".5" height=".5" rotation="0 90 0"> </a-plane>
+      <a-plane class="js--pixel js--interact" position="1 .5 -3.25" color="#7a7a7a" width=".5" height=".5" rotation="0 90 0"> </a-plane>
+      <a-plane class="js--pixel js--interact" position="1 1 -3.25" color="#7a7a7a" width=".5" height=".5" rotation="0 90 0"> </a-plane>
+      <a-plane class="js--pixel js--interact" position="1 1.5 -3.25" color="#7a7a7a" width=".5" height=".5" rotation="0 90 0"> </a-plane>
+      <a-plane class="js--pixel js--interact" position="1 0 -3.75" color="#7a7a7a" width=".5" height=".5" rotation="0 90 0"> </a-plane>
+      <a-plane class="js--pixel js--interact" position="1 .5 -3.75" color="#7a7a7a" width=".5" height=".5" rotation="0 90 0"> </a-plane>
+      <a-plane class="js--pixel js--interact" position="1 1 -3.75" color="#7a7a7a" width=".5" height=".5" rotation="0 90 0"> </a-plane>
+      <a-plane class="js--pixel js--interact" position="1 1.5 -3.75" color="#7a7a7a" width=".5" height=".5" rotation="0 90 0"> </a-plane>
+      <a-plane class="js--pixel js--interact" position="1 0 -4.25" color="#7a7a7a" width=".5" height=".5" rotation="0 90 0"> </a-plane>
+      <a-plane class="js--pixel js--interact" position="1 .5 -4.25" color="#7a7a7a" width=".5" height=".5" rotation="0 90 0"> </a-plane>
+      <a-plane class="js--pixel js--interact" position="1 1 -4.25" color="#7a7a7a" width=".5" height=".5" rotation="0 90 0"> </a-plane>
+      <a-plane class="js--pixel js--interact" position="1 1.5 -4.25" color="#7a7a7a" width=".5" height=".5" rotation="0 90 0"> </a-plane>
+      <a-plane class="js--pixel js--interact" position="1 0 -4.75" color="#7a7a7a" width=".5" height=".5" rotation="0 90 0"> </a-plane>
+      <a-plane class="js--pixel js--interact" position="1 .5 -4.75" color="#7a7a7a" width=".5" height=".5" rotation="0 90 0"> </a-plane>
+      <a-plane class="js--pixel js--interact" position="1 1 -4.75" color="#7a7a7a" width=".5" height=".5" rotation="0 90 0"> </a-plane>
+      <a-plane class="js--pixel js--interact" position="1 1.5 -4.75" color="#7a7a7a" width=".5" height=".5" rotation="0 90 0"> </a-plane>
+
+      <a-plane class="js--pixel js--interact" position="-1 0 -3.25" color="#7a7a7a" width=".5" height=".5" rotation="0 -90 0"> </a-plane>
+      <a-plane class="js--pixel js--interact" position="-1 .5 -3.25" color="#7a7a7a" width=".5" height=".5" rotation="0 -90 0"> </a-plane>
+      <a-plane class="js--pixel js--interact" position="-1 1 -3.25" color="#7a7a7a" width=".5" height=".5" rotation="0 -90 0"> </a-plane>
+      <a-plane class="js--pixel js--interact" position="-1 1.5 -3.25" color="#7a7a7a" width=".5" height=".5" rotation="0 -90 0"> </a-plane>
+      <a-plane class="js--pixel js--interact" position="-1 0 -3.75" color="#7a7a7a" width=".5" height=".5" rotation="0 -90 0"> </a-plane>
+      <a-plane class="js--pixel js--interact" position="-1 .5 -3.75" color="#7a7a7a" width=".5" height=".5" rotation="0 -90 0"> </a-plane>
+      <a-plane class="js--pixel js--interact" position="-1 1 -3.75" color="#7a7a7a" width=".5" height=".5" rotation="0 -90 0"> </a-plane>
+      <a-plane class="js--pixel js--interact" position="-1 1.5 -3.75" color="#7a7a7a" width=".5" height=".5" rotation="0 -90 0"> </a-plane>
+      <a-plane class="js--pixel js--interact" position="-1 0 -4.25" color="#7a7a7a" width=".5" height=".5" rotation="0 -90 0"> </a-plane>
+      <a-plane class="js--pixel js--interact" position="-1 .5 -4.25" color="#7a7a7a" width=".5" height=".5" rotation="0 -90 0"> </a-plane>
+      <a-plane class="js--pixel js--interact" position="-1 1 -4.25" color="#7a7a7a" width=".5" height=".5" rotation="0 -90 0"> </a-plane>
+      <a-plane class="js--pixel js--interact" position="-1 1.5 -4.25" color="#7a7a7a" width=".5" height=".5" rotation="0 -90 0"> </a-plane>
+      <a-plane class="js--pixel js--interact" position="-1 0 -4.75" color="#7a7a7a" width=".5" height=".5" rotation="0 -90 0"> </a-plane>
+      <a-plane class="js--pixel js--interact" position="-1 .5 -4.75" color="#7a7a7a" width=".5" height=".5" rotation="0 -90 0"> </a-plane>
+      <a-plane class="js--pixel js--interact" position="-1 1 -4.75" color="#7a7a7a" width=".5" height=".5" rotation="0 -90 0"> </a-plane>
+      <a-plane class="js--pixel js--interact" position="-1 1.5 -4.75" color="#7a7a7a" width=".5" height=".5" rotation="0 -90 0"> </a-plane>
+
+      <a-plane class="js--pixel js--interact" position="-.75 0 -5" color="#7a7a7a" width=".5" height=".5" rotation="0 180 0"> </a-plane>
+      <a-plane class="js--pixel js--interact" position="-.75 .5 -5" color="#7a7a7a" width=".5" height=".5" rotation="0 180 0"> </a-plane>
+      <a-plane class="js--pixel js--interact" position="-.75 1 -5" color="#7a7a7a" width=".5" height=".5" rotation="0 180 0"> </a-plane>
+      <a-plane class="js--pixel js--interact" position="-.75 1.5 -5" color="#7a7a7a" width=".5" height=".5" rotation="0 180 0"> </a-plane>
+      <a-plane class="js--pixel js--interact" position="-.25 0 -5" color="#7a7a7a" width=".5" height=".5" rotation="0 180 0"> </a-plane>
+      <a-plane class="js--pixel js--interact" position="-.25 .5 -5" color="#7a7a7a" width=".5" height=".5" rotation="0 180 0"> </a-plane>
+      <a-plane class="js--pixel js--interact" position="-.25 1 -5" color="#7a7a7a" width=".5" height=".5" rotation="0 180 0"> </a-plane>
+      <a-plane class="js--pixel js--interact" position="-.25 1.5 -5" color="#7a7a7a" width=".5" height=".5" rotation="0 180 0"> </a-plane>
+      <a-plane class="js--pixel js--interact" position=".25 0 -5" color="#7a7a7a" width=".5" height=".5" rotation="0 180 0"> </a-plane>
+      <a-plane class="js--pixel js--interact" position=".25 .5 -5" color="#7a7a7a" width=".5" height=".5" rotation="0 180 0"> </a-plane>
+      <a-plane class="js--pixel js--interact" position=".25 1 -5" color="#7a7a7a" width=".5" height=".5" rotation="0 180 0"> </a-plane>
+      <a-plane class="js--pixel js--interact" position=".25 1.5 -5" color="#7a7a7a" width=".5" height=".5" rotation="0 180 0"> </a-plane>
+      <a-plane class="js--pixel js--interact" position=".75 0 -5" color="#7a7a7a" width=".5" height=".5" rotation="0 180 0"> </a-plane>
+      <a-plane class="js--pixel js--interact" position=".75 .5 -5" color="#7a7a7a" width=".5" height=".5" rotation="0 180 0"> </a-plane>
+      <a-plane class="js--pixel js--interact" position=".75 1 -5" color="#7a7a7a" width=".5" height=".5" rotation="0 180 0"> </a-plane>
+      <a-plane class="js--pixel js--interact" position=".75 1.5 -5" color="#7a7a7a" width=".5" height=".5" rotation="0 180 0"> </a-plane>
+
+
+
+    </a-scene>
+  </body>
 </html>
