@@ -37,6 +37,7 @@ function checkPuzzle4() {
     const book4 = document.getElementById("js--puzzle4Book");
     book4.setAttribute("visible", true);
 
+    // Disable all buttons
     for(let i = 0; i < buttonSets.length; i++){
       buttonSets[i].setAttribute("visible", false);
     }
