@@ -34,4 +34,5 @@ Aan de hand van het getal 16 kom je erachter dat je moet aftrekken vanaf 20: èr
 Als de bezoekers dit hadden opgelost, was de puzzel klaar en kreeg je de letter T. In ons geval krijgt de speler één van de keys die nodig is om de hoofduitgang te ontgrendelen.
 
 <h2>Wireframe van de Puzzel</h2>
-![De puzzel uitgelegd in 4 stappen](img/Puzzel-3.png)
+
+![De puzzel uitgelegd in 4 stappen](doc\wireframe_puzzle3.png)
