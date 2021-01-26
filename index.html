@@ -1,9 +1,55 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Hello Git</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-compatible" content="ie=edge">
+  <script src="https://aframe.io/releases/1.1.0/aframe.min.js"></script>
+  <script src="js/components.js" type='text/javascript'></script>
+  <script src="js/main.js" type='text/javascript'></script>
+  <title>Puzzel 3</title>
 </head>
 <body>
-<h1>Hallo als dit werkt dan werkt de git</h1>
+  <a-scene>
+    <a-assets>
+    </a-assets>
+
+    <!-- Camera with fuse entity and raycaster limited to .js--interact -->
+    <a-camera id="js--camera" position="0 2 0">
+      <a-entity
+      animation__fusing="property: scale; startEvents: fusing; easing: easeInCubic; dur: 1000; from: 1 1 1; to: 0.1 0.1 0.1;"
+      animation__click="property: scale; startEvents: click; easing: easeInCubic; dur: 150; from: 0.1 0.1 0.1; to: 1 1 1;"
+      animation="property: scale; startEvents: mouseleave; easing: easeInCubic; dur: 150; to: 1 1 1;"
+      cursor = "fuse: true; fuseTimeout: 1000"
+      material = "color: #23eeff; shader: flat"
+      geometry = "primitive: ring; radiusInner: 0.007; radiusOuter: 0.01"
+      position = "0 0 -0.5"
+      raycaster = "objects: .js--interact"
+      ></a-entity>
+    </a-camera>
+    <a-cylinder teleportplace class="js--placeholder js--interact" color="red" radius="1" height="0.1" position="0 -2 2"></a-cylinder>
+
+
+  <!-- Wall A: Contains numbers to be decomposed into smaller units at Wall B-->
+    <a-box position="0 0 -10" height="10" width="12" depth="0.2" color="#333">
+    <!-- 1st column:  numbers in Yoruba -->
+      <a-box id="yoruba1" puzzle3word class="js--interact" position="-3 3 0" height="2" width="4" depth="2" color="#369"></a-box>
+      <a-box id="yoruba16" puzzle3word class="js--interact" position="-3 0 0" height="2" width="4" depth="2" color="#369"></a-box>
+      <a-box id="yoruba20" puzzle3word class="js--interact" position="-3 -3 0" height="2" width="4" depth="2" color="#369"></a-box>
+
+    <!-- 1st column: Background for after a block has been removed-->
+      <a-box class="js--interact" position="-3 3 -0.5" height="2" width="4" depth="2" color="#555"></a-box>
+      <a-box class="js--interact" position="-3 0 -0.5" height="2" width="4" depth="2" color="#555"></a-box>
+      <a-box class="js--interact" position="-3 -3 -0.5" height="2" width="4" depth="2" color="#555"></a-box>
+    </a-box>
+
+    <!-- 2nd column:  numbers in Yoruba -->
+    <a-box position="12 0 -10" height="10" width="12" depth="0.1" color="#413">
+      <a-box id="js--decomposeSlot" puzzle3wordslot position="0 3 -0.3" height="2" width="4" color="#eef"></a-box>
+    </a-box>
+    <!-- 3e column puzzle3word -->
+    <a-box position="22 0 -10" height="10" width="12" depth="0.2" color="#413">    </a-box>
+
+  </a-scene>
 </body>
 </html>
