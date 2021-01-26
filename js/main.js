@@ -13,6 +13,17 @@ window.onload = () =>{
   this.setColor = function(object, color) {
     object.setAttribute("color", color);
   }
+
+  this.setColorTimeout = function(object, startTime, duration) {
+    let endTime = startTime + duration;
+    console.log("Object will change in " + startTime + "ms for " + endTime + "ms");
+    setTimeout(function(){
+      setColor(object, "green")
+      ;}, startTime);
+    setTimeout(function(){
+      setColor(object, "white")
+      ;}, endTime);
+  }
 }
 
 function checkPuzzle4() {
