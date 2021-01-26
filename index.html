@@ -7,10 +7,11 @@
     <title>Individuele Opdracht 2</title>
     <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
     <script src="js/puzzel1.js"></script>
+    <script src="js/components.js"></script>
   </head>
   <body>
     <a-scene id="js--scene">
-      <a-camera id="js--camera" position="0 2 0">
+      <a-camera id="js--camera" position="0 1 0">
        <a-entity id="js--cursor"
          cursor = "fuse: true; fuseTimeout: 1000"
          material = "color: #7a7a7a; shader: flat"
@@ -19,13 +20,11 @@
          raycaster = "objects: .js--interact"
        ></a-entity>
      </a-camera>
-      <a-entity geometry="primitive: plane; width: 5; height: 7"  rotation="-90 0 0"  material="opacity: 1; color:#654321" position="1.5 0.7 3">
-          <!-- <a-text value="In het Swahili (gesproken in Tanzania) kun je in één woord hetzelfde zeggen als waar we in het Nederlands maar liefst drie woorden voor nodig hebben!
-           Deze taal is een meester in het gebruiken van voorvoegsels, bijvoorbeeld voor het onderwerp, het lijdend voorwerp en de verleden of tegenwoordige tijd.
-           Hoe zeg je in het Swahili “ik houd van jou”?"></a-text> -->
-          <a-plane width="5" height="5" color="#cb4154" position="0 -2.5 1.5" rotation="-90 0 0" material="side: double">
+      <a-entity geometry="primitive: plane; width: 7; height: 7"  rotation="-90 0 0"  material="opacity: 1; color:#654321" position="1.5 -0.6 3">
+        <a-cylinder teleportplace class="js--interact" position="1.5 1 0" height="0.2" radius="0.5" rotation="90 0 0" color="black"></a-cylinder>d
+          <a-plane width="7" height="5" color="#cb4154" position="0 -3.5 1.5" rotation="-90 0 0" material="side: double">
             <!-- whiteboard -->
-            <a-plane color="#fff" width="2" height="4" position="1 -0.5 0.1">
+            <a-plane color="#fff" width="2" height="4" position="1.5 -0.5 0.1">
               <!-- zin 1 -->
               <a-box class="js--puzzlebox js--interact" color="yellow" height="0.2" width="0.3" depth="0.2" position="0.5 -1.5 0" id="js--word1">
                 <a-text value="Ni" position="0 0 0.1" align="center" rotation="180 180 0"></a-text>
@@ -101,20 +100,26 @@
             <a-box class="js--interact js--puzzleslot" width="0.2" height="0.2" depth="0.1" position="-0.5 1 0.1" color="black">
               <a-text value="ik" position="0 -0.7 0" align="center" rotation="180 180 0"></a-text>
             </a-box>
-            <a-box class="js--interact js--puzzleslot" width="0.2" height="0.2" depth="0.1" position="-1 1 0.1" color="black">
+            <a-box class="js--interact js--puzzleslot" width="0.2" height="0.2" depth="0.1" position="-1.25 1 0.1" color="black">
               <a-text value="houd" position="0 -0.7 0" align="center" rotation="180 180 0"></a-text>
             </a-box>
-            <a-box class="js--interact js--puzzleslot" width="0.2" height="0.2" depth="0.1" position="-1.5 1 0.1" color="black">
+            <a-box class="js--interact js--puzzleslot" width="0.2" height="0.2" depth="0.1" position="-2 1 0.1" color="black">
               <a-text value="van" position="0 -0.7 0" align="center" rotation="180 180 0"></a-text>
             </a-box>
-            <a-box class="js--interact js--puzzleslot" width="0.2" height="0.2" depth="0.1" position="-2 1 0.1" color="black">
+            <a-box class="js--interact js--puzzleslot" width="0.2" height="0.2" depth="0.1" position="-2.75 1 0.1" color="black">
               <a-text value="jou" position="0 -0.7 0" align="center" rotation="180 180 0"></a-text>
             </a-box>
           </a-plane>
-          <a-plane width="5" height="5" color="#cb4154" position="0 2.5 1.5" rotation="-90 0 0" material="side: double">
+          <a-plane width="7" height="5" color="#cb4154" position="0 3.5 1.5" rotation="-90 0 0" material="side: double">
           </a-plane>
-          <a-plane width="5" height="5" color="#cb4154" position="2.5 0 1.5" rotation="0 90 -90" material="side: double"></a-plane>
-          <a-plane width="5" height="5" color="#cb4154" position="-2.5 0 1.5" rotation="0 90 -90" material="side: double"></a-plane>
+          <a-plane width="7" height="5" color="#cb4154" position="3.5 0 1.5" rotation="0 90 -90" material="side: double">
+            <a-text value="In het Swahili (gesproken in Tanzania) kun je in één woord hetzelfde zeggen als waar we in het Nederlands maar liefst drie woorden voor nodig hebben!
+             Deze taal is een meester in het gebruiken van voorvoegsels, bijvoorbeeld voor het onderwerp, het lijdend voorwerp en de verleden of tegenwoordige tijd.
+             Hoe zeg je in het Swahili “ik houd van jou”?
+
+              Pak een blokje op door er naar te kijken en plaats deze onder het goede woord!" position="-2 -0.5 0" rotation="180 0 0"></a-text>
+          </a-plane>
+          <a-plane width="7" height="5" color="#cb4154" position="-3.5 0 1.5" rotation="0 90 -90" material="side: double"></a-plane>
       </a-entity>
 
 

@@ -5,18 +5,20 @@ window.onload = () =>{
   let scene = document.getElementById("js--scene");
   scene.add(camera)
   let hold = false;
+  let opgelost = false;
   resultArray = [false, false, false, false]
   let placeCounter = 0
 
   for(let i=0; i<puzzleboxes.length; i++){
     puzzleboxes[i].addEventListener('click', function(){
       let pickedup = this
-      if(!hold){
+      if(!hold && !opgelost){
+        //if pickedup has no id. don't give an id to newly made block
         if(!pickedup.id){
             camera.innerHTML += '<a-box width="' + pickedup.getAttribute("width") + '"' + 'depth="' + pickedup.getAttribute("depth") + '"' + 'height="' + pickedup.getAttribute("height") + '"' + 'color="' + pickedup.getAttribute("color") + '"' + 'position="1 0.25 -2"' + 'rotation="180 160 0"' + '>' + pickedup.innerHTML + '</a-box>'
         }
         else{
-          console.log(pickedup.getAttribute("color"))
+          //determine the id that is needed by color, correct answer order is yellow-cyan-purple-green
           if(pickedup.getAttribute("color") == "yellow"){
             camera.innerHTML += '<a-box '  + 'id="js--word1"' + 'width="' + pickedup.getAttribute("width") + '"' + 'depth="' + pickedup.getAttribute("depth") + '"' + 'height="' + pickedup.getAttribute("height") + '"' + 'color="' + pickedup.getAttribute("color") + '"' + 'position="1 0.25 -2"' + 'rotation="180 160 0"' + '>' + pickedup.innerHTML + '</a-box>'
           }
@@ -36,10 +38,10 @@ window.onload = () =>{
     )
   }
 
-
   for(let i=0; i<puzzleslots.length; i++){
     puzzleslots[i].addEventListener('click', function(){
       if(hold){
+
         if(camera.childNodes[3].id){
           if(camera.childNodes[3].getAttribute("color") == "yellow" && i==0){
             resultArray[i] = true
@@ -64,9 +66,10 @@ window.onload = () =>{
         this.appendChild(box)
         camera.childNodes[3].remove()
         hold=false
+        //increase playcounter by 1, when at 4 check if all 4 elements in resultArray are true: answer correst, if not: answer incorrect
         placeCounter+=1
         if(placeCounter==4 && !resultArray.includes(false)){
-          console.log("Opgelost")
+          opgelost = true
           for(let i=0; i<puzzleslots.length; i++){
             puzzleslots[i].childNodes[1].setAttribute("color", "green")
 
