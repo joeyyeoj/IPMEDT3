@@ -34,32 +34,6 @@ AFRAME.registerComponent("puzzle4word", {
 
       // Play the Sound of the Component
       this.components.sound.playSound();
-
-      const toneHigh = document.getElementsByClassName("js--toneHigh");
-      const toneLow = document.getElementsByClassName("js--toneLow");
-
-      // Check which word is being played
-      switch (this.getAttribute("value")) {
-        case "mali":
-          setColorTimeout(toneHigh[0], 500, 200);
-          setColorTimeout(toneHigh[1], 500, 200);
-          setColorTimeout(toneLow[0], 800, 200);
-          setColorTimeout(toneLow[1], 800, 200);
-          break;
-        case "buku":
-          setColorTimeout(toneHigh[0], 600, 50);
-          setColorTimeout(toneHigh[1], 600, 50);
-          setColorTimeout(toneHigh[0], 700, 50);
-          setColorTimeout(toneHigh[1], 700, 50);
-          break;
-        case "kiyele":
-          setColorTimeout(toneLow[0], 600, 100);
-          setColorTimeout(toneLow[1], 600, 100);
-          setColorTimeout(toneHigh[0], 900, 50);
-          setColorTimeout(toneHigh[1], 900, 50);
-          setColorTimeout(toneLow[0], 1050, 50);
-          setColorTimeout(toneLow[1], 1050, 50);
-      }
     }
     // Click => Play Audio
     this.el.addEventListener("click", this.playAudio);
