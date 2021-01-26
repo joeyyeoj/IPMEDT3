@@ -35,4 +35,4 @@ Als de bezoekers dit hadden opgelost, was de puzzel klaar en kreeg je de letter 
 
 <h2>Wireframe van de Puzzel</h2>
 
-![De puzzel uitgelegd in 4 stappen](doc\wireframe_puzzle3.png)
+![De puzzel uitgelegd in 4 stappen](doc/wireframe_puzzle3.png)

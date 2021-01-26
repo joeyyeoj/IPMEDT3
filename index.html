@@ -27,28 +27,36 @@
       raycaster = "objects: .js--interact"
       ></a-entity>
     </a-camera>
-    <a-cylinder teleportplace class="js--placeholder js--interact" color="red" radius="1" height="0.1" position="0 -2 2"></a-cylinder>
+    <a-cylinder teleportplace class="js--interact" color="red" radius="1" height="0.1" position="0 -2 2"></a-cylinder>
 
 
   <!-- Wall A: Contains numbers to be decomposed into smaller units at Wall B-->
-    <a-box position="0 0 -10" height="10" width="12" depth="0.2" color="#333">
-    <!-- 1st column:  numbers in Yoruba -->
-      <a-box id="yoruba1" puzzle3word class="js--interact" position="-3 3 0" height="2" width="4" depth="2" color="#369"></a-box>
-      <a-box id="yoruba16" puzzle3word class="js--interact" position="-3 0 0" height="2" width="4" depth="2" color="#369"></a-box>
-      <a-box id="yoruba20" puzzle3word class="js--interact" position="-3 -3 0" height="2" width="4" depth="2" color="#369"></a-box>
+  <a-entity id="puzzel3" position="0 0 -10">
+     <a-box position="0 0 0" height="10" width="12" depth="0.2" color="#333">
+      <!-- 1st column:  numbers in Yoruba -->
+        <a-box id="yoruba1" puzzle3word class="js--interact" position="-3 3 0" height="2" width="4" depth="2" color="#369">
+          <a-text position="0 0 1" height="2" width="4" align="center" value="1. ejí" width="5" wrap-count="4"></a-text>
+        </a-box>
+        <a-box id="yoruba16" puzzle3word class="js--interact" position="-3 0 0" height="2" width="4" depth="2" color="#369">
+          <a-text position="0 0 1" height="2" width="4" align="center" value="buku" width="5" wrap-count="4"></a-text>
+        </a-box>
+        <a-box id="yoruba20" puzzle3word class="js--interact" position="-3 -3 0" height="2" width="4" depth="2" color="#369">
+          <a-text position="0 0 1" height="2" width="4" align="center" value="buku" width="5" wrap-count="4"></a-text>
+        </a-box>
 
-    <!-- 1st column: Background for after a block has been removed-->
-      <a-box class="js--interact" position="-3 3 -0.5" height="2" width="4" depth="2" color="#555"></a-box>
-      <a-box class="js--interact" position="-3 0 -0.5" height="2" width="4" depth="2" color="#555"></a-box>
-      <a-box class="js--interact" position="-3 -3 -0.5" height="2" width="4" depth="2" color="#555"></a-box>
-    </a-box>
+      <!-- 1st column: Background for after a block has been removed-->
+        <a-box class="js--interact" position="-3 3 -0.5" height="2" width="4" depth="2" color="#555"></a-box>
+        <a-box class="js--interact" position="-3 0 -0.5" height="2" width="4" depth="2" color="#555"></a-box>
+        <a-box class="js--interact" position="-3 -3 -0.5" height="2" width="4" depth="2" color="#555"></a-box>
+      </a-box>
 
-    <!-- 2nd column:  numbers in Yoruba -->
-    <a-box position="12 0 -10" height="10" width="12" depth="0.1" color="#413">
-      <a-box id="js--decomposeSlot" puzzle3wordslot position="0 3 -0.3" height="2" width="4" color="#eef"></a-box>
-    </a-box>
-    <!-- 3e column puzzle3word -->
-    <a-box position="22 0 -10" height="10" width="12" depth="0.2" color="#413">    </a-box>
+      <!-- 2nd column:  numbers in Yoruba -->
+      <a-box position="12 0 0" height="10" width="12" depth="0.1" color="#413">
+        <a-box id="js--decomposeSlot" puzzle3wordslot position="0 3 -0.3" height="2" width="4" color="#eef"></a-box>
+      </a-box>
+      <!-- 3e column puzzle3word -->
+      <a-box position="22 0 0" height="10" width="12" depth="0.2" color="#413">    </a-box>
+  </a-entity>
 
   </a-scene>
 </body>
