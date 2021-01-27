@@ -8,7 +8,7 @@
     <script src="/js/components.js"></script>
   </head>
   <body>
-    <a-scene>
+    <a-scene id="js--scene">
       <a-assets>
         <audio id="mali" src="/audio/mali.mp3" preload="auto"></audio>
         <audio id="buku" src="/audio/buku.mp3" preload="auto"></audio>
@@ -42,11 +42,11 @@
           raycaster = "objects: .js--interact"
         ></a-entity>
       </a-camera>
-      <a-cylinder teleportplace class="js--interact" position="0 0 0" color="#fa4646" radius=".5" height=".05">  </a-cylinder>
 
-      <a-entity id="puzzle1" geometry="primitive: plane; width: 7; height: 7"  rotation="-90 0 0"  material="opacity: 1; color:#654321" position="1.5 -0.6 3">
-        <a-cylinder teleportplace class="js--interact" position="1.5 1 0" height="0.2" radius="0.5" rotation="90 0 0" color="black"></a-cylinder>
-          <a-plane width="7" height="5" color="#cb4154" position="0 -3.5 1.5" rotation="-90 0 0" material="side: double">
+      <a-entity id="puzzle1" geometry="primitive: plane; width: 7; height: 7"  rotation="-90 90 0"  material="opacity: 1; src:#floor; repeat: 10 10" position="1.5 0 3">
+        <a-plane src="#stonewall" width="7" height="7" position="0 0 4" material="side: double; repeat: 3.5 3.5" rotation="0 0 0" ></a-plane>
+        <a-cylinder teleportplace class="js--interact" position="0 0 0" height="0.2" radius="0.5" rotation="90 0 0" color="black"></a-cylinder>
+          <a-plane src="#stonewall" width="7" height="5" position="0 -3.5 1.5" rotation="-90 0 0" material="side: double; repeat: 3.5 2.5">
             <!-- whiteboard -->
             <a-plane color="#fff" width="2" height="4" position="1.5 -0.5 0.1">
               <!-- zin 1 -->
@@ -121,6 +121,9 @@
               </a-box>
 
             </a-plane>
+            <a-text value="In het Swahili (gesproken in Tanzania) kun je in één woord hetzelfde zeggen als waar we in het Nederlands maar liefst drie woorden voor nodig hebben!
+             Deze taal is een meester in het gebruiken van voorvoegsels, bijvoorbeeld voor het onderwerp, het lijdend voorwerp en de verleden of tegenwoordige tijd.
+             Hoe zeg je in het Swahili “ik houd van jou”?" position="0.25 -0.7 0" rotation="180 180 0" scale="0.7 0.7 0.7"></a-text>
             <a-box class="js--interact js--puzzleslot" width="0.2" height="0.2" depth="0.1" position="-0.5 1 0.1" color="black">
               <a-text value="ik" position="0 -0.7 0" align="center" rotation="180 180 0"></a-text>
             </a-box>
@@ -134,14 +137,13 @@
               <a-text value="jou" position="0 -0.7 0" align="center" rotation="180 180 0"></a-text>
             </a-box>
           </a-plane>
-          <a-plane width="7" height="5" color="#cb4154" position="0 3.5 1.5" rotation="-90 0 0" material="side: double">
+          <a-plane src="#stonewall" width="2" height="5" position="-2.5 3.5 1.5" rotation="-90 0 0" material="side: double; repeat: 1 2.5">
           </a-plane>
-          <a-plane width="7" height="5" color="#cb4154" position="3.5 0 1.5" rotation="0 90 -90" material="side: double">
-            <a-text value="In het Swahili (gesproken in Tanzania) kun je in één woord hetzelfde zeggen als waar we in het Nederlands maar liefst drie woorden voor nodig hebben!
-             Deze taal is een meester in het gebruiken van voorvoegsels, bijvoorbeeld voor het onderwerp, het lijdend voorwerp en de verleden of tegenwoordige tijd.
-             Hoe zeg je in het Swahili “ik houd van jou”?" position="-2 -0.5 0" rotation="180 0 0"></a-text>
+          <a-plane src="#stonewall" width="2" height="5" position="2.5 3.5 1.5" rotation="-90 0 0" material="side: double; repeat: 1 2.5">
           </a-plane>
-          <a-plane width="7" height="5" color="#cb4154" position="-3.5 0 1.5" rotation="0 90 -90" material="side: double"></a-plane>
+          <a-plane src="#stonewall" width="7" height="5" position="3.5 0 1.5" rotation="0 90 -90" material="side: double; repeat: 3.5 2.5">
+          </a-plane>
+          <a-plane src="#stonewall" width="7" height="5" position="-3.5 0 1.5" rotation="0 90 -90" material="side: double; repeat: 3.5 2.5"></a-plane>
       </a-entity>
 
       <a-entity id="puzzle4" position="0 0 -20" rotation="0 90 0">
