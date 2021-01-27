@@ -41,8 +41,8 @@ AFRAME.registerComponent("puzzle4word", {
       // Check which word is being played
       switch (this.getAttribute("value")) {
         case "mali":
-          setColorTimeout(toneHigh[0], 500, 200);
-          setColorTimeout(toneHigh[1], 500, 200);
+          setColorTimeout(toneHigh[0], 600, 200);
+          setColorTimeout(toneHigh[1], 600, 200);
           setColorTimeout(toneLow[0], 800, 200);
           setColorTimeout(toneLow[1], 800, 200);
           break;
@@ -53,8 +53,8 @@ AFRAME.registerComponent("puzzle4word", {
           setColorTimeout(toneHigh[1], 700, 50);
           break;
         case "kiyele":
-          setColorTimeout(toneLow[0], 600, 100);
-          setColorTimeout(toneLow[1], 600, 100);
+          setColorTimeout(toneLow[0], 700, 100);
+          setColorTimeout(toneLow[1], 700, 100);
           setColorTimeout(toneHigh[0], 900, 50);
           setColorTimeout(toneHigh[1], 900, 50);
           setColorTimeout(toneLow[0], 1050, 50);
