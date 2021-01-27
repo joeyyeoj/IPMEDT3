@@ -10,15 +10,27 @@
   <body>
     <a-scene>
       <a-assets>
-        <audio id="mali" src="/audio/mali.mp3" preload="auto"> </audio>
-        <audio id="buku" src="/audio/buku.mp3" preload="auto"> </audio>
-        <audio id="kiyele" src="/audio/kiyele.mp3" preload="auto"> </audio>
+        <audio id="mali" src="/audio/mali.mp3" preload="auto"></audio>
+        <audio id="buku" src="/audio/buku.mp3" preload="auto"></audio>
+        <audio id="kiyele" src="/audio/kiyele.mp3" preload="auto"></audio>
 
-        <a-asset-item id="totem-mtl" src="/obj/totem.mtl"> </a-asset-item>
-        <a-asset-item id="totem-obj" src="/obj/totem.obj"> </a-asset-item>
+        <a-asset id="totem-mtl" src="/obj/totem.mtl"></a-asset>
+        <a-asset id="totem-obj" src="/obj/totem.obj"></a-asset>
+
+        <a-asset id="brickpatternwall" src="/textures/brickpatternwall.jpg"></a-asset>
+        <a-asset id="brickpatternwallcolors" src="/textures/brickpatternwallcolors.jpg"></a-asset>
+        <a-asset id="brickpatternwallmoss" src="/textures/brickpatternwallmoss.jpg"></a-asset>
+
+        <a-asset id="stonewall" src="/textures/stonewall.jpg"></a-asset>
+        <a-asset id="stonewallmoss" src="/textures/stonewallmoss.jpg"></a-asset>
+        <a-asset id="brickwallmoss" src="/textures/brickwallmoss.jpg"></a-asset>
+
+        <a-asset id="stonewallbrick" src="/textures/stonewallbrick.jpg"> </a-asset>
+        <a-asset id="stonewallbrickcolors" src="/textures/stonewallbrickcolors.jpg"></a-asset>
+        <a-asset id="stonewallbrickmoss" src="/textures/stonewallbrickmoss.jpg"></a-asset>
       </a-assets>
 
-      <a-camera id="js--camera" position="0 2 0">
+      <a-camera id="js--camera" light="type: point; intensity: 1; distance: 100; decay: 1" position="0 2 0">
         <a-entity id="js--cursor"
           animation__fusing="property: scale; startEvents: fusing; easing: easeInCubic; dur: 1000; from: 1 1 1; to: 0.1 0.1 0.1;"
           animation__click="property: scale; startEvents: click; easing: easeInCubic; dur: 150; from: 0.1 0.1 0.1; to: 1 1 1;"
@@ -32,20 +44,44 @@
       </a-camera>
       <a-cylinder teleportplace class="js--interact" position="0 0 0" color="#fa4646" radius=".5" height=".05">  </a-cylinder>
 
-      <a-entity id="puzzel4" position="0 0 -5">
+      <a-entity id="puzzel4" position="0 0 -20" rotation="0 90 0">
         <a-cylinder teleportplace class="js--interact" position="0 0 0" color="#fa4646" radius=".5" height=".05"></a-cylinder>
 
-        <a-box id="js--puzzle4Book" position="0 0 -2" color="green" visible=false> </a-box>
+        <a-plane src="#brickwallmoss" position="-4 2.5 1" rotation="0 0 0" width="6" height="5" material="side: double; repeat: 3 2.5"></a-plane>
+        <a-plane src="#brickwallmoss" position="0 4 1" rotation="0 0 0" width="2" height="2" material="side: double; repeat: 1 1"></a-plane>
+        <a-plane src="#brickwallmoss" position="4 2.5 1" rotation="0 0 0" width="6" height="5" material="side: double; repeat: 3 2.5"></a-plane>
+        <a-plane src="#brickwallmoss" position="7 2.5 -4" rotation="0 90 0" width="10" height="5" material="side: double; repeat: 5 2.5"></a-plane>
+        <a-plane src="#brickwallmoss" position="-7 2.5 -4" rotation="0 90 0" width="10" height="5" material="side: double; repeat: 5 2.5"></a-plane>
+        <a-plane src="#brickwallmoss" position="0 2.5 -9" rotation="0 0 0" width="14" height="5" material="side: double; repeat: 7 2.5"></a-plane>
+        <a-plane src="#stonewall" position="0 0 -4" rotation="90 0 0" width="14" height="10" material="side: double; repeat: 7 5"></a-plane>
+        <a-plane src="#stonewallmoss" position="0 5 -4" rotation="90 0 0" width="14" height="10" material="side: double; repeat: 7 5"></a-plane>
+
+        <a-plane src="#stonewallbrickcolors" position="3 1.5 7" rotation="0 0 0" width="8" height="3" material="side: double; repeat: 7 2.5"></a-plane>
+        <a-plane src="#stonewallbrickcolors" position="7 1.5 4" rotation="0 90 0" width="6" height="3" material="side: double; repeat: 7 2.5"></a-plane>
+        <a-plane src="#stonewallbrickcolors" position="3 3 4" rotation="90 0 0" width="8" height="6" material="side: double; repeat: 7 2.5"></a-plane>
+        <a-plane src="#stonewallbrick" position="3 0 4" rotation="90 0 0" width="8" height="6" material="side: double; repeat: 7 2.5"></a-plane>
+
+        <a-plane src="#stonewallbrickcolors" position="1 1.5 4" rotation="0 90 0" width="6" height="3" material="side: double; repeat: 7 3"></a-plane>
+
+        <a-plane src="#stonewallbrickcolors" position="-1 1.5 3" rotation="0 90 0" width="4" height="3" material="side: double; repeat: 7 2.5"></a-plane>
+        <a-plane src="#stonewallbrickcolors" position="-5 1.5 5" rotation="0 0 0" width="8" height="3" material="side: double; repeat: 7 2.5"></a-plane>
+        <a-plane src="#stonewallbrickcolors" position="-5 1.5 7" rotation="0 0 0" width="8" height="3" material="side: double; repeat: 7 2.5"></a-plane>
+        <a-plane src="#stonewallbrickcolors" position="-5 3 6" rotation="90 0 0" width="8" height="2" material="side: double; repeat: 7 1"></a-plane>
+        <a-plane src="#stonewallbrick" position="-5 0 6" rotation="90 0 0" width="8" height="2" material="side: double; repeat: 7 1"></a-plane>
 
 
-        <a-obj-model src="#totem-obj" mtl="#totem-mtl" scale=".5 .5 .5" position="0 -1 -5" rotation="0 -90 0">
+        <a-cylinder teleportplace class="js--interact" position="0 0 6" color="#fa4646" radius=".5" height=".05"></a-cylinder>
+
+        <a-cylinder teleportplace class="js--interact" position="-10 0 6" color="#fa4646" radius=".5" height=".05"></a-cylinder>
+
+        <a-box id="js--puzzle4Book" position="0 .5 -2" color="green" visible=false> </a-box>
+
+        <a-obj-model src="#totem-obj" mtl="#totem-mtl" scale=".35 .35 .35" position="0 0 -5" rotation="0 -90 0">
           <a-sphere class="js--toneHigh" position=".9 5.85 .3" rotation="0 -10 0" radius=".1" scale="1 1.1 2" color="white"></a-sphere>
           <a-sphere class="js--toneHigh" position=".9 5.85 -.3" rotation="0 10 0" radius=".1" scale="1 1.1 2" color="white"></a-sphere>
           <a-sphere class="js--toneLow" position="1.15 2.15 .65" rotation="0 -20 0" radius=".17" scale="1 1.1 2" color="white"></a-sphere>
           <a-sphere class="js--toneLow" position="1.15 2.15 -.65" rotation="0 20 0" radius=".17" scale="1 1.1 2" color="white"></a-sphere>
         </a-obj-model>
-
-
 
         <a-text puzzle4word class="js--interact" geometry="primitive:plane; height: .3; width:1;" material="color: #fa4646" scale="3 3 3" position="-4 2 -8" value="mali" sound="src: #mali" color="black" align="center" letter-spacing="20px">
           <a-entity puzzle4buttonset class="js--buttonset js--interact" state="up" position="0 0 0">
