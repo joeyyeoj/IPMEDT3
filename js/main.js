@@ -4,11 +4,18 @@ window.onload = () =>{
   const scene = document.getElementById("js--scene");
   const puzzleboxes = document.getElementsByClassName("js--puzzlebox");
   const puzzleslots = document.getElementsByClassName("js--puzzleslot");
+
+  // Puzzle 1
   let hold = false;
   let opgelost = false;
   resultArray = [false, false, false, false];
   let placeCounter = 0;
 
+  // Puzzle 2
+  const answerbuttons = document.getElementsByClassName("js--answerbutton");
+  let solved = false;
+
+  // General Functions
   this.setColor = function(object, color) {
     object.setAttribute("color", color);
   }
@@ -23,6 +30,41 @@ window.onload = () =>{
       setColor(object, "white")
       ;}, endTime);
   }
+
+
+
+  for(let i=0; i<answerbuttons.length; i++){
+    answerbuttons[i].addEventListener("click", function(){
+      if(!solved){
+        let att = document.createAttribute('animation')
+        let startingpointX = answerbuttons[i].getAttribute('position').x
+        let startingpointY = answerbuttons[i].getAttribute('position').y
+        let startingpointZ = answerbuttons[i].getAttribute('position').z
+        att.value = "property: position; easing: linear; dur: 500; to:" + answerbuttons[i].getAttribute('position').x + " " + answerbuttons[i].getAttribute('position').y +  " 0" +'"';
+        answerbuttons[i].setAttribute('animation', att.value)
+
+        // If Answer is correct --> Spawn Book
+        if(i==3){
+            let book = document.createElement('a-box')
+            book.setAttribute("height", "0.2")
+            book.setAttribute("width", "0.4")
+            book.setAttribute("depth", "0.6")
+            book.setAttribute("position", "0 0 4")
+            solved = true
+            setTimeout(function(){
+              scene.appendChild(book)
+            }, 1000)
+        }
+        else{
+          setTimeout(function(){
+              att.value = "property: position; easing: linear; dur: 500; to:" + startingpointX + " " + startingpointY+  " " + startingpointZ + '"';
+              answerbuttons[i].setAttribute('animation', att.value)
+          }, 600)
+        }
+      }
+    })
+  }
+
 
   for(let i=0; i<puzzleboxes.length; i++){
     puzzleboxes[i].addEventListener('click', function(){
