@@ -30,7 +30,7 @@
         <a-asset id="stonewallbrickmoss" src="/textures/stonewallbrickmoss.jpg"></a-asset>
       </a-assets>
 
-      <a-camera id="js--camera" light="type: point; intensity: 1; distance: 100; decay: 1" position="0 2 0">
+      <a-camera id="js--camera" light="type: point; intensity: 1; distance: 100; decay: 1" position="0 2 0" wasd-controls="acceleration:300">
         <a-entity id="js--cursor"
           animation__fusing="property: scale; startEvents: fusing; easing: easeInCubic; dur: 1000; from: 1 1 1; to: 0.1 0.1 0.1;"
           animation__click="property: scale; startEvents: click; easing: easeInCubic; dur: 150; from: 0.1 0.1 0.1; to: 1 1 1;"
@@ -43,187 +43,256 @@
         ></a-entity>
       </a-camera>
 
-      <a-entity id="puzzle1" geometry="primitive: plane; width: 7; height: 7"  rotation="-90 90 -90"  material="opacity: 1; src:#floor; repeat: 10 10" position="0 0 20">
-        <a-cylinder teleportplace class="js--interact" position="0 1 0" rotation="90 0 0" color="#fa4646" radius=".5" height=".05"></a-cylinder>
-          <a-plane src="#stonewall" width="7" height="5" position="0 -3.5 2.5" rotation="-90 0 0" material="side: double; repeat: 3.5 2.5">
-            <!-- whiteboard -->
-            <a-plane color="#fff" width="2" height="4" position="1.5 -0.5 0.1">
-              <!-- zin 1 -->
-              <a-box class="js--puzzlebox js--interact" color="yellow" height="0.2" width="0.3" depth="0.2" position="0.5 -1.5 0" id="js--word1">
-                <a-text value="Ni" position="0 0 0.1" align="center" rotation="180 180 0"></a-text>
-              </a-box>
-                <a-text value="Ik-voltooid-slapen" position="0 -1.3 0" align="cen2.5er" rotation="180 180 0" scale="0.5 0.5 0.5" color="black"></a-text>
-                <a-text value="'Ik heb geslapen'" position="0 -1.1 0" align="center" rotation="180 180 0" scale="0.5 0.5 0.5" color="black"></a-text>
-              <a-box class="js--interact js--puzzlebox" color="cyan"  height="0.2" width="0.3" depth="0.2" position="0 -1.5 0">
-                <a-text value="me" position="0 0 0.1" align="center" rotation="180 180 0"></a-text>
-              </a-box>
-              <a-box class="js--interact js--puzzlebox" color="green" height="0.2" width="0.4" depth="0.2" position="-0.5 -1.5 0">
-                <a-text value="lala" position="0 0 0.1" align="center" rotation="180 180 0"></a-text>
-              </a-box>
+      <a-entity id="puzzlemain" position="0 0 0">
+        <a-entity id="puzzlemain__landing" position="0 0 0">
+          <a-cylinder teleportplace class="js--interact" position="0 0 0" rotation="0 0 0" color="#fa4646" radius=".5" height=".05"></a-cylinder>
+          <a-plane src="#brickpatternwallcolors" position="0 5 0" rotation="90 0 0" width="10" height="10" material="side: double; repeat: 5 5"></a-plane>
+          <a-plane src="#brickpatternwallmoss" position="0 0 0" rotation="90 0 0" width="10" height="10" material="side: double; repeat: 5 5"></a-plane>
+          <a-plane src="#brickpatternwallcolors" position="-5 2.5 0" rotation="0 90 0" width="10" height="5" material="side: double; repeat: 5 2.5"></a-plane>
+          <a-plane src="#brickpatternwallcolors" position="5 2.5 0" rotation="0 90 0" width="10" height="5" material="side: double; repeat: 5 2.5"></a-plane>
+          <a-plane src="#brickpatternwallcolors" position="0 2.5 5" rotation="0 0 0" width="10" height="5" material="side: double; repeat: 5 2.5"></a-plane>
+        </a-entity>
+        <a-entity id="puzzlemain__hall">
+          <a-entity id="puzzlemain__hall__puzzle1" position="0 0 -7">
+            <a-cylinder teleportplace class="js--interact" position="0 0 0" rotation="0 0 0" color="#fa4646" radius=".5" height=".05"></a-cylinder>
+            <a-plane src="#brickpatternwallcolors" position="0 5 0" rotation="90 0 0" width="10" height="4" material="side: double; repeat: 5 2"></a-plane>
+            <a-plane src="#brickpatternwallmoss" position="0 0 0" rotation="90 0 0" width="10" height="4" material="side: double; repeat: 5 2"></a-plane>
+            <a-entity id="puzzlemain__hall__puzzle1__openWall" position="-5 0 0">
+              <a-plane src="#brickpatternwallcolors" position="0 2.5 1.5" rotation="0 90 0" width="1" height="5" material="side: double; repeat: .5 2.5"></a-plane>
+              <a-plane src="#brickpatternwallcolors" position="0 4 0" rotation="0 90 0" width="2" height="2" material="side: double; repeat: 1 1"></a-plane>
+              <a-plane src="#brickpatternwallcolors" position="0 2.5 -1.5" rotation="0 90 0" width="1" height="5" material="side: double; repeat: .5 2.5"></a-plane>
+            </a-entity>
+            <a-entity id="puzzlemain__hall__puzzle1__closedWall" position="5 0 0">
+              <a-plane src="#brickpatternwallcolors" position="0 2.5 0" rotation="0 90 0" width="4" height="5" material="side: double; repeat: 2 2.5"></a-plane>
+            </a-entity>
 
-              <!-- zin 2 -->
-              <a-box class="js--interact js--puzzlebox" color="yellow" height="0.2" width="0.3" depth="0.2" position="0.6 -0.8 0">
-                <a-text value="A" position="0 0 0.1" align="center" rotation="180 180 0"></a-text>
-              </a-box>
-              <a-box class="js--interact js--puzzlebox" color="cyan" height="0.2" width="0.3" depth="0.2" position="0.2 -0.8 0">
-                <a-text value="li" position="0 0 0.1" align="center" rotation="180 180 0"></a-text>
-              </a-box>
-                <a-text value="hij/zij-toen-jou-zien" position="0 -0.6 0" align="center" rotation="180 180 0" scale="0.5 0.5 0.5" color="black"></a-text>
-                <a-text value="'Hij/zij zag jou'" position="0 -0.4 0" align="center" rotation="180 180 0" scale="0.5 0.5 0.5" color="black"></a-text>
-              <a-box class="js--interact js--puzzlebox" color="purple"  height="0.2" width="0.3" depth="0.2" position="-0.2 -0.8 0" id="js--word3">
-                <a-text value="ku" position="0 0 0.1" align="center" rotation="180 180 0"></a-text>
-              </a-box>
-              <a-box class="js--interact js--puzzlebox" color="green" height="0.2" width="0.4" depth="0.2" position="-0.6 -0.8 0">
-                <a-text value="ona" position="0 0 0.1" align="center" rotation="180 180 0"></a-text>
-              </a-box>
+            <a-entity id="puzzle1" geometry="primitive: plane; width: 7; height: 7"  rotation="-90 0 -90"  material="opacity: 1; src:#floor; repeat: 10 10" position="-15.5 0 0">
+              <a-cylinder teleportplace class="js--interact" position="0 1 0" rotation="90 0 0" color="#fa4646" radius=".5" height=".05"></a-cylinder>
+                <a-plane src="#stonewall" width="7" height="5" position="0 -3.5 2.5" rotation="-90 0 0" material="side: double; repeat: 3.5 2.5">
+                  <!-- whiteboard -->
+                  <a-plane color="#fff" width="2" height="4" position="1.5 -0.5 0.1">
+                    <!-- zin 1 -->
+                    <a-box class="js--puzzlebox js--interact" color="yellow" height="0.2" width="0.3" depth="0.2" position="0.5 -1.5 0" id="js--word1">
+                      <a-text value="Ni" position="0 0 0.1" align="center" rotation="180 180 0"></a-text>
+                    </a-box>
+                      <a-text value="Ik-voltooid-slapen" position="0 -1.3 0" align="cen2.5er" rotation="180 180 0" scale="0.5 0.5 0.5" color="black"></a-text>
+                      <a-text value="'Ik heb geslapen'" position="0 -1.1 0" align="center" rotation="180 180 0" scale="0.5 0.5 0.5" color="black"></a-text>
+                    <a-box class="js--interact js--puzzlebox" color="cyan"  height="0.2" width="0.3" depth="0.2" position="0 -1.5 0">
+                      <a-text value="me" position="0 0 0.1" align="center" rotation="180 180 0"></a-text>
+                    </a-box>
+                    <a-box class="js--interact js--puzzlebox" color="green" height="0.2" width="0.4" depth="0.2" position="-0.5 -1.5 0">
+                      <a-text value="lala" position="0 0 0.1" align="center" rotation="180 180 0"></a-text>
+                    </a-box>
 
-              <!-- zin 3 -->
-              <a-box class="js--interact js--puzzlebox" color="yellow" height="0.2" width="0.3" depth="0.2" position="0.7 -0.1 0">
-                <a-text value="A" position="0 0 0.1" align="center" rotation="180 180 0"></a-text>
-              </a-box>
-              <a-box class="js--interact js--puzzlebox" color="cyan" height="0.2" width="0.3" depth="0.2" position="0.3 -0.1 0">
-                <a-text value="li" position="0 0 0.1" align="center" rotation="180 180 0"></a-text>
-              </a-box>
-                <a-text value="hij/zij-toen-ons-horen" position="0 0.1 0" align="center" rotation="180 180 0" scale="0.5 0.5 0.5" color="black"></a-text>
-                <a-text value="'Hij/zij hoorde ons'" position="0 0.3 0" align="center" rotation="180 180 0" scale="0.5 0.5 0.5" color="black"></a-text>
-              <a-box class="js--interact js--puzzlebox" color="purple"  height="0.2" width="0.3" depth="0.2" position="-0.1 -0.1 0">
-                <a-text value="tu" position="0 0 0.1" align="center" rotation="180 180 0"></a-text>
-              </a-box>
-              <a-box class="js--interact js--puzzlebox" color="green" height="0.2" width="0.5" depth="0.2" position="-0.6 -0.1 0">
-                <a-text value="sikia" position="0 0 0.1" align="center" rotation="180 180 0"></a-text>
-              </a-box>
+                    <!-- zin 2 -->
+                    <a-box class="js--interact js--puzzlebox" color="yellow" height="0.2" width="0.3" depth="0.2" position="0.6 -0.8 0">
+                      <a-text value="A" position="0 0 0.1" align="center" rotation="180 180 0"></a-text>
+                    </a-box>
+                    <a-box class="js--interact js--puzzlebox" color="cyan" height="0.2" width="0.3" depth="0.2" position="0.2 -0.8 0">
+                      <a-text value="li" position="0 0 0.1" align="center" rotation="180 180 0"></a-text>
+                    </a-box>
+                      <a-text value="hij/zij-toen-jou-zien" position="0 -0.6 0" align="center" rotation="180 180 0" scale="0.5 0.5 0.5" color="black"></a-text>
+                      <a-text value="'Hij/zij zag jou'" position="0 -0.4 0" align="center" rotation="180 180 0" scale="0.5 0.5 0.5" color="black"></a-text>
+                    <a-box class="js--interact js--puzzlebox" color="purple"  height="0.2" width="0.3" depth="0.2" position="-0.2 -0.8 0" id="js--word3">
+                      <a-text value="ku" position="0 0 0.1" align="center" rotation="180 180 0"></a-text>
+                    </a-box>
+                    <a-box class="js--interact js--puzzlebox" color="green" height="0.2" width="0.4" depth="0.2" position="-0.6 -0.8 0">
+                      <a-text value="ona" position="0 0 0.1" align="center" rotation="180 180 0"></a-text>
+                    </a-box>
 
-              <!-- zin 4 -->
-              <a-box class="js--interact js--puzzlebox" color="yellow" height="0.2" width="0.3" depth="0.2" position="0.6 0.6 0">
-                <a-text value="Tu" position="0 0 0.1" align="center" rotation="180 180 0"></a-text>
-              </a-box>
-              <a-box class="js--interact js--puzzlebox" color="cyan" height="0.2" width="0.3" depth="0.2" position="0.1 0.6 0" id="js--word2">
-                <a-text value="Na" position="0 0 0.1" align="center" rotation="180 180 0"></a-text>
-              </a-box>
-                <a-text value="hij/zij-toen-ons-horen" position="0 0.8 0" align="center" rotation="180 180 0" scale="0.5 0.5 0.5" color="black"></a-text>
-                <a-text value="'Hij/zij hoorde ons'" position="0 1 0" align="center" rotation="180 180 0" scale="0.5 0.5 0.5" color="black"></a-text>
-              <a-box class="js--interact js--puzzlebox" color="green" height="0.2" width="0.6" depth="0.2" position="-0.5 0.6 0">
-                <a-text value="soma" position="0 0 0.1" align="center" rotation="180 180 0"></a-text>
-              </a-box>
+                    <!-- zin 3 -->
+                    <a-box class="js--interact js--puzzlebox" color="yellow" height="0.2" width="0.3" depth="0.2" position="0.7 -0.1 0">
+                      <a-text value="A" position="0 0 0.1" align="center" rotation="180 180 0"></a-text>
+                    </a-box>
+                    <a-box class="js--interact js--puzzlebox" color="cyan" height="0.2" width="0.3" depth="0.2" position="0.3 -0.1 0">
+                      <a-text value="li" position="0 0 0.1" align="center" rotation="180 180 0"></a-text>
+                    </a-box>
+                      <a-text value="hij/zij-toen-ons-horen" position="0 0.1 0" align="center" rotation="180 180 0" scale="0.5 0.5 0.5" color="black"></a-text>
+                      <a-text value="'Hij/zij hoorde ons'" position="0 0.3 0" align="center" rotation="180 180 0" scale="0.5 0.5 0.5" color="black"></a-text>
+                    <a-box class="js--interact js--puzzlebox" color="purple"  height="0.2" width="0.3" depth="0.2" position="-0.1 -0.1 0">
+                      <a-text value="tu" position="0 0 0.1" align="center" rotation="180 180 0"></a-text>
+                    </a-box>
+                    <a-box class="js--interact js--puzzlebox" color="green" height="0.2" width="0.5" depth="0.2" position="-0.6 -0.1 0">
+                      <a-text value="sikia" position="0 0 0.1" align="center" rotation="180 180 0"></a-text>
+                    </a-box>
 
-              <!-- zin 5 -->
-              <a-box class="js--interact js--puzzlebox" color="yellow" height="0.2" width="0.3" depth="0.2" position="0.6 1.3 0">
-                <a-text value="Wa" position="0 0 0.1" align="center" rotation="180 180 0"></a-text>
-              </a-box>
-              <a-box class="js--interact js--puzzlebox" color="cyan" height="0.2" width="0.3" depth="0.2" position="0.1 1.3 0">
-                <a-text value="Ta" position="0 0 0.1" align="center" rotation="180 180 0"></a-text>
-              </a-box>
-                <a-text value="zij-toekomstig-houden.van leeuw" position="0 1.5 0" align="center" rotation="180 180 0" scale="0.5 0.5 0.5" color="black"></a-text>
-                <a-text value="'Zij zullen van de leeuw houden'" position="0 1.7 0" align="center" rotation="180 180 0" scale="0.5 0.5 0.5" color="black"></a-text>
-              <a-box class="js--interact js--puzzlebox" color="green" height="0.2" width="0.6" depth="0.2" position="-0.5 1.3 0" id="js--word4">
-                <a-text value="penda" position="0 0 0.1" align="center" rotation="180 180 0"></a-text>
-              </a-box>
+                    <!-- zin 4 -->
+                    <a-box class="js--interact js--puzzlebox" color="yellow" height="0.2" width="0.3" depth="0.2" position="0.6 0.6 0">
+                      <a-text value="Tu" position="0 0 0.1" align="center" rotation="180 180 0"></a-text>
+                    </a-box>
+                    <a-box class="js--interact js--puzzlebox" color="cyan" height="0.2" width="0.3" depth="0.2" position="0.1 0.6 0" id="js--word2">
+                      <a-text value="Na" position="0 0 0.1" align="center" rotation="180 180 0"></a-text>
+                    </a-box>
+                      <a-text value="hij/zij-toen-ons-horen" position="0 0.8 0" align="center" rotation="180 180 0" scale="0.5 0.5 0.5" color="black"></a-text>
+                      <a-text value="'Hij/zij hoorde ons'" position="0 1 0" align="center" rotation="180 180 0" scale="0.5 0.5 0.5" color="black"></a-text>
+                    <a-box class="js--interact js--puzzlebox" color="green" height="0.2" width="0.6" depth="0.2" position="-0.5 0.6 0">
+                      <a-text value="soma" position="0 0 0.1" align="center" rotation="180 180 0"></a-text>
+                    </a-box>
 
-            </a-plane>
-            <a-text value="In het Swahili (gesproken in Tanzania) kun je in één woord hetzelfde zeggen als waar we in het Nederlands maar liefst drie woorden voor nodig hebben!
-             Deze taal is een meester in het gebruiken van voorvoegsels, bijvoorbeeld voor het onderwerp, het lijdend voorwerp en de verleden of tegenwoordige tijd.
-             Hoe zeg je in het Swahili “ik houd van jou”?" position="0.25 -0.7 0" rotation="180 180 0" scale="0.7 0.7 0.7"></a-text>
-            <a-box class="js--interact js--puzzleslot" width="0.2" height="0.2" depth="0.1" position="-0.5 1 0.1" color="black">
-              <a-text value="ik" position="0 -0.7 0" align="center" rotation="180 180 0"></a-text>
-            </a-box>
-            <a-box class="js--interact js--puzzleslot" width="0.2" height="0.2" depth="0.1" position="-1.25 1 0.1" color="black">
-              <a-text value="houd" position="0 -0.7 0" align="center" rotation="180 180 0"></a-text>
-            </a-box>
-            <a-box class="js--interact js--puzzleslot" width="0.2" height="0.2" depth="0.1" position="-2 1 0.1" color="black">
-              <a-text value="van" position="0 -0.7 0" align="center" rotation="180 180 0"></a-text>
-            </a-box>
-            <a-box class="js--interact js--puzzleslot" width="0.2" height="0.2" depth="0.1" position="-2.75 1 0.1" color="black">
-              <a-text value="jou" position="0 -0.7 0" align="center" rotation="180 180 0"></a-text>
-            </a-box>
-          </a-plane>
-          <a-plane src="#stonewall" width="7" height="7" position="0 0 5" material="side: double; repeat: 3.5 3.5" rotation="0 0 0" ></a-plane>
-          <a-plane src="#stonewall" width="2.5" height="5" position="-2.25 3.5 2.5" rotation="-90 0 0" material="side: double; repeat: 1 2.5"></a-plane>
-          <a-plane src="#stonewall" width="2.5" height="5" position="2.25 3.5 2.5" rotation="-90 0 0" material="side: double; repeat: 1 2.5"></a-plane>
-          <a-plane src="#stonewall" width="7" height="5" position="3.5 0 2.5" rotation="0 90 -90" material="side: double; repeat: 3.5 2.5"></a-plane>
-          <a-plane src="#stonewall" width="7" height="5" position="-3.5 0 2.5" rotation="0 90 -90" material="side: double; repeat: 3.5 2.5"></a-plane>
-          <a-entity position="6 -1 0"rotation="180 90 90">
-            <a-plane src="#stonewallbrickcolors" position="-8 1.5 5" rotation="0 0 0" width="7" height="3" material="side: double; repeat: 7 2.5"></a-plane>
-            <a-plane src="#stonewallbrickcolors" position="-8 1.5 7" rotation="0 0 0" width="7" height="3" material="side: double; repeat: 7 2.5"></a-plane>
-            <a-plane src="#stonewallbrickcolors" position="-8 3 6" rotation="90 0 0" width="7" height="2" material="side: double; repeat: 7 1"></a-plane>
-            <a-plane src="#stonewallbrick" position="-8 0 6" rotation="90 0 0" width="7" height="2" material="side: double; repeat: 7 1"></a-plane>
+                    <!-- zin 5 -->
+                    <a-box class="js--interact js--puzzlebox" color="yellow" height="0.2" width="0.3" depth="0.2" position="0.6 1.3 0">
+                      <a-text value="Wa" position="0 0 0.1" align="center" rotation="180 180 0"></a-text>
+                    </a-box>
+                    <a-box class="js--interact js--puzzlebox" color="cyan" height="0.2" width="0.3" depth="0.2" position="0.1 1.3 0">
+                      <a-text value="Ta" position="0 0 0.1" align="center" rotation="180 180 0"></a-text>
+                    </a-box>
+                      <a-text value="zij-toekomstig-houden.van leeuw" position="0 1.5 0" align="center" rotation="180 180 0" scale="0.5 0.5 0.5" color="black"></a-text>
+                      <a-text value="'Zij zullen van de leeuw houden'" position="0 1.7 0" align="center" rotation="180 180 0" scale="0.5 0.5 0.5" color="black"></a-text>
+                    <a-box class="js--interact js--puzzlebox" color="green" height="0.2" width="0.6" depth="0.2" position="-0.5 1.3 0" id="js--word4">
+                      <a-text value="penda" position="0 0 0.1" align="center" rotation="180 180 0"></a-text>
+                    </a-box>
+
+                  </a-plane>
+                  <a-text value="In het Swahili (gesproken in Tanzania) kun je in één woord hetzelfde zeggen als waar we in het Nederlands maar liefst drie woorden voor nodig hebben!
+                   Deze taal is een meester in het gebruiken van voorvoegsels, bijvoorbeeld voor het onderwerp, het lijdend voorwerp en de verleden of tegenwoordige tijd.
+                   Hoe zeg je in het Swahili “ik houd van jou”?" position="0.25 -0.7 0" rotation="180 180 0" scale="0.7 0.7 0.7"></a-text>
+                  <a-box class="js--interact js--puzzleslot" width="0.2" height="0.2" depth="0.1" position="-0.5 1 0.1" color="black">
+                    <a-text value="ik" position="0 -0.7 0" align="center" rotation="180 180 0"></a-text>
+                  </a-box>
+                  <a-box class="js--interact js--puzzleslot" width="0.2" height="0.2" depth="0.1" position="-1.25 1 0.1" color="black">
+                    <a-text value="houd" position="0 -0.7 0" align="center" rotation="180 180 0"></a-text>
+                  </a-box>
+                  <a-box class="js--interact js--puzzleslot" width="0.2" height="0.2" depth="0.1" position="-2 1 0.1" color="black">
+                    <a-text value="van" position="0 -0.7 0" align="center" rotation="180 180 0"></a-text>
+                  </a-box>
+                  <a-box class="js--interact js--puzzleslot" width="0.2" height="0.2" depth="0.1" position="-2.75 1 0.1" color="black">
+                    <a-text value="jou" position="0 -0.7 0" align="center" rotation="180 180 0"></a-text>
+                  </a-box>
+                </a-plane>
+                <a-plane src="#stonewall" width="7" height="7" position="0 0 5" material="side: double; repeat: 3.5 3.5" rotation="0 0 0" ></a-plane>
+                <a-plane src="#stonewall" width="2.5" height="5" position="-2.25 3.5 2.5" rotation="-90 0 0" material="side: double; repeat: 1 2.5"></a-plane>
+                <a-plane src="#stonewall" width="2.5" height="5" position="2.25 3.5 2.5" rotation="-90 0 0" material="side: double; repeat: 1 2.5"></a-plane>
+                <a-plane src="#stonewall" width="7" height="5" position="3.5 0 2.5" rotation="0 90 -90" material="side: double; repeat: 3.5 2.5"></a-plane>
+                <a-plane src="#stonewall" width="7" height="5" position="-3.5 0 2.5" rotation="0 90 -90" material="side: double; repeat: 3.5 2.5"></a-plane>
+                <a-entity position="6 -1 0"rotation="180 90 90">
+                  <a-plane src="#stonewallbrickcolors" position="-8 1.5 5" rotation="0 0 0" width="7" height="3" material="side: double; repeat: 7 2.5"></a-plane>
+                  <a-plane src="#stonewallbrickcolors" position="-8 1.5 7" rotation="0 0 0" width="7" height="3" material="side: double; repeat: 7 2.5"></a-plane>
+                  <a-plane src="#stonewallbrickcolors" position="-8 3 6" rotation="90 0 0" width="7" height="2" material="side: double; repeat: 7 1"></a-plane>
+                  <a-plane src="#stonewallbrick" position="-8 0 6" rotation="90 0 0" width="7" height="2" material="side: double; repeat: 7 1"></a-plane>
+                </a-entity>
+                <a-cylinder teleportplace class="js--interact" position="0 8 0" rotation="90 0 0" color="#fa4646" radius=".5" height=".05"></a-cylinder>
+            </a-entity>
           </a-entity>
-          <a-cylinder teleportplace class="js--interact" position="0 11 0" rotation="90 0 0" color="#fa4646" radius=".5" height=".05"></a-cylinder>
+          <a-entity id="puzzlemain__hall__puzzle2" position="0 0 -11">
+            <a-cylinder teleportplace class="js--interact" position="0 0 0" rotation="0 0 0" color="#fa4646" radius=".5" height=".05"></a-cylinder>
+            <a-plane src="#brickpatternwallcolors" position="0 5 0" rotation="90 0 0" width="10" height="4" material="side: double; repeat: 5 2"></a-plane>
+            <a-plane src="#brickpatternwallmoss" position="0 0 0" rotation="90 0 0" width="10" height="4" material="side: double; repeat: 5 2"></a-plane>
+            <a-entity id="puzzlemain__hall__puzzle2__openWall" position="5 0 0">
+              <a-plane src="#brickpatternwallcolors" position="0 2.5 1.5" rotation="0 90 0" width="1" height="5" material="side: double; repeat: .5 2.5"></a-plane>
+              <a-plane src="#brickpatternwallcolors" position="0 4 0" rotation="0 90 0" width="2" height="2" material="side: double; repeat: 1 1"></a-plane>
+              <a-plane src="#brickpatternwallcolors" position="0 2.5 -1.5" rotation="0 90 0" width="1" height="5" material="side: double; repeat: .5 2.5"></a-plane>
+            </a-entity>
+            <a-entity id="puzzlemain__hall__puzzle2__closedWall" position="-5 0 0">
+              <a-plane src="#brickpatternwallcolors" position="0 2.5 0" rotation="0 90 0" width="4" height="5" material="side: double; repeat: 2 2.5"></a-plane>
+            </a-entity>
+          </a-entity>
+          <a-entity id="puzzlemain__hall__puzzle3" position="0 0 -15">
+            <a-cylinder teleportplace class="js--interact" position="0 0 0" rotation="0 0 0" color="#fa4646" radius=".5" height=".05"></a-cylinder>
+            <a-plane src="#brickpatternwallcolors" position="0 5 0" rotation="90 0 0" width="10" height="4" material="side: double; repeat: 5 2"></a-plane>
+            <a-plane src="#brickpatternwallmoss" position="0 0 0" rotation="90 0 0" width="10" height="4" material="side: double; repeat: 5 2"></a-plane>
+            <a-entity id="puzzlemain__hall__puzzle3__openWall" position="-5 0 0">
+              <a-plane src="#brickpatternwallcolors" position="0 2.5 1.5" rotation="0 90 0" width="1" height="5" material="side: double; repeat: .5 2.5"></a-plane>
+              <a-plane src="#brickpatternwallcolors" position="0 4 0" rotation="0 90 0" width="2" height="2" material="side: double; repeat: 1 1"></a-plane>
+              <a-plane src="#brickpatternwallcolors" position="0 2.5 -1.5" rotation="0 90 0" width="1" height="5" material="side: double; repeat: .5 2.5"></a-plane>
+            </a-entity>
+            <a-entity id="puzzlemain__hall__puzzle3__closedWall" position="5 0 0">
+              <a-plane src="#brickpatternwallcolors" position="0 2.5 0" rotation="0 90 0" width="4" height="5" material="side: double; repeat: 2 2.5"></a-plane>
+            </a-entity>
+          </a-entity>
+          <a-entity id="puzzlemain__hall__puzzle4" position="0 0 -19">
+            <a-cylinder teleportplace class="js--interact" position="0 0 0" rotation="0 0 0" color="#fa4646" radius=".5" height=".05"></a-cylinder>
+            <a-plane src="#brickpatternwallcolors" position="0 5 0" rotation="90 0 0" width="10" height="4" material="side: double; repeat: 5 2"></a-plane>
+            <a-plane src="#brickpatternwallmoss" position="0 0 0" rotation="90 0 0" width="10" height="4" material="side: double; repeat: 5 2"></a-plane>
+            <a-entity id="puzzlemain__hall__puzzle4__openWall" position="5 0 0">
+              <a-plane src="#brickpatternwallcolors" position="0 2.5 1.5" rotation="0 90 0" width="1" height="5" material="side: double; repeat: .5 2.5"></a-plane>
+              <a-plane src="#brickpatternwallcolors" position="0 4 0" rotation="0 90 0" width="2" height="2" material="side: double; repeat: 1 1"></a-plane>
+              <a-plane src="#brickpatternwallcolors" position="0 2.5 -1.5" rotation="0 90 0" width="1" height="5" material="side: double; repeat: .5 2.5"></a-plane>
+            </a-entity>
+            <a-entity id="puzzlemain__hall__puzzle4__closedWall" position="-5 0 0">
+              <a-plane src="#brickpatternwallcolors" position="0 2.5 0" rotation="0 90 0" width="4" height="5" material="side: double; repeat: 2 2.5"></a-plane>
+            </a-entity>
+            <a-entity id="puzzle4" position="14 0 -6" rotation="0 0 0">
+              <a-cylinder teleportplace class="js--interact" position="0 0 0" color="#fa4646" radius=".5" height=".05"></a-cylinder>
+
+              <a-plane src="#brickwallmoss" position="-4 2.5 1" rotation="0 0 0" width="6" height="5" material="side: double; repeat: 3 2.5"></a-plane>
+              <a-plane src="#brickwallmoss" position="0 4 1" rotation="0 0 0" width="2" height="2" material="side: double; repeat: 1 1"></a-plane>
+              <a-plane src="#brickwallmoss" position="4 2.5 1" rotation="0 0 0" width="6" height="5" material="side: double; repeat: 3 2.5"></a-plane>
+              <a-plane src="#brickwallmoss" position="7 2.5 -4" rotation="0 90 0" width="10" height="5" material="side: double; repeat: 5 2.5"></a-plane>
+              <a-plane src="#brickwallmoss" position="-7 2.5 -4" rotation="0 90 0" width="10" height="5" material="side: double; repeat: 5 2.5"></a-plane>
+              <a-plane src="#brickwallmoss" position="0 2.5 -9" rotation="0 0 0" width="14" height="5" material="side: double; repeat: 7 2.5"></a-plane>
+              <a-plane src="#stonewall" position="0 0 -4" rotation="90 0 0" width="14" height="10" material="side: double; repeat: 7 5"></a-plane>
+              <a-plane src="#stonewallmoss" position="0 5 -4" rotation="90 0 0" width="14" height="10" material="side: double; repeat: 7 5"></a-plane>
+
+              <a-plane src="#stonewallbrickcolors" position="3 1.5 7" rotation="0 0 0" width="8" height="3" material="side: double; repeat: 7 2.5"></a-plane>
+              <a-plane src="#stonewallbrickcolors" position="7 1.5 4" rotation="0 90 0" width="6" height="3" material="side: double; repeat: 7 2.5"></a-plane>
+              <a-plane src="#stonewallbrickcolors" position="3 3 4" rotation="90 0 0" width="8" height="6" material="side: double; repeat: 7 2.5"></a-plane>
+              <a-plane src="#stonewallbrick" position="3 0 4" rotation="90 0 0" width="8" height="6" material="side: double; repeat: 7 2.5"></a-plane>
+
+              <a-plane src="#stonewallbrickcolors" position="1 1.5 4" rotation="0 90 0" width="6" height="3" material="side: double; repeat: 7 3"></a-plane>
+
+              <a-plane src="#stonewallbrickcolors" position="-1 1.5 3" rotation="0 90 0" width="4" height="3" material="side: double; repeat: 7 2.5"></a-plane>
+              <a-plane src="#stonewallbrickcolors" position="-5 1.5 5" rotation="0 0 0" width="8" height="3" material="side: double; repeat: 7 2.5"></a-plane>
+              <a-plane src="#stonewallbrickcolors" position="-5 1.5 7" rotation="0 0 0" width="8" height="3" material="side: double; repeat: 7 2.5"></a-plane>
+              <a-plane src="#stonewallbrickcolors" position="-5 3 6" rotation="90 0 0" width="8" height="2" material="side: double; repeat: 7 1"></a-plane>
+              <a-plane src="#stonewallbrick" position="-5 0 6" rotation="90 0 0" width="8" height="2" material="side: double; repeat: 7 1"></a-plane>
+
+
+              <a-cylinder teleportplace class="js--interact" position="0 0 6" color="#fa4646" radius=".5" height=".05"></a-cylinder>
+
+              <a-cylinder teleportplace class="js--interact" position="-8 0 6" color="#fa4646" radius=".5" height=".05"></a-cylinder>
+
+              <a-box id="js--puzzle4Book" position="0 .5 -2" color="green" visible=false> </a-box>
+
+              <a-obj-model src="#totem-obj" mtl="#totem-mtl" scale=".35 .35 .35" position="0 0 -5" rotation="0 -90 0">
+                <a-sphere class="js--toneHigh" position=".9 5.85 .3" rotation="0 -10 0" radius=".1" scale="1 1.1 2" color="white"></a-sphere>
+                <a-sphere class="js--toneHigh" position=".9 5.85 -.3" rotation="0 10 0" radius=".1" scale="1 1.1 2" color="white"></a-sphere>
+                <a-sphere class="js--toneLow" position="1.15 2.15 .65" rotation="0 -20 0" radius=".17" scale="1 1.1 2" color="white"></a-sphere>
+                <a-sphere class="js--toneLow" position="1.15 2.15 -.65" rotation="0 20 0" radius=".17" scale="1 1.1 2" color="white"></a-sphere>
+              </a-obj-model>
+
+              <a-text puzzle4word class="js--interact" geometry="primitive:plane; height: .3; width:1;" material="color: #fa4646" scale="3 3 3" position="-4 2 -8" value="mali" sound="src: #mali" color="black" align="center" letter-spacing="20px">
+                <a-entity puzzle4buttonset class="js--buttonset js--interact" state="up" position="0 0 0">
+                  <a-triangle class="js--interact" scale=".25 .25 .25" position="0 .3 0" color="green"></a-triangle>
+                  <a-triangle class="js--interact" scale=".25 .25 .25" position="0 -.3 0" rotation="0 0 180" color="black"></a-triangle>
+                </a-entity>
+                <a-entity puzzle4buttonset class="js--buttonset js--interact" state="up" position=".35 0 0">
+                  <a-triangle class="js--interact" scale=".25 .25 .25" position="0 .3 0" color="green"></a-triangle>
+                  <a-triangle class="js--interact" scale=".25 .25 .25" position="0 -.3 0" rotation="0 0 180" color="black"></a-triangle>
+                </a-entity>
+              </a-text>
+              <a-text puzzle4word class="js--interact" geometry="primitive:plane; height: .3; width:1;" material="color: #fa4646" scale="3 3 3" position="0 3.6 -8" value="buku" sound="src: #buku" color="black" align="center" letter-spacing="20px">
+                <a-entity puzzle4buttonset class="js--buttonset js--interact" state="up" position="-.1 0 0">
+                  <a-triangle class="js--interact" scale=".25 .25 .25" position="0 .3 0" color="green"></a-triangle>
+                  <a-triangle class="js--interact" scale=".25 .25 .25" position="0 -.3 0" rotation="0 0 180" color="black"></a-triangle>
+                </a-entity>
+                <a-entity puzzle4buttonset class="js--buttonset js--interact" state="up" position=".35 0 0">
+                  <a-triangle class="js--interact" scale=".25 .25 .25" position="0 .3 0" color="green"></a-triangle>
+                  <a-triangle class="js--interact" scale=".25 .25 .25" position="0 -.3 0" rotation="0 0 180" color="black"></a-triangle>
+                </a-entity>
+              </a-text>
+              <a-text puzzle4word class="js--interact" geometry="primitive:plane; height: .3; width:1.3;" material="color: #fa4646" scale="3 3 3" position="4 2 -8" value="kiyele" sound="src: #kiyele" color="black" align="center" letter-spacing="20px">
+                <a-entity puzzle4buttonset class="js--buttonset js--interact" state="up" position="-.3 0 0">
+                  <a-triangle class="js--interact" scale=".25 .25 .25" position="0 .3 0" color="green"></a-triangle>
+                  <a-triangle class="js--interact" scale=".25 .25 .25" position="0 -.3 0" rotation="0 0 180" color="black"></a-triangle>
+                </a-entity>
+                <a-entity puzzle4buttonset class="js--buttonset js--interact" state="up" position=".1 0 0">
+                  <a-triangle class="js--interact" scale=".25 .25 .25" position="0 .3 0" color="green"></a-triangle>
+                  <a-triangle class="js--interact" scale=".25 .25 .25" position="0 -.3 0" rotation="0 0 180" color="black"></a-triangle>
+                </a-entity>
+                <a-entity puzzle4buttonset class="js--buttonset js--interact" state="up" position=".5 0 0">
+                  <a-triangle class="js--interact" scale=".25 .25 .25" position="0 .3 0" color="green"></a-triangle>
+                  <a-triangle class="js--interact" scale=".25 .25 .25" position="0 -.3 0" rotation="0 0 180" color="black"></a-triangle>
+                </a-entity>
+              </a-text>
+            </a-entity>
+          </a-entity>
+          <a-entity id="puzzlemain__hall__puzzlefinal"></a-entity>
+        </a-entity>
       </a-entity>
 
-      <a-entity id="puzzle4" position="0 0 -20" rotation="0 90 0">
-        <a-cylinder teleportplace class="js--interact" position="0 0 0" color="#fa4646" radius=".5" height=".05"></a-cylinder>
-
-        <a-plane src="#brickwallmoss" position="-4 2.5 1" rotation="0 0 0" width="6" height="5" material="side: double; repeat: 3 2.5"></a-plane>
-        <a-plane src="#brickwallmoss" position="0 4 1" rotation="0 0 0" width="2" height="2" material="side: double; repeat: 1 1"></a-plane>
-        <a-plane src="#brickwallmoss" position="4 2.5 1" rotation="0 0 0" width="6" height="5" material="side: double; repeat: 3 2.5"></a-plane>
-        <a-plane src="#brickwallmoss" position="7 2.5 -4" rotation="0 90 0" width="10" height="5" material="side: double; repeat: 5 2.5"></a-plane>
-        <a-plane src="#brickwallmoss" position="-7 2.5 -4" rotation="0 90 0" width="10" height="5" material="side: double; repeat: 5 2.5"></a-plane>
-        <a-plane src="#brickwallmoss" position="0 2.5 -9" rotation="0 0 0" width="14" height="5" material="side: double; repeat: 7 2.5"></a-plane>
-        <a-plane src="#stonewall" position="0 0 -4" rotation="90 0 0" width="14" height="10" material="side: double; repeat: 7 5"></a-plane>
-        <a-plane src="#stonewallmoss" position="0 5 -4" rotation="90 0 0" width="14" height="10" material="side: double; repeat: 7 5"></a-plane>
-
-        <a-plane src="#stonewallbrickcolors" position="3 1.5 7" rotation="0 0 0" width="8" height="3" material="side: double; repeat: 7 2.5"></a-plane>
-        <a-plane src="#stonewallbrickcolors" position="7 1.5 4" rotation="0 90 0" width="6" height="3" material="side: double; repeat: 7 2.5"></a-plane>
-        <a-plane src="#stonewallbrickcolors" position="3 3 4" rotation="90 0 0" width="8" height="6" material="side: double; repeat: 7 2.5"></a-plane>
-        <a-plane src="#stonewallbrick" position="3 0 4" rotation="90 0 0" width="8" height="6" material="side: double; repeat: 7 2.5"></a-plane>
-
-        <a-plane src="#stonewallbrickcolors" position="1 1.5 4" rotation="0 90 0" width="6" height="3" material="side: double; repeat: 7 3"></a-plane>
-
-        <a-plane src="#stonewallbrickcolors" position="-1 1.5 3" rotation="0 90 0" width="4" height="3" material="side: double; repeat: 7 2.5"></a-plane>
-        <a-plane src="#stonewallbrickcolors" position="-5 1.5 5" rotation="0 0 0" width="8" height="3" material="side: double; repeat: 7 2.5"></a-plane>
-        <a-plane src="#stonewallbrickcolors" position="-5 1.5 7" rotation="0 0 0" width="8" height="3" material="side: double; repeat: 7 2.5"></a-plane>
-        <a-plane src="#stonewallbrickcolors" position="-5 3 6" rotation="90 0 0" width="8" height="2" material="side: double; repeat: 7 1"></a-plane>
-        <a-plane src="#stonewallbrick" position="-5 0 6" rotation="90 0 0" width="8" height="2" material="side: double; repeat: 7 1"></a-plane>
 
 
-        <a-cylinder teleportplace class="js--interact" position="0 0 6" color="#fa4646" radius=".5" height=".05"></a-cylinder>
 
-        <a-cylinder teleportplace class="js--interact" position="-10 0 6" color="#fa4646" radius=".5" height=".05"></a-cylinder>
-
-        <a-box id="js--puzzle4Book" position="0 .5 -2" color="green" visible=false> </a-box>
-
-        <a-obj-model src="#totem-obj" mtl="#totem-mtl" scale=".35 .35 .35" position="0 0 -5" rotation="0 -90 0">
-          <a-sphere class="js--toneHigh" position=".9 5.85 .3" rotation="0 -10 0" radius=".1" scale="1 1.1 2" color="white"></a-sphere>
-          <a-sphere class="js--toneHigh" position=".9 5.85 -.3" rotation="0 10 0" radius=".1" scale="1 1.1 2" color="white"></a-sphere>
-          <a-sphere class="js--toneLow" position="1.15 2.15 .65" rotation="0 -20 0" radius=".17" scale="1 1.1 2" color="white"></a-sphere>
-          <a-sphere class="js--toneLow" position="1.15 2.15 -.65" rotation="0 20 0" radius=".17" scale="1 1.1 2" color="white"></a-sphere>
-        </a-obj-model>
-
-        <a-text puzzle4word class="js--interact" geometry="primitive:plane; height: .3; width:1;" material="color: #fa4646" scale="3 3 3" position="-4 2 -8" value="mali" sound="src: #mali" color="black" align="center" letter-spacing="20px">
-          <a-entity puzzle4buttonset class="js--buttonset js--interact" state="up" position="0 0 0">
-            <a-triangle class="js--interact" scale=".25 .25 .25" position="0 .3 0" color="green"></a-triangle>
-            <a-triangle class="js--interact" scale=".25 .25 .25" position="0 -.3 0" rotation="0 0 180" color="black"></a-triangle>
-          </a-entity>
-          <a-entity puzzle4buttonset class="js--buttonset js--interact" state="up" position=".35 0 0">
-            <a-triangle class="js--interact" scale=".25 .25 .25" position="0 .3 0" color="green"></a-triangle>
-            <a-triangle class="js--interact" scale=".25 .25 .25" position="0 -.3 0" rotation="0 0 180" color="black"></a-triangle>
-          </a-entity>
-        </a-text>
-        <a-text puzzle4word class="js--interact" geometry="primitive:plane; height: .3; width:1;" material="color: #fa4646" scale="3 3 3" position="0 3.6 -8" value="buku" sound="src: #buku" color="black" align="center" letter-spacing="20px">
-          <a-entity puzzle4buttonset class="js--buttonset js--interact" state="up" position="-.1 0 0">
-            <a-triangle class="js--interact" scale=".25 .25 .25" position="0 .3 0" color="green"></a-triangle>
-            <a-triangle class="js--interact" scale=".25 .25 .25" position="0 -.3 0" rotation="0 0 180" color="black"></a-triangle>
-          </a-entity>
-          <a-entity puzzle4buttonset class="js--buttonset js--interact" state="up" position=".35 0 0">
-            <a-triangle class="js--interact" scale=".25 .25 .25" position="0 .3 0" color="green"></a-triangle>
-            <a-triangle class="js--interact" scale=".25 .25 .25" position="0 -.3 0" rotation="0 0 180" color="black"></a-triangle>
-          </a-entity>
-        </a-text>
-        <a-text puzzle4word class="js--interact" geometry="primitive:plane; height: .3; width:1.3;" material="color: #fa4646" scale="3 3 3" position="4 2 -8" value="kiyele" sound="src: #kiyele" color="black" align="center" letter-spacing="20px">
-          <a-entity puzzle4buttonset class="js--buttonset js--interact" state="up" position="-.3 0 0">
-            <a-triangle class="js--interact" scale=".25 .25 .25" position="0 .3 0" color="green"></a-triangle>
-            <a-triangle class="js--interact" scale=".25 .25 .25" position="0 -.3 0" rotation="0 0 180" color="black"></a-triangle>
-          </a-entity>
-          <a-entity puzzle4buttonset class="js--buttonset js--interact" state="up" position=".1 0 0">
-            <a-triangle class="js--interact" scale=".25 .25 .25" position="0 .3 0" color="green"></a-triangle>
-            <a-triangle class="js--interact" scale=".25 .25 .25" position="0 -.3 0" rotation="0 0 180" color="black"></a-triangle>
-          </a-entity>
-          <a-entity puzzle4buttonset class="js--buttonset js--interact" state="up" position=".5 0 0">
-            <a-triangle class="js--interact" scale=".25 .25 .25" position="0 .3 0" color="green"></a-triangle>
-            <a-triangle class="js--interact" scale=".25 .25 .25" position="0 -.3 0" rotation="0 0 180" color="black"></a-triangle>
-          </a-entity>
-        </a-text>
-      </a-entity>
     </a-scene>
   </body>
 </html>
