@@ -71,13 +71,13 @@ window.onload = () =>{
         if(placeCounter==4 && !resultArray.includes(false)){
           opgelost = true
           for(let i=0; i<puzzleslots.length; i++){
-            puzzleslots[i].childNodes[1].setAttribute("color", "green")
+            puzzleslots[i].childNodes[1].setAttribute("color", "#1cfc03")
 
             let book = document.createElement('a-box')
             book.setAttribute("height", "0.2")
             book.setAttribute("width", "0.4")
             book.setAttribute("depth", "0.6")
-            book.setAttribute("position", "0 1 4")
+            book.setAttribute("position", "0 0 4")
             scene.appendChild(book)
           }
         }
