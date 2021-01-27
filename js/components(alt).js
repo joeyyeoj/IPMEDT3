@@ -102,3 +102,8 @@ AFRAME.registerComponent("puzzle3wordpartner", {
     // // Make sure that the code only references the object instance during update and not all instances or only the first... >_>
     // var data = this.data;
     // var el = this.el;
+
+
+    for(let i = 0; i < siblings.length; i++){
+      console.log("sibling test: " + i + "-- x:" + siblings[i].getAttribute('puzzle3word').originPosition.x + " y:" + siblings[i].getAttribute('puzzle3word').originPosition.y + "  z:" + siblings[i].getAttribute('puzzle3word').originPosition.z )
+    // }

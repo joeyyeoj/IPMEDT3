@@ -13,13 +13,14 @@
 <body>
   <a-scene>
     <a-assets>
-      <a-mixin id="text" ></a-mixin>
-      <a-mixin id="textblock" text="width:1;height:1;depth:0.2;"></a-mixin>
+      <a-mixin id="close" position="0 0 0.55"></mixin>
+      <a-mixin id="textblock" text="width: 4; wrap-count: 15; align: center" ></a-mixin>
+      <a-mixin id="wordbase" text="width:1; height:1; depth:0.2;"></a-mixin>
       <a-mixin id="wordblock" geometry="height: 2; width: 3; depth: 1" text=""></a-mixin>
       <a-mixin id="blue" material="color: #369"></a-mixin>
       <a-mixin id="lightgray" material="color: #eef"></a-mixin>
       <a-mixin id="red" material="color: #958"></a-mixin>
-      <a-mixin id="green" material="color: #958"></a-mixin>
+      <a-mixin id="green" material="color: #263"></a-mixin>
     </a-assets>
 
     <!-- Camera with fuse entity and raycaster limited to .js--interact -->
@@ -47,65 +48,69 @@
     <!-- Labels per area -->
     <a-plane position="0 5.5 0.5" height="2" width="10" side="double" text="value: Hoe zeg je 17 in Yoruba?; width: 10; align: center; color: white;" color="#333"></a-plane>
     <!-- The 'wall' containing all interactive entities. -->
-     <a-box puzzle3container position="0 0 0" height="10" width="40" depth="0.2" color="#333">
+     <a-box id="js--puzzle3parent" puzzle3container position="0 0 0" height="10" width="40" depth="0.2" color="#333">
     <!-- Area A: Contains all puzzle blocks -->
       <!-- 1st column:  contains 1,3 and 4 in Yoruba -->
-        <a-box id="yoruba1" puzzle3word="ogPos: -15 3 1" class="js--yorubaNumber js--interact" position="-15 3 1" height="2" width="3" depth="1" color="#369">
-          <a-text position="0 0 0.55"  align="center" value="1 \n eni"  width="4"  wrap-count="15"></a-text>
+        <a-box id="js--yoruba1" puzzle3wordblock="ogPos: -15 0 1; wordElements: eni;" class="js--wordBlock js--interact" position="-15 3 1" mixin="wordblock blue">
+          <a-text id="js--yoruba1text" puzzle3wordtext position="0 0 0.55"  align="center" value="1 \n eni"  width="4"  wrap-count="15"></a-text>
         </a-box>
-        <a-box id="yoruba3" puzzle3word="ogPos: -15 0 1" class="js--yorubaNumber js--interact" position="-15 0 1" height="2" width="3" depth="1" color="#369">
-          <a-text position="0 0 0.55" align="center" value="3 \n eta"  width="4" wrap-count="15"></a-text>
+        <a-box id="js--yoruba3" puzzle3wordblock="ogPos: -15 0 1; wordElements: eta;" class="js--wordBlock js--interact" position="-15 0 1" mixin="wordblock blue">
+          <a-text id="js--yoruba3text" puzzle3wordtext value="3 \n eta"  mixin="close textblock"></a-text>
         </a-box>
-        <a-box id="yoruba4" puzzle3word="ogPos: -15 -3 1"  class="js--yorubaNumber js--interact" position="-15 -3 1" height="2" width="3" depth="1" color="#369">
-          <a-text position="0 0 0.55"  align="center" value="4 \n ering" width="4" wrap-count="15"></a-text>
+        <a-box id="js--yoruba4" puzzle3wordblock="ogPos: -15 -3 1; wordElements: ering;" class="js--wordBlock js--interact" position="-15 -3 1" mixin="wordblock blue">
+          <a-text id="js--yoruba4text" puzzle3wordtext  value="4 \n ering" mixin="close textblock"></a-text>
         </a-box>
       <!-- 2nd  column: contains 10, 16 and 20  in the Yoruba language -->
-        <a-box id="yoruba10" puzzle3word="ogPos: -15 3 1"   class="js--yorubaNumber js--interact" position="-10 3 1" height="2" width="3" depth="1" color="#369">
-          <a-text position="0 0 0.55"  align="center" value="10 \n ewa"  width="4"  wrap-count="15"></a-text>
+        <a-box id="js--yoruba10" puzzle3wordblock="ogPos: -15 3 1; wordElements: ewa;" class="js--wordBlock js--interact" position="-10 3 1" mixin="wordblock blue">
+          <a-text id="js--yoruba10text" puzzle3wordtext value="10 \n ewa" mixin="close textblock" ></a-text>
         </a-box>
-        <a-box id="yoruba12" puzzle3word="ogPos: -15 0 1"  class="js--yorubaNumber js--interact" position="-10 0 1" height="2" width="3" depth="1" color="#369">
-          <a-text position="0 0 0.55" align="center" value="12 \n ejidilogung"  width="4" wrap-count="15"></a-text>
+        <a-box id="js--yoruba16" puzzle3wordblock="ogPos: -15 0 1; wordElements: ering,dilo,gung;"  class="js--wordBlock js--interact" position="-10 0 1" mixin="wordblock blue">
+          <a-text id="yoruba16text" puzzle3wordtext  value="16 \n eringdilogung" mixin="close textblock"></a-text>
         </a-box>
-        <a-box id="yoruba20" puzzle3word="ogPos: -15 -3 1"  class="js--yorubaNumber js--interact" position="-10 -3 1" height="2" width="3" depth="1" color="#369">
-          <a-text position="0 0 0.55" align="center" value="20 \n ogung" width="4" wrap-count="15"></a-text>
+        <a-box id="js--yoruba20" puzzle3wordblock="ogPos: -15 -3 1; wordElements: ogung;"  class="js--wordBlock js--interact" position="-10 -3 1" mixin="wordblock blue">
+          <a-text id="js--yoruba20text" puzzle3wordtext value="20 \n ogung" mixin="close textblock"></a-text>
         </a-box>
       <!-- 1st & 2nd column: Background blocks to indicate 'slots' when a block has been removed from its original position-->
-        <a-box id="yoruba1base"  class="" position="-15 3 0.2"  height="2" width="3" depth="0.2" color="#eef"></a-box>
-        <a-box id="yoruba3base"  class="" position="-15 0 0.2"  height="2" width="3" depth="0.2" color="#eef"></a-box>
-        <a-box id="yoruba4base"  class="" position="-15 -3 0.2" height="2" width="3" depth="0.2" color="#eef"></a-box>
-        <a-box id="yoruba10base" class="" position="-10 3 0.2"  height="2" width="3" depth="0.2" color="#eef"></a-box>
-        <a-box id="yoruba16base" class="" position="-10 0 0.2"  height="2" width="3" depth="0.2" color="#eef"></a-box>
-        <a-box id="yoruba20base" class="" position="-10 -3 0.2" height="2" width="3" depth="0.2" color="#eef"></a-box>
+        <a-box id="yoruba1base"  class="puzzle3base" mixin="wordbase" position="-15 3 0.2"  color="#eef"></a-box>
+        <a-box id="yoruba3base"  class="puzzle3base" mixin="wordbase" position="-15 0 0.2"  color="#eef"></a-box>
+        <a-box id="yoruba4base"  class="puzzle3base" mixin="wordbase" position="-15 -3 0.2" color="#eef"></a-box>
+        <a-box id="yoruba10base" class="puzzle3base" mixin="wordbase" position="-10 3 0.2"  color="#eef"></a-box>
+        <a-box id="yoruba16base" class="puzzle3base" mixin="wordbase" position="-10 0 0.2"  color="#eef"></a-box>
+        <a-box id="yoruba20base" class="puzzle3base" mixin="wordbase" position="-10 -3 0.2" color="#eef"></a-box>
       </a-box>
 
       <!-- Area B:  'word decomposer', displays the words broken down into smaller pieces, these pieces can be used.-->
-        <a-box puzzle3decomposer id="js--decomposeSlot" class="js--interact" position="0 3 0.2" height="2" width="3" depth="0.2" color="#eef"></a-box>
-        <!-- <a-box id="yoruba16" puzzle3word  class="js--interact" position="0 3 0.2" height="2" width="3" depth="1" color="#369">
-          <a-text position="0 0 0.55" align="center" value="16 \n eringdilogung"  width="4" wrap-count="15"></a-text>
-        </a-box> -->
+        <a-box puzzle3decomposeblock id="js--decompInput" class="js--interact js--decompInput" position="0 3 1" mixin="wordblock"></a-box>
+          <a-text class="js--decompInputText" puzzle3AnswerTextmixin="close textblock" value=""></a-text>
+        </a-box>
 
-        <a-box id="js--answerSlot1" puzzle3decomposedword class="js--interact js--answerSlot" position="-4 -1 0.2" height="2" width="3" depth="0.2" color="#eef"></a-box>
-        <!-- <a-box id="yoruba16__pt1" puzzle3decomposedword  class="js--interact" position="-4 -1 1" height="2" width="3" depth="1" color="#958">
-          <a-text position="0 0 0.55" align="center" value="ering"  width="4" wrap-count="15"></a-text>
-        </a-box> -->
-        <a-box id="js--answerSlot2" puzzle3decomposedword class="js--interact js--answerSlot" position="0 -1 0.2" height="2" width="3" depth="0.2" color="#eef"></a-box>
-        <!-- <a-box id="yoruba16__pt2" puzzle3decomposedword  class="js--interact" position="0 -1 1" height="2" width="3" depth="1" color="#399">
-          <a-text position="0 0 0.55" align="center" value="dil"  width="4" wrap-count="15"></a-text>
-        </a-box> -->
-        <a-box id="js--answerSlot3" puzzle3decomposedword class="js--interact js--answerSlot" position="4 -1 0.2" height="2" width="3" depth="0.2" color="#eef"></a-box>
-        <!-- <a-box id="yoruba16__pt3" puzzle3decomposedword  class="js--interact" position="4 -1 1" height="2" width="3" depth="1" color="#958">
-          <a-text position="0 0 0.55" align="center" value="ogung"  width="4" wrap-count="15"></a-text>
-        </a-box> -->
+        <a-box puzzle3answerblock id="js--decompOutput1" class="js--decompOutput js--interact" position="-4 -1 1" mixin="wordblock" color="#958">
+          <a-text class="js--decompOutputText" puzzle3AnswerText mixin="textblock close" value=""></a-text>
+        </a-box>
+
+        <a-box puzzle3answerblock id="js--decompOutput2" class="js--decompOutput js--interact" position="0 -1 1" mixin="wordblock" color="#958">
+          <a-text class="js--decompOutputText" puzzle3AnswerText mixin="textblock close" value=""></a-text>
+        </a-box>
+
+        <a-box puzzle3answerblock id="js--decompOutput3" class="js--decompOutput js--interact" position="4 -1 1" mixin="wordblock" color="#958">
+          <a-text class="js--decompOutputText" puzzle3AnswerText mixin="textblock close" value=""></a-text>
+        </a-box>
 
       <!-- Area C: This area is used to select words to place in the puzzle area-->
 
         <a-plane position="14 3 0.5" height="2" width="10" side="double" text="value: Ontleed de woorden door ze links aan te klikken, in het midden op de juiste volgorde rechts te plaatsen? \n\n Hoe tellen ze in het Yoruba?; width: 10; align: center; color: white;" color="#333"></a-plane>
 
-      <a-box class="js--interact" position="10 -1 0.2" height="2" width="3" depth="0.2" color="#eef"></a-box>
+      <a-box puzzle3answerblock id="js--answerSlot1" class="js--answerSlot js--interact" position="10 -1 1" mixin="lightgray wordblock">
+        <a-text puzzle3AnswerText class="js--answerSlotText" mixin="textblock close" value=""></a-text>
+      </a-box>
 
-      <a-box class="js--interact" position="14 -1 0.2" height="2" width="3" depth="0.2" color="#eef"></a-box>
+      <a-box puzzle3answerblock id="js--answerSlot2" class="js--answerSlot js--interact" position="14 -1 1" mixin="lightgray wordblock">
+        <a-text puzzle3AnswerText class="js--answerSlotText" mixin="textblock close" value=""></a-text>
+      </a-box>
 
-      <a-box class="js--interact" position="18 -1 0.2" height="2" width="3" depth="0.2" color="#eef"></a-box>
+      <a-box puzzle3answerblock id="js--answerSlot3" class="js--answerSlot js--interact" position="18 -1 1" mixin="lightgray wordblock">
+        <a-text puzzle3AnswerText class="js--AnswerSlotText" mixin="textblock close" value=""></a-text>
+      </a-box>
   </a-entity>
 
   </a-scene>

@@ -1,5 +1,6 @@
 window.onload = () => {
 
+
 }
 AFRAME.registerComponent("teleportplace", {
   init: function() {
@@ -33,129 +34,34 @@ AFRAME.registerComponent("teleportplace", {
 
 
 
-AFRAME.registerComponent("puzzle3word", {
+AFRAME.registerComponent("puzzle3wordblock", {
   schema: {
-    decompOutput: {type: 'array', default: ["a", "b", "c"]},
-    active: {type: 'boolean'},
-    ogPos: {type: 'vec3'}
+    wordElements: {type: "array", default: []},
+    state: {type: 'string', default: "inactive"},
+    ogPos: {type: 'vec3'},
   },
   init: function() {
-    // Constant variabele
-    const DECOMP_POSITION = document.getElementById('js--decomposeSlot').getAttribute('position');
-
+    // Constant positions of the destination blocks
     var self = this;
     var el = this.el;
     var data = this.data;
-    console.log("id: "+  this.el.id + "--ogPos {x: " + data.ogPos.x + ", y: " + data.ogPos.y + " z: " + data.ogPos.z + "}")
 
-    this.decomposedParts = ["a", "b", "c"];
-    var siblings = document.querySelectorAll(['puzzle3word']);
-    // This function moves a block from the word-bank to the decompose-input
-    // The decomposeOutput moves into the answer-input
+    var siblings = document.querySelectorAll(['puzzle3wordblock']);
 
-    this.replaceWord = function () {
-      if(this.getAttribute('position') === self.data.ogPos){
-        el.object3D.position.set(DECOMP_POSITION.x, DECOMP_POSITION.y, DECOMP_POSITION.z);
-        console.log(el.id + " to DECOMP_POS")
+    this.toggleState = function () {
 
-      } else if (
-        this.getAttribute('position') === DECOMP_POSITION){
-        console.log("else if -- OGPOS" + data.ogPos.x + " " + data.ogPos.y + " " + data.ogPos.z)
-      } else{
-        console.log("moveword_else")
+      if (data.state === "inactive") {
+        console.log("inactive triggered");
+        updateSplitter(self.el);
       }
-      self.ogPos = {x:data.ogPos.x, y:data.ogPos.y, z:data.ogPos.z}
-      console.log("self.ogPos Trial" + self.ogPos.x + " " + self.ogPos.y + " " + self.ogPos.z)
-      }
-
-    // decompStore assigns the resepective decomposed parts to each word based on contained data
-    // The event listener only fires ones per element
-    this.decompStore = function () {
-      // Fill in default values before
-      var topBox = document.createElement('a-box');
-      var topTextBox = document.createElement('a-text');
-      let decompOutput1 = document.createElement('a-box');
-      let decompOutput2 = document.createElement('a-box');
-      let decompOutput3 = document.createElement('a-box');
-
-      // Prepare the topBox for use
-      topBox.createAttribute("id", "js--topBox");
-      topBox.createAttribute("class", "js--interact
-      topBox.setAttribute("mix", this.getAttribute("height"));
-      topBox.setAttribute("width", this.getAttribute("width"));
-      topBox.setAttribute("depth", this.getAttribute("depth"));
-      topBox.setAttribute("position", {x: DECOMP_POSITION.x, y:DECOMP_POSITION.y, z: 1});
-      topBox.setAttribute("color", "#275");
-      topBox.setAttribute("color", "green");
-      topBox.setAttribute("position", {x: placeholder('position').x, y: placeholder, z: "1"});
-
-      // Prepare the text boxes for use
-      topTextBox.setAttribute("align", "center");
-      topTextBox.setAttribute("height", this.getAttribute("height"));
-      topTextBox.setAttribute("width", this.getAttribute("width"));
-      topTextBox.setAttribute("width", "4");
-      topTextBox.setAttribute("wrap-count", "15");
-      topBox.appendChild(topTextBox);
-
-      switch (this.id) {
-        case 'yoruba1':
-        console.log("case == yoruba1")
-        this.decomposedParts = ["", "eni", ""];
-        this.el.remove();
-        addListeners();
-        hold = null;
-        console.log(this.decomposedParts)
-        break;
-
-        case 'yoruba3':
-        console.log("case == yoruba3")
-        this.decomposedParts = ["", "eta", ""];
-        console.log(this.decomposedParts)
-        break;
-
-        case 'yoruba4':
-        console.log("case == yoruba4")
-        this.decomposedParts = ["", "ering", ""];
-        console.log(this.decomposedParts)
-        break;
-
-        case 'yoruba10':
-        console.log("case == yoruba10")
-        this.decomposedParts = ["", "ewa", ""];
-        console.log(this.decomposedParts)
-        break;
-
-        case 'yoruba16':
-        console.log("case == yoruba16")
-        this.decomposedParts = ["ering", "dil", "ogung"];
-        console.log(this.decomposedParts)
-        break;
-
-        case 'yoruba20':
-        console.log("case == yoruba20")
-        this.decomposedParts = ["", "ogung", ""];
-        console.log(this.decomposedParts)
-        break;
-
-        default:
-        let.log("Either all parts are assigned or we're in for some bad juju. fr.")
     }
-    }
-
     // Registers the fitting parts to the word. These will be used to display answer blocks
-    this.el.addEventListener('decomp', this.decompStore, {once: true});
-    this.el.addEventListener("click", this.moveWord, {once: true});
-
-
-    // This line of code displays that the sibligns originPositions are correctly stored.
-    // It's also incredibly long and I'd prefer not to type it again.
-    for(let i = 0; i < siblings.length; i++){
-      console.log(i + "-- x:" + siblings[i].getAttribute('puzzle3word').originPosition.x + " y:" + siblings[i].getAttribute('puzzle3word').originPosition.y + "  z:" + siblings[i].getAttribute('puzzle3word').originPosition.z )
-    }
+    this.el.addEventListener('click', this.toggleState);
   },
   update: function(oldData) {
   },
-  tick: function() {},
+  tick: function() {
+  },
   remove: function() {},
   pause: function() {},
   play: function() {}
@@ -163,7 +69,7 @@ AFRAME.registerComponent("puzzle3word", {
 
 AFRAME.registerComponent("puzzle3decomposer", {
   schema:{
-    currentWord: {type: "string"}
+    currentWord: {type: "selector"}
   },
   init: function() {
     var el = this.el;
@@ -174,22 +80,14 @@ AFRAME.registerComponent("puzzle3decomposer", {
     console.log("dePOS x: " + this.decomposerPos.x);
     console.log("dePOS y: " + this.decomposerPos.y);
     console.log("dePOS z:"  + this.decomposerPos.z);
+
+    this.el.addEventListener("click", this.eventHandlerFn, {once: true})
   },
   update: function() {
-
   },
 });
 
 AFRAME.registerComponent("puzzle3container", {
   init: function(){
-    console.log("Puzzle")
-    let siblings = document.querySelectorAll(['puzzle3word']);
-    console.log(siblings.length);
-    for(let i = 0; i < siblings.length; i++){
-      siblingsPosById["id"] = siblings[i].id;
-      siblingsPosById["position"] = siblings[i].getAttribute('position');
-      console.log( "SPBI-- ID: " + siblingsPosById["id"] + " || POS: " +  siblingsPosById["position"])
-
-    }
   }
 });
