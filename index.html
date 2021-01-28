@@ -1,9 +1,152 @@
 <!DOCTYPE html>
 <html>
-<head>
-<title>Hello Git</title>
-</head>
-<body>
-<h1>Hallo als dit werkt dan werkt de git</h1>
-</body>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Individuele Opdracht 2</title>
+    <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+    <script  src="js/main.js"></script>
+    <script src="js/components.js"></script>
+  </head>
+  <body>
+    <a-scene>
+        <a-camera id="js--camera" light="type: point; intensity: 1; distance: 100; decay: 1" position="0 2 0" wasd-controls="acceleration:300">
+          <a-entity id="js--cursor"
+            animation__fusing="property: scale; startEvents: fusing; easing: easeInCubic; dur: 1000; from: 1 1 1; to: 0.1 0.1 0.1;"
+            animation__click="property: scale; startEvents: click; easing: easeInCubic; dur: 150; from: 0.1 0.1 0.1; to: 1 1 1;"
+            animation="property: scale; startEvents: mouseleave; easing: easeInCubic; dur: 150; to: 1 1 1;"
+            cursor = "fuse: true; fuseTimeout: 1000"
+            material = "color: #7a7a7a; shader: flat"
+            geometry = "primitive: ring; radiusInner: 0.007; radiusOuter: 0.01"
+            position = "0 0 -0.5"
+            raycaster = "objects: .js--interact"
+          ></a-entity>
+        </a-camera>
+
+
+
+        <!-- VOORBEELDKEYS  -->
+        <a-box class="js--interact" book slotPos="0" position="6 2 3.5" width="0.5" height="0.8" depth="0.2" color="red"></a-box>
+        <a-box class="js--interact" book slotPos="1" position="6 2 4.5" width="0.5" height="0.8" depth="0.2" color="purple"></a-box>
+        <a-box class="js--interact" book slotPos="2" position="6 2 5.5" width="0.5" height="0.8" depth="0.2" color="yellow"></a-box>
+        <a-box class="js--interact" book slotPos="3" position="6 2 6.5" width="0.5" height="0.8" depth="0.2" color="blue"></a-box>
+        <a-box class="js--interact" book slotPos="4" position="6 2 7.5" width="0.5" height="0.8" depth="0.2" color="green"></a-box>
+
+
+        <a-box height="5" width="10" depth="1" color="brown" position="5 2 0">
+          <a-entity class="js--puzzle5slot" position="-3 0 0.5" geometry="primitive: box; height: 2.5; width: 1.25; depth: 0.25;" material="color: black">
+            <a-image schriftslot class="js--interact" slotPos="0" src="img/slot-1.png" height="0.8" width="0.5" depth="0.2" position="0 0.7 0.14">
+
+            </a-image>
+            <a-circle class="js--colorselect" position="0 -0.4 0.126" radius="0.5" color="#121212">
+              <a-circle class="js--interact js--correctcolor" opacity="0.3" color="red" position="0 0.35 0.01" radius="0.1">
+
+              </a-circle>
+              <a-circle class="js--interact" opacity="0.3" color="purple" position="0.35 0.05 0.01" radius="0.1">
+
+              </a-circle>
+              <a-circle class="js--interact" opacity="0.3" color="yellow" position="-0.35 0.05 0.01" radius="0.1">
+
+              </a-circle>
+              <a-circle class="js--interact" opacity="0.3" color="blue" position="-0.20 -0.30 0.01" radius="0.1">
+
+              </a-circle>
+              <a-circle class="js--interact" opacity="0.3" color="green" position="0.20 -0.30 0.01" radius="0.1">
+
+              </a-circle>
+            </a-circle>
+          </a-entity>
+          <a-entity class="js--puzzle5slot" position="-1.5 0 0.5" geometry="primitive: box; height: 2.5; width: 1.25; depth: 0.25;" material="color: black">
+            <a-image schriftslot slotPos="1" class="js--interact" src="img/slot-2.png" height="0.8" width="0.5" depth="0.2" position="0 0.7 0.14">
+
+            </a-image>
+            <a-circle class="js--colorselect" position="0 -0.4 0.126" radius="0.5" color="#121212">
+              <a-circle class="js--interact" opacity="0.3" color="red" position="0 0.35 0.01" radius="0.1">
+
+              </a-circle>
+              <a-circle class="js--correctcolor js--interact" opacity="0.3" color="purple" position="0.35 0.05 0.01" radius="0.1">
+
+              </a-circle>
+              <a-circle class="js--interact" opacity="0.3" color="yellow" position="-0.35 0.05 0.01" radius="0.1">
+
+              </a-circle>
+              <a-circle class="js--interact" opacity="0.3" color="blue" position="-0.20 -0.30 0.01" radius="0.1">
+
+              </a-circle>
+              <a-circle class="js--interact" opacity="0.3" color="green" position="0.20 -0.30 0.01" radius="0.1">
+
+              </a-circle>
+            </a-circle>
+          </a-entity>
+          <a-entity class="js--puzzle5slot" class="js--puzzle5slot" position="0 0 0.5" geometry="primitive: box; height: 2.5; width: 1.25; depth: 0.25;" material="color: black">
+            <a-image schriftslot slotPos="2" class="js--interact" src="img/slot-3.png" height="0.8" width="0.5" depth="0.2" position="0 0.7 0.14">
+
+            </a-image>
+            <a-circle class="js--colorselect" position="0 -0.4 0.126" radius="0.5" color="#121212">
+              <a-circle class="js--interact" opacity="0.3" color="red" position="0 0.35 0.01" radius="0.1">
+
+              </a-circle>
+              <a-circle class="js--interact" opacity="0.3" color="purple" position="0.35 0.05 0.01" radius="0.1">
+
+              </a-circle>
+              <a-circle class="js--correctcolor js--interact" opacity="0.3" color="yellow" position="-0.35 0.05 0.01" radius="0.1">
+
+              </a-circle>
+              <a-circle class="js--interact" opacity="0.3" color="blue" position="-0.20 -0.30 0.01" radius="0.1">
+
+              </a-circle>
+              <a-circle class="js--interact" opacity="0.3" color="green" position="0.20 -0.30 0.01" radius="0.1">
+
+              </a-circle>
+            </a-circle>
+          </a-entity>
+          <a-entity class="js--puzzle5slot" class="js--puzzle5slot" position="1.5 0 0.5" geometry="primitive: box; height: 2.5; width: 1.25; depth: 0.25;" material="color: black">
+            <a-image schriftslot slotPos="3" class="js--interact" src="img/slot-4.png" height="0.8" width="0.5" depth="0.2" position="0 0.7 0.14">
+
+            </a-image>
+            <a-circle class="js--colorselect" position="0 -0.4 0.126" radius="0.5" color="#121212">
+              <a-circle class="js--interact" opacity="0.3" color="red" position="0 0.35 0.01" radius="0.1">
+
+              </a-circle>
+              <a-circle class="js--interact" opacity="0.3" color="purple" position="0.35 0.05 0.01" radius="0.1">
+
+              </a-circle>
+              <a-circle class="js--interact" opacity="0.3" color="yellow" position="-0.35 0.05 0.01" radius="0.1">
+
+              </a-circle>
+              <a-circle class="js--correctcolor js--interact" opacity="0.3" color="blue" position="-0.20 -0.30 0.01" radius="0.1">
+
+              </a-circle>
+              <a-circle class="js--interact" opacity="0.3" color="green" position="0.20 -0.30 0.01" radius="0.1">
+
+              </a-circle>
+            </a-circle>
+          </a-entity>
+          <a-entity class="js--puzzle5slot" class="js--puzzle5slot" position="3 0 0.5" geometry="primitive: box; height: 2.5; width: 1.25; depth: 0.25;" material="color: black">
+            <a-image schriftslot slotPos="4" class="js--interact" src="img/slot-4.png" height="0.8" width="0.5" depth="0.2" position="0 0.7 0.14">
+
+            </a-image>
+            <a-circle class="js--colorselect" position="0 -0.4 0.126" radius="0.5" color="#121212">
+              <a-circle class="js--interact" opacity="0.3" color="red" position="0 0.35 0.01" radius="0.1">
+
+              </a-circle>
+              <a-circle class="js--interact" opacity="0.3" color="purple" position="0.35 0.05 0.01" radius="0.1">
+
+              </a-circle>
+              <a-circle class="js--interact" opacity="0.3" color="yellow" position="-0.35 0.05 0.01" radius="0.1">
+
+              </a-circle>
+              <a-circle class="js--interact" opacity="0.3" color="blue" position="-0.20 -0.30 0.01" radius="0.1">
+
+              </a-circle>
+              <a-circle class="js--correctcolor js--interact" opacity="0.3" color="green" position="0.20 -0.30 0.01" radius="0.1">
+
+              </a-circle>
+            </a-circle>
+          </a-entity>
+        </a-box>
+    </a-scene>
+
+  </body>
 </html>
