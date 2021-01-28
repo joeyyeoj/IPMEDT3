@@ -107,3 +107,79 @@ AFRAME.registerComponent("puzzle3wordpartner", {
     for(let i = 0; i < siblings.length; i++){
       console.log("sibling test: " + i + "-- x:" + siblings[i].getAttribute('puzzle3word').originPosition.x + " y:" + siblings[i].getAttribute('puzzle3word').originPosition.y + "  z:" + siblings[i].getAttribute('puzzle3word').originPosition.z )
     // }
+
+    this.replaceBlock = function () {
+      // Fill in default values before
+      var topBox = document.createElement('a-box');
+      var topTextBox = document.createElement('a-text');
+      if (this.id !== "this")
+      // let decompOutput3 = document.createElement('a-box');
+
+      // Prepare the topBox for use
+      topBox.setAttribute("id", "js--topBox");
+      topBox.setAttribute("class", "js--interact")
+      topBox.setAttribute("mixin", "wordblock");
+      // topBox.setAttribute("width", this.getAttribute("width"));
+      // topBox.setAttribute("depth", this.getAttribute("depth"));
+      topBox.setAttribute("position", {x: DECOMP_POS.x, y:DECOMP_POS.y, z: 1});
+      topBox.setAttribute("color", "#275");
+
+
+      // Prepare the text boxes for use
+      topTextBox.setAttribute("align", "center");
+      topTextBox.setAttribute("width", "4");
+      topTextBox.setAttribute("wrap-count", "15");
+      topTextBox.setAttribute("position", {x: 0, y: 0, z: 0.55});
+      var topTextBoxText;
+
+      PARENT_ENTITY.appendChild(topBox);
+      topTextBox.setAttribute("text", topTextBoxText)
+      topBox.setAttribute("id", "yoruba1decomp")
+      topBox.appendChild(topTextBox);
+
+      // Fills in the decompose Output boxes based on
+      switch (this.id) {
+        case 'yoruba1':
+        console.log("case == yoruba1")
+        topTextBoxText = document.getElementById('yoruba1text').getAttribute("text")
+
+
+        console.log(this.decomposedParts)
+        // Place finished entities into the parent node
+
+        // Remove the orignal node
+        self.el.remove();
+        break;
+
+        case 'yoruba3':
+        console.log("case == yoruba3")
+        this.decomposedParts = ["eta"];
+        // Remove the orignal node
+        self.el.remove();
+        break;
+
+        case 'yoruba4':
+        console.log("case == yoruba4")
+        this.decomposedParts = ["ering"];
+
+        break;
+
+        case 'yoruba10':
+        console.log("case == yoruba10")
+        this.decomposedParts = ["ewa"];
+        break;
+
+        case 'yoruba16':
+        console.log("case == yoruba16")
+        this.decomposedParts = ["ering", "dil", "ogung"];
+        break;
+
+        case 'yoruba20':
+        console.log("case == yoruba20")
+        this.decomposedParts = ["ogung"];
+        break;
+
+        default:
+        let.log("Switch case: No matching ID found.")
+    }
+    }
