@@ -4,8 +4,8 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-compatible" content="ie=edge">
-  <!-- <script src="https://aframe.io/releases/1.1.0/aframe.min.js"></script> -->
-  <script src="js/aframe.min.js" type="text/javascript"></script>
+  <script src="https://aframe.io/releases/1.1.0/aframe.min.js"></script>
+  <!-- <script src="js/aframe.min.js" type="text/javascript"></script> -->
   <script src="js/components.js" type='text/javascript'></script>
   <script src="js/main.js" type='text/javascript'></script>
   <title>Puzzel 3</title>
@@ -14,7 +14,7 @@
   <a-scene>
     <a-assets>
       <a-mixin id="close" position="0 0 0.55"></a-mixin>
-      <a-mixin id="textblock" text="width: 4; wrap-count: 15; align: center" ></a-mixin>
+      <a-mixin id="textblock" text="width: 4; wrap-count: 15; align: center; z-offset: 0.4;" ></a-mixin>
       <a-mixin id="wordbase" geometry="height:2; width:3;  depth:0.2;"></a-mixin>
       <a-mixin id="wordblock" geometry="height: 2; width: 3; depth: 1" text=""></a-mixin>
       <a-mixin id="blue" material="color: #369"></a-mixin>
@@ -46,7 +46,7 @@
   <!-- Small entity with no geometry, which contains the entire puzzle-->
   <a-entity id="puzzle3" position="0 1 -15">
     <!-- Labels per area -->
-    <a-plane position="0 5.5 0.5" height="2" width="10" side="double" text="value: Hoe zeg je 17 in Yoruba?; width: 10; align: center; color: white;" color="#333"></a-plane>
+    <a-plane mixin="textblock" position="0 6 0.5" height="3" width="10" side="double" text="value: Hoe zeg je 17 in het Yoruba?; width: 10; wrap-count: 15; align: center; color: white;" color="#333"></a-plane>
     <!-- The 'wall' containing all interactive entities. -->
      <a-box id="js--puzzle3parent" puzzle3container position="0 0 0" height="10" width="40" depth="0.2" color="#333">
     <!-- Area A: Contains all puzzle blocks -->
@@ -101,15 +101,15 @@
         <a-plane position="14 3 0.5" height="2" width="10" side="double" text="value: Ontleed de woorden door ze links aan te klikken, in het midden op de juiste volgorde rechts te plaatsen? \n\n Hoe tellen ze in het Yoruba?; width: 10; align: center; color: white;" color="#333"></a-plane>
 
       <a-box puzzle3answerblock id="js--answerSlot1" class="js--answerSlot " position="10 -1 1" mixin="midgray wordblock">
-        <a-text puzzle3AnswerText class="js--interact js--answerSlotText" mixin="midgray textblock close" geometry="primitive: plane; height: 2; width: 3;" value=""></a-text>
+        <a-text puzzle3AnswerText class=" js--answerSlotText" mixin="midgray textblock close" geometry="primitive: plane; height: 2; width: 3;" value=""></a-text>
       </a-box>
 
       <a-box puzzle3answerblock id="js--answerSlot2" class="js--answerSlot " position="14 -1 1" mixin="midgray wordblock">
-        <a-text puzzle3AnswerText class="js--interact js--answerSlotText" mixin="midgray textblock close" geometry="primitive: plane; height: 2; width: 3;" value=""></a-text>
+        <a-text puzzle3AnswerText class=" js--answerSlotText" mixin="midgray textblock close" geometry="primitive: plane; height: 2; width: 3;" value=""></a-text>
       </a-box>
 
       <a-box puzzle3answerblock id="js--answerSlot3" class="js--answerSlot " position="18 -1 1" mixin="midgray wordblock">
-        <a-text puzzle3AnswerText class="js--interact js--answerSlotText" mixin="midgray textblock close" geometry="primitive: plane; height: 2; width: 3;" value=""></a-text>
+        <a-text  puzzle3AnswerText class="js--answerSlotText" mixin="midgray textblock close" geometry="primitive: plane; height: 2; width: 3;" value=""></a-text>
       </a-box>
   </a-entity>
 

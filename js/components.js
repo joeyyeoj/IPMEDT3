@@ -54,7 +54,7 @@ AFRAME.registerComponent("puzzle3wordblock", {
 
       if (data.state === "inactive") {
         console.log(el.getAttribute("puzzle3wordblock").element)
-        this.flushToDom;
+
 
         this.setAttribute("opacity", "0.5")
         this.setAttribute("state", "active");
@@ -91,7 +91,7 @@ AFRAME.registerComponent("puzzle3decompinput", {
     this.el.addEventListener("click", this.reset)
   },
   update: function() {
-  },
+  }
 });
 
 AFRAME.registerComponent("puzzle3decompoutputtext", {
@@ -127,7 +127,7 @@ AFRAME.registerComponent("puzzle3answertext", {
     this.removeWord = function () {
       const answerText = document.getElementsByClassName("js--answerSlotText");
       for(let i = 0; i < answerText; i++){
-        answer.getAttribute("value", "")
+        answerText.getAttribute("value", "")
       }
       console.log("")
 
