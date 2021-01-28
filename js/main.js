@@ -86,7 +86,6 @@ function checkAnswer(){
   let correctAnswers = 0;
 
   for(let i = 0; i < answerSlotsText.length; i++){
-    console.log(answerSlotsText[i].getAttribute("value"));
     if (answerSlotsText[i].getAttribute("value") === correctInput[i]){
       correctAnswers++;
       console.log(i + ": correct")
