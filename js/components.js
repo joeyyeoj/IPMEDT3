@@ -5,7 +5,7 @@ window.onload = () => {
 AFRAME.registerComponent("teleportplace", {
   init: function() {
     this.teleportPlayer = function() {
-      console.log("Teleporting Player");
+
 
       const camera = document.getElementById("js--camera");
       // Get position of Object relative to the world (Instead of relative to parents) => new Position
@@ -53,8 +53,7 @@ AFRAME.registerComponent("puzzle3wordblock", {
       resetWordBlocks();
 
       if (data.state === "inactive") {
-        console.log(el.getAttribute("puzzle3wordblock").element)
-
+        this.flushToDom;
 
         this.setAttribute("opacity", "0.5")
         this.setAttribute("state", "active");
@@ -91,7 +90,7 @@ AFRAME.registerComponent("puzzle3decompinput", {
     this.el.addEventListener("click", this.reset)
   },
   update: function() {
-  }
+  },
 });
 
 AFRAME.registerComponent("puzzle3decompoutputtext", {
@@ -129,7 +128,7 @@ AFRAME.registerComponent("puzzle3answertext", {
       for(let i = 0; i < answerText; i++){
         answerText.getAttribute("value", "")
       }
-      console.log("")
+
 
     }
 

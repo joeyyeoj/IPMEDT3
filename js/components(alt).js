@@ -183,3 +183,18 @@ AFRAME.registerComponent("puzzle3wordpartner", {
         let.log("Switch case: No matching ID found.")
     }
     }
+
+
+    function giveBook(){
+      let book = document.createElement('a-box');
+      book.setAttribute("geometry", {
+        height: 2,
+        width: 4,
+        depth: 0.1
+      })
+      book.setAttribute("material", "color", "#555");
+      book.setAttribute("position",{x: 10, y: 2, z: -3});
+      const puzzleContainer = document.getElementById('js--puzzle3container');
+      puzzleContainer.appendChild(book);
+
+    }

@@ -81,9 +81,6 @@ function checkAnswer(){
   const red = "#958";
   const green = "#262";
   const midgray = "#555";
-
-
-  console.log("checkAnswer Ran")
   const correctInput = ["eta", "dil", "ogung"];
   const answerSlotsText = document.getElementsByClassName("js--answerSlotText");
   let correctAnswers = 0;
