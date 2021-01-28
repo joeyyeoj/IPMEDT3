@@ -16,6 +16,31 @@ window.onload = () =>{
   const answerbuttons = document.getElementsByClassName("js--answerbutton");
   let solved = false;
 
+  const colorselect = document.getElementsByClassName("js--colorselect");
+    for(let i=0; i<colorselect.length; i++){
+      for(let y=1; y<colorselect[i].childNodes.length; y+=2){
+        colorselect[i].childNodes[y].addEventListener("click", function(){
+          if(!endOpgelost){
+            colorselect[i].childNodes[y].setAttribute("opacity", "1");
+            colorselect[i].childNodes[y].classList.add("js--activeColor")
+            if(colorselect[i].childNodes[y].classList.contains("js--activeColor") && colorselect[i].childNodes[y].classList.contains("js--correctcolor")){
+              endpuzzleColors[i] = true;
+              checkEnd();
+            }
+            else{
+              endpuzzleColors[i] = false;
+            }
+            for(let x=1; x<colorselect[i].childNodes.length; x+=2){
+              if(x!=y){
+                colorselect[i].childNodes[x].setAttribute("opacity", "0.3")
+                colorselect[i].childNodes[x].classList.remove("js--activeColor")
+              }
+            }
+          }
+        })
+      }
+  }
+
   for(let i=0; i<answerbuttons.length; i++){
     answerbuttons[i].addEventListener("click", function(){
       if(!solved){
@@ -136,6 +161,7 @@ window.onload = () =>{
       }
     })
   }
+
 }
 
 // ========== General Functions ==========
