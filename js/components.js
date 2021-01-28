@@ -90,6 +90,43 @@ AFRAME.registerComponent("puzzle4word", {
   play: function() {}
 });
 
+AFRAME.registerComponent("puzzle3wordblock", {
+  schema: {
+    number: {type: "array"},
+    element: {type: "array"},
+    state: {type: 'string', default: "inactive"},
+    ogPos: {type: 'vec3'}
+  },
+  init: function() {
+    // Constant positions of the destination blocks
+    var self = this;
+    var el = this.el;
+    var data = this.data;
+
+    var siblings = document.querySelectorAll(['puzzle3wordblock']);
+
+    this.toggleState = function () {
+      resetWordBlocks();
+
+      if (data.state === "inactive") {
+        this.flushToDom;
+
+        this.setAttribute("opacity", "0.5")
+        this.setAttribute("state", "active");
+
+        updateSplitter(el);
+      }
+    }
+    // Registers the fitting parts to the word. These will be used to display answer blocks
+    this.el.addEventListener('click', this.toggleState);
+  },
+  update: function() {},
+  tick: function() {},
+  remove: function() {},
+  pause: function() {},
+  play: function() {}
+});
+
 AFRAME.registerComponent("puzzle4buttonset", {
   init: function() {
     // Toggle state of LineSet
@@ -113,6 +150,81 @@ AFRAME.registerComponent("puzzle4buttonset", {
 
     // Click => Switch Colors
     this.el.addEventListener("mouseenter", this.toggleButtonSet);
+  },
+  update: function() {},
+  tick: function() {},
+  remove: function() {},
+  pause: function() {},
+  play: function() {}
+});
+
+
+AFRAME.registerComponent("puzzle3decompinput", {
+  schema:{
+    currentWord: {type: "selector"}
+  },
+  init: function() {
+    var el = this.el;
+    var data = this.data;
+    var self = this;
+
+    this.reset = function () {
+      resetWordBlocks();
+
+    }
+
+    this.el.addEventListener("click", this.reset)
+  },
+  update: function() {},
+  tick: function() {},
+  remove: function() {},
+  pause: function() {},
+  play: function() {}
+});
+
+AFRAME.registerComponent("puzzle3decompoutputtext", {
+  schema:{
+    currentWord: {type: "selector"}
+  },
+  init: function() {
+    var el = this.el;
+    var data = this.data;
+    var self = this;
+
+    this.activateBlock = function () {
+      placeAnswerText(el);
+      el.setAttribute("value", "")
+
+    }
+
+    this.el.addEventListener("click", this.activateBlock)
+  },
+  update: function() {},
+  tick: function() {},
+  remove: function() {},
+  pause: function() {},
+  play: function() {}
+});
+
+AFRAME.registerComponent("puzzle3answertext", {
+  schema:{
+    currentWord: {type: "selector"}
+  },
+  init: function() {
+    var el = this.el;
+    var data = this.data;
+    var self = this;
+
+    this.removeWord = function () {
+      const answerText = document.getElementsByClassName("js--answerSlotText");
+      for(let i = 0; i < answerText; i++){
+        answerText.getAttribute("value", "")
+      }
+
+
+    }
+
+    this.el.addEventListener("click", this.removeWord)
   },
   update: function() {},
   tick: function() {},
