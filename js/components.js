@@ -29,30 +29,31 @@ AFRAME.registerComponent("teleportplace", {
 AFRAME.registerComponent("puzzle4word", {
   init: function() {
     // Play Sound of hovered word
-    this.playAudio = function() {
-      console.log("Playing Audio");
+    this.playTotemAudio = function() {
+      console.log("Playing Audio and flashing totem's eyes");
 
-      // Play the Sound of the Component
-      this.components.sound.playSound();
-
+      const totem = document.getElementById("js--totem");
       const toneHigh = document.getElementsByClassName("js--toneHigh");
       const toneLow = document.getElementsByClassName("js--toneLow");
 
-      // Check which word is being played
+      // Check which word is being played --> Play that word from the totem and flash eyes accordingly
       switch (this.getAttribute("value")) {
         case "mali":
+          playSound(totem, "mali.mp3");
           setColorTimeout(toneHigh[0], 600, 200);
           setColorTimeout(toneHigh[1], 600, 200);
           setColorTimeout(toneLow[0], 800, 200);
           setColorTimeout(toneLow[1], 800, 200);
           break;
         case "buku":
+          playSound(totem, "buku.mp3");
           setColorTimeout(toneHigh[0], 600, 50);
           setColorTimeout(toneHigh[1], 600, 50);
           setColorTimeout(toneHigh[0], 700, 50);
           setColorTimeout(toneHigh[1], 700, 50);
           break;
         case "kiyele":
+          playSound(totem, "kiyele.mp3");
           setColorTimeout(toneLow[0], 700, 100);
           setColorTimeout(toneLow[1], 700, 100);
           setColorTimeout(toneHigh[0], 900, 50);
@@ -62,7 +63,7 @@ AFRAME.registerComponent("puzzle4word", {
       }
     }
     // Click => Play Audio
-    this.el.addEventListener("click", this.playAudio);
+    this.el.addEventListener("click", this.playTotemAudio);
   },
   update: function() {},
   tick: function() {},

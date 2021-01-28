@@ -15,24 +15,6 @@ window.onload = () =>{
   const answerbuttons = document.getElementsByClassName("js--answerbutton");
   let solved = false;
 
-  // General Functions
-  this.setColor = function(object, color) {
-    object.setAttribute("color", color);
-  }
-
-  this.setColorTimeout = function(object, startTime, duration) {
-    let endTime = startTime + duration;
-    console.log("Object will change in " + startTime + "ms for " + endTime + "ms");
-    setTimeout(function(){
-      setColor(object, "green")
-      ;}, startTime);
-    setTimeout(function(){
-      setColor(object, "white")
-      ;}, endTime);
-  }
-
-
-
   for(let i=0; i<answerbuttons.length; i++){
     answerbuttons[i].addEventListener("click", function(){
       if(!solved){
@@ -152,6 +134,32 @@ window.onload = () =>{
       }
     })
   }
+}
+
+// ========== General Functions ==========
+// Change color of given Object
+function setColor(object, color) {
+  object.setAttribute("color", color);
+}
+
+// Change color of given Object with a delay; for a given amount of time
+function setColorTimeout(object, startTime, duration) {
+  let endTime = startTime + duration;
+  console.log("Object will change in " + startTime + "ms for " + endTime + "ms");
+  setTimeout(function(){
+    setColor(object, "green")
+    ;}, startTime);
+  setTimeout(function(){
+    setColor(object, "white")
+    ;}, endTime);
+}
+
+// Play a sound from the given object
+function playSound(object, audioFile) {
+  console.log("Play audio on " + object.el + " with the filename " + audioFile);
+  object.setAttribute("sound", "src: #" + audioFile);
+
+  object.components.sound.playSound();
 }
 
 function checkPuzzle4() {

@@ -10,9 +10,9 @@
   <body>
     <a-scene id="js--scene">
       <a-assets>
-        <audio id="mali" src="/audio/mali.mp3" preload="auto"></audio>
-        <audio id="buku" src="/audio/buku.mp3" preload="auto"></audio>
-        <audio id="kiyele" src="/audio/kiyele.mp3" preload="auto"></audio>
+        <audio id="mali.mp3" src="/audio/mali.mp3" preload="auto"></audio>
+        <audio id="buku.mp3" src="/audio/buku.mp3" preload="auto"></audio>
+        <audio id="kiyele.mp3" src="/audio/kiyele.mp3" preload="auto"></audio>
 
         <a-asset id="totem-mtl" src="/obj/totem.mtl"></a-asset>
         <a-asset id="totem-obj" src="/obj/totem.obj"></a-asset>
@@ -363,14 +363,14 @@
 
               <a-box id="js--puzzle4Book" position="0 .5 -2" color="green" visible=false> </a-box>
 
-              <a-obj-model src="#totem-obj" mtl="#totem-mtl" scale=".35 .35 .35" position="0 0 -5" rotation="0 -90 0">
+              <a-obj-model id="js--totem" src="#totem-obj" mtl="#totem-mtl" scale=".35 .35 .35" position="0 0 -5" rotation="0 -90 0">
                 <a-sphere class="js--toneHigh" position=".9 5.85 .3" rotation="0 -10 0" radius=".1" scale="1 1.1 2" color="white"></a-sphere>
                 <a-sphere class="js--toneHigh" position=".9 5.85 -.3" rotation="0 10 0" radius=".1" scale="1 1.1 2" color="white"></a-sphere>
                 <a-sphere class="js--toneLow" position="1.15 2.15 .65" rotation="0 -20 0" radius=".17" scale="1 1.1 2" color="white"></a-sphere>
                 <a-sphere class="js--toneLow" position="1.15 2.15 -.65" rotation="0 20 0" radius=".17" scale="1 1.1 2" color="white"></a-sphere>
               </a-obj-model>
 
-              <a-text puzzle4word class="js--interact" geometry="primitive:plane; height: .3; width:1;" material="color: #fa4646" scale="3 3 3" position="-4 2 -8" value="mali" sound="src: #mali" color="black" align="center" letter-spacing="20px">
+              <a-text puzzle4word class="js--interact" geometry="primitive:plane; height: .3; width:1;" material="color: #fa4646" scale="3 3 3" position="-4 2 -8" value="mali" color="black" align="center" letter-spacing="20px">
                 <a-entity puzzle4buttonset class="js--buttonset js--interact" state="up" position="0 0 0">
                   <a-triangle class="js--interact" scale=".25 .25 .25" position="0 .3 0" color="green"></a-triangle>
                   <a-triangle class="js--interact" scale=".25 .25 .25" position="0 -.3 0" rotation="0 0 180" color="black"></a-triangle>
@@ -380,7 +380,7 @@
                   <a-triangle class="js--interact" scale=".25 .25 .25" position="0 -.3 0" rotation="0 0 180" color="black"></a-triangle>
                 </a-entity>
               </a-text>
-              <a-text puzzle4word class="js--interact" geometry="primitive:plane; height: .3; width:1;" material="color: #fa4646" scale="3 3 3" position="0 3.6 -8" value="buku" sound="src: #buku" color="black" align="center" letter-spacing="20px">
+              <a-text puzzle4word class="js--interact" geometry="primitive:plane; height: .3; width:1;" material="color: #fa4646" scale="3 3 3" position="0 3.6 -8" value="buku" color="black" align="center" letter-spacing="20px">
                 <a-entity puzzle4buttonset class="js--buttonset js--interact" state="up" position="-.1 0 0">
                   <a-triangle class="js--interact" scale=".25 .25 .25" position="0 .3 0" color="green"></a-triangle>
                   <a-triangle class="js--interact" scale=".25 .25 .25" position="0 -.3 0" rotation="0 0 180" color="black"></a-triangle>
@@ -390,7 +390,7 @@
                   <a-triangle class="js--interact" scale=".25 .25 .25" position="0 -.3 0" rotation="0 0 180" color="black"></a-triangle>
                 </a-entity>
               </a-text>
-              <a-text puzzle4word class="js--interact" geometry="primitive:plane; height: .3; width:1.3;" material="color: #fa4646" scale="3 3 3" position="4 2 -8" value="kiyele" sound="src: #kiyele" color="black" align="center" letter-spacing="20px">
+              <a-text puzzle4word class="js--interact" geometry="primitive:plane; height: .3; width:1.3;" material="color: #fa4646" scale="3 3 3" position="4 2 -8" value="kiyele" color="black" align="center" letter-spacing="20px">
                 <a-entity puzzle4buttonset class="js--buttonset js--interact" state="up" position="-.3 0 0">
                   <a-triangle class="js--interact" scale=".25 .25 .25" position="0 .3 0" color="green"></a-triangle>
                   <a-triangle class="js--interact" scale=".25 .25 .25" position="0 -.3 0" rotation="0 0 180" color="black"></a-triangle>
