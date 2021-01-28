@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-compatible" content="ie=edge">
-  <script src="https://aframe.io/releases/1.1.0/aframe.min.js"></script>
+  <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
   <!-- <script src="js/aframe.min.js" type="text/javascript"></script> -->
   <script src="js/components.js" type='text/javascript'></script>
   <script src="js/main.js" type='text/javascript'></script>
@@ -21,6 +21,18 @@
       <a-mixin id="lightgray" material="color: #eef"></a-mixin>
       <a-mixin id="red" material="color: #958"></a-mixin>
       <a-mixin id="midgray" material="color: #555"></a-mixin>
+
+
+      <a-asset-item id="book1-obj" src="obj/book1_red_arabic.obj"></a-asset-item>
+      <a-asset-item id="book1-mtl" src="obj/book1_red_arabic.mtl"></a-asset-item>
+      <a-asset-item id="book2-obj" src="obj/book2_purple_hieroglyph.obj"></a-asset-item>
+      <a-asset-item id="book2-mtl" src="obj/book2_purple_hieroglyph.mtl"></a-asset-item>
+      <a-asset-item id="book3-obj" src="obj/book3_yellow_berber.obj"></a-asset-item>
+      <a-asset-item id="book3-mtl" src="obj/book3_yellow_berber.mtl"></a-asset-item>
+      <a-asset-item id="book4-obj" src="obj/book4_blue_vai.obj"></a-asset-item>
+      <a-asset-item id="book4-mtl" src="obj/book4_blue_vai.mtl"></a-asset-item>
+      <a-asset-item id="book5-obj" src="obj/book5_green_geez.obj"></a-asset-item>
+      <a-asset-item id="book5-mtl" src="obj/book5_green_geez.mtl"></a-asset-item>
     </a-assets>
 
     <!-- Camera with fuse entity and raycaster limited to .js--interact -->
@@ -35,6 +47,12 @@
       position = "0 0 -0.5"
       raycaster = "objects: .js--interact"
       ></a-entity>
+      <a-obj-model src="#book1-obj" mtl="#book1-mtl" position="0 0 -2" rotation="50 0 0"></a-obj-model>
+      <a-obj-model src="#book2-obj" mtl="#book2-mtl" position="0.5 0 -2" rotation="50 0 0"></a-obj-model>
+      <a-obj-model src="#book3-obj" mtl="#book3-mtl" position="1  0 -2" rotation="50 0 0"></a-obj-model>
+      <a-obj-model src="#book4-obj" mtl="#book4-mtl" position="-1.85 1 -2" rotation="69 0 0"></a-obj-model>
+      <a-obj-model src="#book5-obj" mtl="#book5-mtl" position="-1.35 1 -2" rotation="69 0 0"></a-obj-model>
+
     </a-camera>
 
     <!-- Destination pads -->
