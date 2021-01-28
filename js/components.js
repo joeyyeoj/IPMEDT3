@@ -29,16 +29,16 @@ AFRAME.registerComponent("book", {
     this.el.addEventListener("click", this.pickup)
   },
   tick: function(){
-
+    // leeg
   },
   remove: function(){
-
+    // leeg
   },
   pause: function(){
-
+    // leeg
   },
   play: function(){
-
+    // leeg
   }
 });
 
@@ -76,18 +76,18 @@ AFRAME.registerComponent("schriftslot", {
 
   },
   update: function(){
-
+    // leeg
   },
   tick: function(){
-
+    // leeg
   },
   remove: function(){
-
+    // leeg
   },
   pause: function(){
-
+    // leeg
   },
   play: function(){
-
+    // leeg
   }
 })
