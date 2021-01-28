@@ -310,7 +310,7 @@ function checkAnswer(){
   }else{
     for(let i = 0; i < answerSlotsText.length; i++){
 
-      answerSlotsText[i].setAttribute("value", " ")
+      answerSlotsText[i].setAttribute("value", "")
     }
 
   }
