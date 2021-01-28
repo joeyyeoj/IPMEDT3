@@ -32,6 +32,7 @@ AFRAME.registerComponent("puzzle4word", {
     this.playTotemAudio = function() {
       console.log("Playing Audio and flashing totem's eyes");
 
+      const puzzle4RobotText = document.getElementById("js--puzzel4RobotText");
       const totem = document.getElementById("js--totem");
       const toneHigh = document.getElementsByClassName("js--toneHigh");
       const toneLow = document.getElementsByClassName("js--toneLow");
@@ -60,7 +61,24 @@ AFRAME.registerComponent("puzzle4word", {
           setColorTimeout(toneHigh[1], 900, 50);
           setColorTimeout(toneLow[0], 1050, 50);
           setColorTimeout(toneLow[1], 1050, 50);
+          break;
       }
+
+      let currentDialoogIndex = parseInt(puzzle4RobotText.getAttribute("eventCounter"))
+
+      switch (currentDialoogIndex) {
+        case 0:
+          playDialog(puzzle4RobotText, "Heh.. Huh? Wie zei dat?", "robotwiezeidat.mp3", 1500, 5000);
+          break;
+        case 1:
+          playDialog(puzzle4RobotText, "Kan de totempaal... praten? Heh.", "robotkantotempraten.mp3", 1500, 5000);
+          break;
+      }
+
+      currentDialoogIndex++;
+      puzzle4RobotText.setAttribute("eventCounter", currentDialoogIndex);
+
+
     }
     // Click => Play Audio
     this.el.addEventListener("click", this.playTotemAudio);

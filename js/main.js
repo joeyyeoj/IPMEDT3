@@ -147,19 +147,37 @@ function setColorTimeout(object, startTime, duration) {
   let endTime = startTime + duration;
   console.log("Object will change in " + startTime + "ms for " + endTime + "ms");
   setTimeout(function(){
-    setColor(object, "green")
-    ;}, startTime);
+    setColor(object, "green");
+  }, startTime);
   setTimeout(function(){
-    setColor(object, "white")
-    ;}, endTime);
+    setColor(object, "white");
+    }, endTime);
 }
 
 // Play a sound from the given object
 function playSound(object, audioFile) {
   console.log("Play audio on " + object.el + " with the filename " + audioFile);
-  object.setAttribute("sound", "src: #" + audioFile);
 
+  // Prepare the right audioFile
+  object.setAttribute("sound", "src: #" + audioFile);
+  // Play given audioFile
   object.components.sound.playSound();
+}
+
+// Dialog
+function playDialog(object, value, audioFile, startTime, duration){
+  let endTime = startTime + duration;
+
+  // Change dialogText accordingly
+  setTimeout(function(){
+    playSound(object, audioFile);
+    object.setAttribute("value", value);
+    object.setAttribute("visible", true);
+  }, startTime);
+  setTimeout(function(){
+    object.setAttribute("value", "");
+    object.setAttribute("visible", false);
+    }, endTime);
 }
 
 function checkPuzzle4() {
