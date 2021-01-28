@@ -8,7 +8,8 @@ window.onload = () =>{
   // Puzzle 1
   let hold = false;
   let opgelost = false;
-  resultArray = [false, false, false, false];
+  let resultArray = [false, false, false, false];
+  let occupied = [false, false, false, false]
   let placeCounter = 0;
 
   // Puzzle 2
@@ -79,8 +80,8 @@ window.onload = () =>{
 
   for(let i=0; i<puzzleslots.length; i++){
     puzzleslots[i].addEventListener('click', function(){
-      if(hold){
-
+      if(hold && !occupied[i]){
+        occupied[i] = true
         if(camera.childNodes[3].id){
           if(camera.childNodes[3].getAttribute("color") == "yellow" && i==0){
             resultArray[i] = true
@@ -126,6 +127,7 @@ window.onload = () =>{
             puzzleslots[i].childNodes[1].setAttribute("color", "red")
             setTimeout(function(){
               puzzleslots[i].childNodes[3].remove()
+              occupied[i] = false
               puzzleslots[i].childNodes[1].setAttribute("color", "white")
             }, 500)
           }

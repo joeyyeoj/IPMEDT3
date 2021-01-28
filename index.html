@@ -4,8 +4,8 @@
     <meta charset="utf-8">
     <title> Puzzle Room 4 </title>
     <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
-    <script src="/js/main.js"></script>
-    <script src="/js/components.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/components.js"></script>
   </head>
   <body>
     <a-scene id="js--scene">
@@ -27,20 +27,20 @@
         <a-mixin id="red" material="color: #958"></a-mixin>
         <a-mixin id="midgray" material="color: #555"></a-mixin>
 
-        <a-asset id="totem-mtl" src="/obj/totem.mtl"></a-asset>
-        <a-asset id="totem-obj" src="/obj/totem.obj"></a-asset>
+        <a-asset id="totem-mtl" src="obj/totem.mtl"></a-asset>
+        <a-asset id="totem-obj" src="obj/totem.obj"></a-asset>
 
-        <a-asset id="brickpatternwall" src="/textures/brickpatternwall.jpg"></a-asset>
-        <a-asset id="brickpatternwallcolors" src="/textures/brickpatternwallcolors.jpg"></a-asset>
-        <a-asset id="brickpatternwallmoss" src="/textures/brickpatternwallmoss.jpg"></a-asset>
+        <a-asset id="brickpatternwall" src="textures/brickpatternwall.jpg"></a-asset>
+        <a-asset id="brickpatternwallcolors" src="textures/brickpatternwallcolors.jpg"></a-asset>
+        <a-asset id="brickpatternwallmoss" src="textures/brickpatternwallmoss.jpg"></a-asset>
 
-        <a-asset id="stonewall" src="/textures/stonewall.jpg"></a-asset>
-        <a-asset id="stonewallmoss" src="/textures/stonewallmoss.jpg"></a-asset>
-        <a-asset id="brickwallmoss" src="/textures/brickwallmoss.jpg"></a-asset>
+        <a-asset id="stonewall" src="textures/stonewall.jpg"></a-asset>
+        <a-asset id="stonewallmoss" src="textures/stonewallmoss.jpg"></a-asset>
+        <a-asset id="brickwallmoss" src="textures/brickwallmoss.jpg"></a-asset>
 
-        <a-asset id="stonewallbrick" src="/textures/stonewallbrick.jpg"> </a-asset>
-        <a-asset id="stonewallbrickcolors" src="/textures/stonewallbrickcolors.jpg"></a-asset>
-        <a-asset id="stonewallbrickmoss" src="/textures/stonewallbrickmoss.jpg"></a-asset>
+        <a-asset id="stonewallbrick" src="textures/stonewallbrick.jpg"> </a-asset>
+        <a-asset id="stonewallbrickcolors" src="textures/stonewallbrickcolors.jpg"></a-asset>
+        <a-asset id="stonewallbrickmoss" src="textures/stonewallbrickmoss.jpg"></a-asset>
       </a-assets>
 
       <a-camera id="js--camera" light="type: point; intensity: 1; distance: 100; decay: 1" position="0 2 0" wasd-controls="acceleration:600">
@@ -226,34 +226,34 @@
               <a-cylinder teleportplace class="js--interact" position=".5 0 0" rotation="90 0 0" color="#fa4646" radius=".5" height=".05"></a-cylinder>
               <a-cylinder teleportplace class="js--interact" position="-2 0 0" rotation="90 0 0" color="#fa4646" radius=".5" height=".05"></a-cylinder>
                 <a-plane src="#stonewallbrickcolors" width="7" height="5" position="0 -3.5 2.5" rotation="-90 0 0" material="side: double; repeat: 3.5 2.5">
-                  <a-plane width="3.5" height="0.5" position="1.6 -2.2 0.05" color="white" material="side: double">
+                  <a-plane width="3.5" height="0.5" position="1.6 -1.65 0.05" color="white" material="side: double">
                     <a-text wrap-count="50" color="black" align="left" position="1.55 0 0" rotation="0 0 180" scale="0.5 0.5 0.5" value="In het Kinyarwanda (gesproken in Rwanda) werkt het ook zo.
                      In de zinnen die je hier ziet, staat steeds dezelfde informatiebron vóór het werkwoord, maar welke?
                       De agens, de patiens, de focus of het topic? " position="1.25 0 0"></a-text>
                   </a-plane>
-                  <a-plane width="3.5" height="0.5" position="1.6 -1.55 0.05" color="white" material="side: double">
+                  <a-plane width="3.5" height="0.5" position="1.6 -1.05 0.05" color="white" material="side: double">
                     <a-text wrap-count="50" color="black" align="left" position="1.55 0 0" rotation="0 0 180" scale="0.5 0.5 0.5" value="1a. Umúnyéeshuûri		y-a-gii-ye		kw’	iishuûri
       	                                                                                student	hij-toen-gaan-voltooid	naar school
       	                                                                                ‘De student ging naar school (en niet naar huis).’" position="1.25 0 0"></a-text>
                   </a-plane>
-                  <a-plane width="3.5" height="0.6" position="1.6 -0.95 0.05" color="white" material="side: double">
+                  <a-plane width="3.5" height="0.6" position="1.6 -0.45 0.05" color="white" material="side: double">
                     <a-text wrap-count="50" color="black" position="1.55 0 0" rotation="0 0 180" scale="0.5 0.5 0.5" value="1b. Ishuûri		ry-a-gii-yé-ho		umúnyéeshuûri
       	                                                                                school		hij-toen-gaan-voltooid-locatie	student
       	                                                                                ‘Het is de student die naar school ging.’
       	                                                                                Letterlijk: ‘De school ging de student.’" position="1.25 0 0"></a-text>
                   </a-plane>
-                  <a-plane width="3.5" height="0.6" position="1.6 -0.3 0.05" color="white" material="side: double">
+                  <a-plane width="3.5" height="0.6" position="1.6 0.2 0.05" color="white" material="side: double">
                     <a-text wrap-count="50" color="black" position="1.55 0 0" rotation="0 0 180" scale="0.5 0.5 0.5" value="2. Ikárámu	i-ra-andik-iish-a		úmwáalímu
                                                                                       	   pen		hij-nu-schrijven-met-onvoltooid	leraar
                                                                                     ‘De pen wordt gebruik om mee te schrijven door de leraar’
                                                                                       Letterlijk: ‘De pen schrijft de leraar.’" position="1.25 0 0"></a-text>
                   </a-plane>
-                  <a-plane width="3.5" height="0.6" position="1.6 0.35 0.05" color="white" material="side: double">
+                  <a-plane width="3.5" height="0.6" position="1.6 0.85 0.05" color="white" material="side: double">
                     <a-text wrap-count="50" color="black" position="1.55 0 0" rotation="0 0 180" scale="0.5 0.5 0.5" value="3a. Abáana	nti-ba-nywá		inzogá.
       	                                                                                                                        kinderen	niet-zij-drinken	alcohol
       	                                                                                                                        ‘Kinderen drinken geen alcohol (maar wel water).’" position="1.25 0 0"></a-text>
                   </a-plane>
-                  <a-plane width="3.5" height="0.6" position="1.6 1 0.05" color="white" material="side: double">
+                  <a-plane width="3.5" height="0.6" position="1.6 1.5 0.05" color="white" material="side: double">
                     <a-text wrap-count="50" color="black" position="1.55 0 0" rotation="0 0 180" scale="0.5 0.5 0.5" value="3b. Inzogá	nti-zi-nywá		abáana.
       	                                                                                                                        alcohol	niet-hij-drinken	kinderen
       	                                                                                                                        ‘Het zijn de kinderen die geen alcohol drinken.’
@@ -281,7 +281,7 @@
                 </a-plane>
 
                 <a-plane src="#stonewallbrickcolors" width="7" height="5" position="0 3.5 2.5" rotation="-90 0 0" material="side: double; repeat: 3.5 2.5">
-                  <a-plane width="3" height="2" position="1.5 -1.25 -0.05" color="white" material="side: double">
+                  <a-plane width="3" height="2" position="1.5 0 -0.05" color="white" material="side: double">
                     <a-text color="black" rotation="180 0 0" scale="0.5 0.5 0.5" value="In het Nederlands kun je niet zeggen “de kanarie de kat ving.”
 
                     Dat is raar. We moeten nou eenmaal de woordvolgorde “de kanarie ving de kat” aanhouden.
@@ -295,16 +295,16 @@
                 </a-plane>
 
                 <a-plane src="#stonewallbrickcolors" width="7" height="5" position="3.5 0 2.5" rotation="0 90 -90" material="side: double; repeat: 3.5 2.5">
-                  <a-plane width="3" height="1.5" position="-1.6 -1.5 -0.05" color="white" material="side: double">
+                  <a-plane width="3" height="1.5" position="-1.6 -0.75 -0.05" color="white" material="side: double">
                     <a-text color="black" rotation="180 0 0" scale="0.5 0.5 0.5" value="1) Topic: het topic is vaak de informatie die eerder in het verhaal al is genoemd. Als het topic opnieuw langskomt, weten te toehoorders al dat dit een onderdeel is van het verhaal en gaat de aandacht eerder uit naar een element dat nieuw wordt genoemd. Bijvoorbeeld: ‘maar wat betreft die hond dus, die kreeg een bót van z’n baasje!’ Hierin is de hond dus het topic. " position="-1.25 0 0"></a-text>
                   </a-plane>
-                  <a-plane width="3" height="1.5" position="1.6 -1.5 -0.05" color="white" material="side: double">
+                  <a-plane width="3" height="1.5" position="1.6 -0.75 -0.05" color="white" material="side: double">
                     <a-text color="black" rotation="180 0 0" scale="0.5 0.5 0.5" value="2) Focus: de focus is het element dat nieuw wordt genoemd. Omdat de toehoorders nog niet weten dat dit element onderdeel uitmaakt van het verhaal, komt er extra aandacht op. In het voorbeeld ‘maar wat betreft die hond dus, die kreeg een bót van z’n baasje!’ is het bot de focus. Het kan ook dat de focus extra belangrijk wordt gevonden: ‘het was een bót dat de hond kreeg!’ Er kan ook nadruk op komen om een contrast aan te geven: ‘nee, de jongen ging niet línksaf (maar réchtsaf)!’ " position="-1.25 0 0"></a-text>
                   </a-plane>
-                  <a-plane width="3" height="1.5" position="-1.6 0.25 -0.05" color="white" material="side: double">
+                  <a-plane width="3" height="1.5" position="-1.6 1 -0.05" color="white" material="side: double">
                     <a-text color="black" rotation="180 0 0" scale="0.5 0.5 0.5" value="3) Agens: de agens voert vrijwillig een actie uit: hij loopt, hij rent, hij leest... Belangrijk om te onthouden is dat de agens niet hetzelfde is als het ‘onderwerp’ in het Nederlands. In een Nederlandse lijdende zin, zoals ‘het boek wordt gelezen door de jongen’ is ‘het boek’ het onderwerp (‘Wie of wat wordt gelezen? Het boek’), maar is het boek niet vrijwillig een actie aan het uitvoeren. " position="-1.25 0 0"></a-text>
                   </a-plane>
-                  <a-plane width="3" height="1.5" position="1.6 0.25 -0.05" color="white" material="side: double">
+                  <a-plane width="3" height="1.5" position="1.6 1 -0.05" color="white" material="side: double">
                     <a-text color="black" rotation="180 0 0" scale="0.5 0.5 0.5" value="4) Patiens: de patiens ondergaat de actie van het werkwoord. Bijvoorbeeld in ‘de man leest de brief’ wordt er iets gedaan met ‘de brief.’ Die wordt namelijk gelezen (door de man). De patiens is echter niet exact hetzelfde als het lijdend voorwerp. In de zin ‘het boek wordt gelezen door de jongen’ ondergaat ‘het boek’ de actie van het lezen (en is het dus de patiens), maar is het het onderwerp (‘Wie of wat wordt gelezen? Het boek)! " position="-1.25 0 0"></a-text>
                   </a-plane>
                 </a-plane>
