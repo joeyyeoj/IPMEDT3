@@ -1,19 +1,12 @@
 window.onload = () =>{
-
   const camera = document.getElementById("js--camera");
   const cursor = document.getElementById("js--cursor");
   const scene = document.getElementById("js--scene");
   const puzzleboxes = document.getElementsByClassName("js--puzzlebox");
   const puzzleslots = document.getElementsByClassName("js--puzzleslot");
+  const weatherPlayer = document.getElementById("js--weatherPlayer")
 
-
-
-  //api geluid :D
-  if(getWeather() == "Rain" || getWeather == "Drizzle"){
-  }
-  else{
-
-  }
+  getWeather()
 
   // Puzzle 1
   let hold = false;
