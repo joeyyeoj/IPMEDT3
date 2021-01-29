@@ -16,6 +16,11 @@ window.onload = () =>{
   const answerbuttons = document.getElementsByClassName("js--answerbutton");
   let solved = false;
 
+  // Puzzle 5
+  endpuzzleResultBookSlots = [false, false, false, false, false]
+  endpuzzleColors = [false, false, false, false, false]
+  endOpgelost = false;
+
   const colorselect = document.getElementsByClassName("js--colorselect");
     for(let i=0; i<colorselect.length; i++){
       for(let y=1; y<colorselect[i].childNodes.length; y+=2){
@@ -344,6 +349,13 @@ function checkAnswer(){
   }
 }
 
+function checkEnd(){
+  if(!endpuzzleResultBookSlots.includes(false) && !endpuzzleColors.includes(false)){
+      endOpgelost = true;
+      console.log("opgelost")
+      //code om deur te openen!
+  }
+}
 
 function giveBook(){
   let book = document.createElement('a-box');

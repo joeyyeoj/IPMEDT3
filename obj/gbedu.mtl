@@ -1,0 +1,69 @@
+# Blender MTL File: 'Gbedu Drum.blend'
+# Material Count: 6
+
+newmtl GbeduBand
+Ns 225.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.800000 0.800000 0.800000
+Ks 0.245455 0.245455 0.245455
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Kd C:\\Users\\USER\\Documents\\PBR\\TEXTURES\\Drum Textures\\4K Leather27\\Leather27_col.jpg
+map_Ns C:\\Users\\USER\\Documents\\PBR\\TEXTURES\\Drum Textures\\4K Leather27\\Leather27_rgh.jpg
+
+newmtl GbeduFrame
+Ns 225.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.800000 0.800000 0.800000
+Ks 0.300000 0.300000 0.300000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Kd C:\\Users\\USER\\Documents\\PBR\\TEXTURES\\Drum Textures\\4K Wood36\\Wood36_col.jpg
+
+newmtl GbeduRope
+Ns 225.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.800000 0.800000 0.800000
+Ks 0.195455 0.195455 0.195455
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Kd C:\\Users\\USER\\Documents\\PhotoScan\\Drum\\Textured\\Rope\\4K Rope01\\Albedo.jpg
+
+newmtl GbeduSkin
+Ns 225.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.800000 0.800000 0.800000
+Ks 0.118182 0.118182 0.118182
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Kd C:\\Users\\USER\\Documents\\PhotoScan\\Drum\\Textured\\Skin7\\Albedo.png
+
+newmtl GbeduStick
+Ns 225.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.800000 0.800000 0.800000
+Ks 0.100000 0.100000 0.100000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Kd C:\\Users\\USER\\Documents\\PhotoScan\\Drum\\Textured\\Stick\\Texture2\\Albedo2.png
+map_Ns C:\\Users\\USER\\Documents\\PhotoScan\\Drum\\Textured\\Stick\\Texture2\\Occlussion2.png
+
+newmtl Material
+Ns 225.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.138953 0.142400 0.113670
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
