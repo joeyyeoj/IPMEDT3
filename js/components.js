@@ -33,10 +33,12 @@ AFRAME.registerComponent("puzzle4word", {
     this.playTotemAudio = function() {
       console.log("Playing Audio and flashing totem's eyes");
 
-      const puzzle4RobotText = document.getElementById("js--puzzel4RobotText");
+      const puzzle4RobotText = document.getElementById("js--puzzle4RobotText");
       const totem = document.getElementById("js--totem");
       const toneHigh = document.getElementsByClassName("js--toneHigh");
       const toneLow = document.getElementsByClassName("js--toneLow");
+
+      console.log(puzzle4RobotText);
 
       // Check which word is being played --> Play that word from the totem and flash eyes accordingly
       switch (this.getAttribute("value")) {
@@ -69,10 +71,10 @@ AFRAME.registerComponent("puzzle4word", {
 
       switch (currentDialoogIndex) {
         case 0:
-          playDialog(puzzle4RobotText, "Heh.. Huh? Wie zei dat?", "robotwiezeidat.mp3", 1500, 5000);
+          robotDialog(puzzle4RobotText, "Heh.. Huh? Wie zei dat?", "robotwiezeidat.mp3", 1500, 5000);
           break;
         case 1:
-          playDialog(puzzle4RobotText, "Kan de totempaal... praten? Heh.", "robotkantotempraten.mp3", 1500, 5000);
+          robotDialog(puzzle4RobotText, "Kan de totempaal... praten? Heh.", "robotkantotempraten.mp3", 1500, 5000);
           break;
       }
 
