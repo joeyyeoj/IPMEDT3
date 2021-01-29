@@ -26,6 +26,7 @@ AFRAME.registerComponent("teleportplace", {
   play: function() {}
 });
 
+
 AFRAME.registerComponent("puzzle4word", {
   init: function() {
     // Play Sound of hovered word

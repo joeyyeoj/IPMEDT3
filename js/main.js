@@ -8,6 +8,18 @@ window.onload = () =>{
 
   getWeather()
 
+
+
+
+  //landing
+  const landingRobot = document.getElementById("js--landingRobot");
+  const landingRobotText = document.getElementById("js-landingRobotText");
+
+  landingRobot.addEventListener("loaded", function(){
+    playDialog(landingRobotText.el, "Oh je bent wakker, dat was een harde val door het drijfzand heen.", "robotmoodbeeps.mp3", 0, 500)
+  })
+
+
   // Puzzle 1
   let hold = false;
   let opgelost = false;
