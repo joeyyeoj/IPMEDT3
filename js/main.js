@@ -9,15 +9,12 @@ window.onload = () =>{
   getWeather()
 
 
-
-
   //landing
-  const landingRobot = document.getElementById("js--landingRobot");
-  const landingRobotText = document.getElementById("js-landingRobotText");
+  setTimeout(function(){
+    const landingRobotText = document.getElementById("js--landingRobotText");
+    robotDialog(landingRobotText, "Oh je bent wakker, dat was een harde val door het drijfzand heen.", "robotmoodbeeps.mp3", 0, 15000)
+  }, 5000);
 
-  landingRobot.addEventListener("loaded", function(){
-    playDialog(landingRobotText.el, "Oh je bent wakker, dat was een harde val door het drijfzand heen.", "robotmoodbeeps.mp3", 0, 500)
-  })
 
 
   // Puzzle 1
@@ -155,6 +152,12 @@ window.onload = () =>{
         placeCounter+=1
         if(placeCounter==4 && !resultArray.includes(false)){
           opgelost = true
+          if (opgelost) {
+            // Play Robot Dialog
+            const puzzle1RobotText = document.getElementById("js--puzzle1RobotText");
+            robotDialog(puzzle1RobotText, "*bloost* Ik weet niet zo goed hoe ik hierop moet reageren", "robotmoodbeeps.mp3", 0, 10000);
+          }
+
           for(let i=0; i<puzzleslots.length; i++){
             puzzleslots[i].childNodes[1].setAttribute("color", "#1cfc03")
 
@@ -168,6 +171,11 @@ window.onload = () =>{
         }
         else if(placeCounter==4 && resultArray.includes(false)){
           console.log("Fout")
+
+          const puzzle1RobotText = document.getElementById("js--puzzle1RobotText");
+          // robotDialog(puzzle1RobotText, "Oh! Ik weet het! Ni... Ik ben de rest vergeten...", "robotmoodbeeps.mp3", 0, 10000);
+          robotMotivation(puzzle1RobotText);
+
           for(let i=0; i<puzzleslots.length; i++){
             puzzleslots[i].childNodes[1].setAttribute("color", "red")
             setTimeout(function(){
@@ -182,6 +190,78 @@ window.onload = () =>{
     })
   }
 
+}
+
+// ===== ROBOT SPEECH =====
+function robotMotivation(object){
+  // Random Number to decide a random motivational speech
+  let randomNumber = Math.floor(Math.random() * Math.floor(2));
+
+  // Select a set of an audiofile and the text
+  const selectMotivationAudioFile = ["robotmoodbeeps.mp3", "robotmoodbeeps.mp3"];
+  const selectMotivationText = ["Dit is de eerste motivatie", "Dit is de tweede motivatie"];
+
+  const audioFile = selectMotivationAudioFile[randomNumber];
+  const value = selectMotivationText[randomNumber];
+
+
+  // Change dialogText accordingly
+  setTimeout(function(){
+    playSound(object, audioFile);
+    object.setAttribute("value", value);
+    object.setAttribute("visible", true);
+  }, 0);
+  setTimeout(function(){
+    object.setAttribute("value", "");
+    object.setAttribute("visible", false);
+  }, 8000);
+}
+
+function robotInsult(object){
+  // The chances of an insult being called is 1:chance
+  const chance = 3;
+  // Roll the dice!
+  let triggerChance = Math.floor(Math.random() * Math.floor(chance));
+
+  // If the number is 1
+  if(triggerChance == 1){
+    // Random Number to decide a random motivational speech
+    let randomNumber = Math.floor(Math.random() * Math.floor(2));
+
+    // Select a set of an audiofile and the text
+    const selectInsultAudioFile = ["robotmoodbeeps.mp3", "robotmoodbeeps.mp3"];
+    const selectInsultText = ["Dit is de eerste insult", "Dit is de tweede insult"];
+
+    const audioFile = selectInsultAudioFile[randomNumber];
+    const value = selectInsultText[randomNumber];
+
+
+    // Change dialogText accordingly
+    setTimeout(function(){
+      playSound(object, audioFile);
+      object.setAttribute("value", value);
+      object.setAttribute("visible", true);
+    }, 0);
+    setTimeout(function(){
+      object.setAttribute("value", "");
+      object.setAttribute("visible", false);
+    }, 8000);
+  }
+}
+
+function robotDialog(object, value, audioFile, startTime, duration){
+  let endTime = startTime + duration;
+
+  // Change dialogText accordingly
+  setTimeout(function(){
+    playSound(object, audioFile);
+    object.setAttribute("value", value);
+    object.setAttribute("visible", true);
+  }, startTime);
+  setTimeout(function(){
+    object.setAttribute("value", "");
+    object.setAttribute("visible", false);
+    }, endTime);
 }
 
 // ========== General Functions ==========
@@ -204,28 +284,12 @@ function setColorTimeout(object, startTime, duration) {
 
 // Play a sound from the given object
 function playSound(object, audioFile) {
-  console.log("Play audio on " + object.el + " with the filename " + audioFile);
+  console.log("Play audio on " + object + " with the filename " + audioFile);
 
   // Prepare the right audioFile
   object.setAttribute("sound", "src: #" + audioFile);
   // Play given audioFile
   object.components.sound.playSound();
-}
-
-// Dialog
-function playDialog(object, value, audioFile, startTime, duration){
-  let endTime = startTime + duration;
-
-  // Change dialogText accordingly
-  setTimeout(function(){
-    playSound(object, audioFile);
-    object.setAttribute("value", value);
-    object.setAttribute("visible", true);
-  }, startTime);
-  setTimeout(function(){
-    object.setAttribute("value", "");
-    object.setAttribute("visible", false);
-    }, endTime);
 }
 
 function checkPuzzle4() {
