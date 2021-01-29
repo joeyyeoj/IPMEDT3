@@ -242,14 +242,13 @@ AFRAME.registerComponent("book", {
     this.pickup = function(){
       const camera = document.getElementById("js--camera");
       console.log("picked up book")
-      let box = document.createElement('a-box');
-      box.setAttribute("width", this.getAttribute("width"));
-      box.setAttribute("height", this.getAttribute("height"));
-      box.setAttribute("depth", this.getAttribute("depth"));
-      box.setAttribute("color", this.getAttribute("color"));
+      let box = document.createElement('a-obj-model');
+      box.setAttribute("src", this.getAttribute("src"));
+      box.setAttribute("mtl", this.getAttribute("mtl"));
       box.setAttribute('book', '');
       box.setAttribute("slotPos", this.getAttribute("slotPos"));
       box.setAttribute("position", {x: 1, y: 0, z: -1});
+      box.setAttribute("rotation", "90 0 0");
       camera.append(box);
       this.remove()
 
@@ -287,17 +286,20 @@ AFRAME.registerComponent("schriftslot", {
 
     this.placeBook = function(){
       if(camera.childNodes[3] && this.getAttribute("slotPos") == camera.childNodes[3].getAttribute("slotPos")){
-        let box = document.createElement('a-box')
-        box.setAttribute("width", camera.childNodes[3].getAttribute("width"));
-        box.setAttribute("height", camera.childNodes[3].getAttribute("height"));
-        box.setAttribute("depth", camera.childNodes[3].getAttribute("depth"));
-        box.setAttribute("color", camera.childNodes[3].getAttribute("color"));
-        box.setAttribute('book', '')
-        box.setAttribute("slotPos", camera.childNodes[3].getAttribute("slotPos"))
-        box.setAttribute("position", "0 0 0.1")
+        let box = document.createElement('a-obj-model');
+        box.setAttribute("src", camera.childNodes[3].getAttribute("src"));
+        box.setAttribute("mtl", camera.childNodes[3].getAttribute("mtl"));
+        box.setAttribute('book', '');
+        box.setAttribute("slotPos", camera.childNodes[3].getAttribute("slotPos"));
+        let xpos = this.getAttribute("position").x;
+        let ypos = this.getAttribute("position").y-0.6;
+        let zpos = this.getAttribute("position").z;
+
+        box.setAttribute("position", {x: xpos, y:ypos, z:zpos});
+        box.setAttribute("rotation", "90 0 0");
+        console.log(box)
         this.appendChild(box)
         console.log(endpuzzleResultBookSlots)
-        console.l
         endpuzzleResultBookSlots[parseInt(box.getAttribute("slotPos"))] = true
         console.log(endpuzzleResultBookSlots)
         console.log(box)

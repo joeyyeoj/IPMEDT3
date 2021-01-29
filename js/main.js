@@ -32,8 +32,8 @@ window.onload = () =>{
   let solved = false;
 
   // Puzzle 5
-  endpuzzleResultBookSlots = [false, false, false, false, false]
-  endpuzzleColors = [false, false, false, false, false]
+  endpuzzleResultBookSlots = [true, false, false, false, false]
+  endpuzzleColors = [true, false, false, false, false]
   endOpgelost = false;
 
   const colorselect = document.getElementsByClassName("js--colorselect");
@@ -79,6 +79,7 @@ window.onload = () =>{
             book.setAttribute("depth", "0.6")
             book.setAttribute("position", "0 0 4")
             solved = true
+            document.getElementById("js--boek2").setAttribute("visible", true)
             setTimeout(function(){
               scene.appendChild(book)
             }, 1000)
@@ -155,6 +156,7 @@ window.onload = () =>{
         placeCounter+=1
         if(placeCounter==4 && !resultArray.includes(false)){
           opgelost = true
+          document.getElementById("js--boek1").setAttribute("visible", true)
           for(let i=0; i<puzzleslots.length; i++){
             puzzleslots[i].childNodes[1].setAttribute("color", "#1cfc03")
 
@@ -247,8 +249,7 @@ function checkPuzzle4() {
   if (correctAnswers == 7) {
     console.log("Puzzle 4 is Solved!");
     // Maak het boek visible!
-    const book4 = document.getElementById("js--puzzle4Book");
-    book4.setAttribute("visible", true);
+    document.getElementById("js--boek4").setAttribute("visible", true)
 
     // Disable all buttons
     for(let i = 0; i < buttonSets.length; i++){
@@ -354,7 +355,7 @@ function checkAnswer(){
     answerSlotsText[0].setAttribute("material", "color", "#262");
     answerSlotsText[1].setAttribute("material", "color", "#262");
     answerSlotsText[2].setAttribute("material", "color", "#262");
-    giveBook();
+    document.getElementById("js--boek3").setAttribute("visible", true)
   }else{
     for(let i = 0; i < answerSlotsText.length; i++){
 
@@ -367,8 +368,13 @@ function checkAnswer(){
 function checkEnd(){
   if(!endpuzzleResultBookSlots.includes(false) && !endpuzzleColors.includes(false)){
       endOpgelost = true;
-      console.log("opgelost")
-      //code om deur te openen!
+
+      const deurlinks = document.getElementById("js--doorLeft")
+      const deurrechts = document.getElementById("js--doorRight")
+      const endpuzzelholder = document.getElementById("js--endpuzzelholder")
+      deurlinks.remove()
+      deurrechts.remove()
+      endpuzzelholder.remove()
   }
 }
 

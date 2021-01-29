@@ -40,6 +40,21 @@
         <a-asset id="robot-obj" src="obj/robot_goed.obj"></a-asset>
         <a-asset id="boekenkast-mtl" src="obj/boekenkast.mtl"></a-asset>
         <a-asset id="boekenkast-obj" src="obj/boekenkast.obj"></a-asset>
+        <a-asset id="schrift1-obj" src="obj/book1_red_arabic.obj"></a-asset>
+        <a-asset id="schrift1-mtl" src="obj/book1_red_arabic.mtl"></a-asset>
+        <a-asset id="schrift2-obj" src="obj/book2_purple_hieroglyph.obj"></a-asset>
+        <a-asset id="schrift2-mtl" src="obj/book2_purple_hieroglyph.mtl"></a-asset>
+        <a-asset id="schrift3-obj" src="obj/book3_yellow_berber.obj"></a-asset>
+        <a-asset id="schrift3-mtl" src="obj/book3_yellow_berber.mtl"></a-asset>
+        <a-asset id="schrift4-obj" src="obj/book4_blue_vai.obj"></a-asset>
+        <a-asset id="schrift4-mtl" src="obj/book4_blue_vai.mtl"></a-asset>
+        <a-asset id="schrift5-obj" src="obj/book5_green_geez.obj"></a-asset>
+        <a-asset id="schrift5-mtl" src="obj/book5_green_geez.mtl"></a-asset>
+
+        <a-asset-item id="doorlinks-obj" src="obj/door_left.obj"></a-asset-item>
+        <a-asset-item id="doorlinks-mtl" src="obj/door_left.mtl"></a-asset-item>
+        <a-asset-item id="doorrechts-obj" src="obj/door_right.obj"></a-asset-item>
+        <a-asset-item id="doorrechts-mtl" src="obj/door_right.mtl"></a-asset-item>
 
         <a-asset id="brickpatternwall" src="textures/brickpatternwall.jpg"></a-asset>
         <a-asset id="brickpatternwallcolors" src="textures/brickpatternwallcolors.jpg"></a-asset>
@@ -66,6 +81,13 @@
           raycaster = "objects: .js--interact"
         ></a-entity>
       </a-camera>
+
+
+
+
+
+
+
 
       <a-entity id="puzzlemain" position="0 0 0">
         <a-entity id="puzzlemain__landing" position="0 0 0">
@@ -100,6 +122,7 @@
             </a-entity>
 
             <a-entity id="puzzle1" geometry="primitive: plane; width: 7; height: 7;" material="src: #stonewallmoss; side: double; repeat: 3.5 3.5"  rotation="-90 0 -90" position="-15.5 0 0">
+              <a-obj-model id="js--boek1" visible="false" class="js--interact"  book slotPos="1" src="#schrift2-obj" mtl="#schrift2-mtl" rotation="90 0 0" position="0 -2 2"></a-obj-model>
               <a-cylinder teleportplace class="js--interact" position="0 1 0" rotation="90 0 0" color="#fa4646" radius=".5" height=".05"></a-cylinder>
               <a-obj-model id="js--robotPuzzel1" src="#robot-obj" mtl="#robot-mtl" scale="0.25 0.25 0.25" position="-3 0 0" rotation="90 90 90">
               </a-obj-model>
@@ -241,7 +264,7 @@
               </a-entity>
 
 
-
+              <a-obj-model id="js--boek2" visible="false" class="js--interact"  book slotPos="2" src="#schrift3-obj" mtl="#schrift3-mtl" rotation="0 90 90" position="-1.8 -1.7 1.8"></a-obj-model>
               <a-cylinder teleportplace class="js--interact" position=".5 0 0" rotation="90 0 0" color="#fa4646" radius=".5" height=".05"></a-cylinder>
               <a-cylinder teleportplace class="js--interact" position="-2 0 0" rotation="90 0 0" color="#fa4646" radius=".5" height=".05"></a-cylinder>
                 <a-plane src="#stonewallbrickcolors" width="7" height="7" position="0 -0 5" rotation="0 0 0" material="side: double; repeat: 3.5 2.5"></a-plane>
@@ -370,6 +393,7 @@
                 <a-cylinder teleportplace class="js--interact" color="#fa4646" radius="2" height="0.15" position="0 0 15"></a-cylinder>
                 <a-cylinder teleportplace class="js--interact" color="#fa4646" radius="2" height="0.15" position="0 0 50"></a-cylinder>
                 <a-cylinder teleportplace class="js--interact" color="#fa4646" radius="2" height="0.15" position="13 0 15"></a-cylinder>
+                <a-obj-model id="js--boek3" visible="false" class="js--interact" scale="2 2 2"  book slotPos="3" src="#schrift4-obj" mtl="#schrift4-mtl" rotation="90 0 0" position="12.7 4.65 6.2"></a-obj-model>
                 <a-obj-model  src="#robot-obj" mtl="#robot-mtl" scale="0.8 0.8 0.8" position="-20 0 10" rotation="0 0 0">
                 </a-obj-model>
                 <!-- Labels per area -->
@@ -485,8 +509,8 @@
               <a-cylinder teleportplace class="js--interact" position="0 0 6" color="#fa4646" radius=".5" height=".05"></a-cylinder>
 
               <a-cylinder teleportplace class="js--interact" position="-8 0 6" color="#fa4646" radius=".5" height=".05"></a-cylinder>
+              <a-obj-model id="js--boek4" visible="false" class="js--interact"  book slotPos="4" src="#schrift5-obj" mtl="#schrift5-mtl" rotation="90 0 0" position="0.41 1.394 -2.579"></a-obj-model>
 
-              <a-box id="js--puzzle4Book" position="0 .5 -2" color="green" visible=false> </a-box>
 
 
               <a-obj-model id="js--puzzle4Robot" src="#robot-obj" mtl="#robot-mtl" scale="0.25 0.25 0.25" position="4.5 0.25 -2" rotation="0 180w 0">
@@ -550,6 +574,7 @@
 
 
 
+
           <a-entity id="puzzlemain__hall__puzzlefinal" position="0 0 -26">
             <a-cylinder teleportplace class="js--interact" position="0 0 2" rotation="0 0 0" color="#fa4646" radius=".5" height=".05"></a-cylinder>
             <a-plane src="#brickpatternwallcolors" position="0 5 0" rotation="90 0 0" width="10" height="10" material="side: double; repeat: 5 5"></a-plane>
@@ -558,20 +583,27 @@
             <a-plane src="#brickpatternwallcolors" position="-5 2.5 0" rotation="0 90 0" width="10" height="5" material="side: double; repeat: 5 2.5"></a-plane>
             <a-entity id="puzzlemain__hall_puzzlefinal__puzzlewall" position="-5 .5 -4.5">
               <!-- VOORBEELDKEYS  -->
-              <a-box class="js--interact" book slotPos="0" position="6 2 3.5" width="0.5" height="0.8" depth="0.2" color="red"></a-box>
-              <a-box class="js--interact" book slotPos="1" position="6 2 4.5" width="0.5" height="0.8" depth="0.2" color="purple"></a-box>
-              <a-box class="js--interact" book slotPos="2" position="6 2 5.5" width="0.5" height="0.8" depth="0.2" color="yellow"></a-box>
-              <a-box class="js--interact" book slotPos="3" position="6 2 6.5" width="0.5" height="0.8" depth="0.2" color="blue"></a-box>
-              <a-box class="js--interact" book slotPos="4" position="6 2 7.5" width="0.5" height="0.8" depth="0.2" color="green"></a-box>
 
 
-              <a-box height="5" width="10" depth="1" color="brown" position="5 2 0">
-                <a-entity class="js--puzzle5slot" position="-3 0 0.5" geometry="primitive: box; height: 2.5; width: 1.25; depth: 0.25;" material="color: black">
+
+
+
+
+
+              <a-box color="black" width="2.5" height="5" position="1.3 2 0"></a-box>
+              <a-box color="black" width="2.5" height="5" position="8.7 2 0"></a-box>
+              <a-box id="js--endpuzzelholder" height="5" width="5" depth="1" color="black" position="5 2 0">
+                <a-obj-model id="js--doorLeft" src="#doorlinks-obj" mtl="#doorlinks-mtl" scale="0.5 0.5 0.5" position="-1 -2.5 1" rotation="0 0 0">
+                </a-obj-model>
+                <a-obj-model id="js--doorRight" src="#doorrechts-obj" mtl="#doorrechts-mtl" scale="0.5 0.502 0.5" position="1.4w -2.5 1" rotation="0 0 0">
+                </a-obj-model>
+                <a-entity class="js--puzzle5slot" position="-3 0 1.5" geometry="primitive: box; height: 2.5; width: 1.25; depth: 0.25;" material="color: black">
+
                   <a-image schriftslot class="js--interact" slotPos="0" src="img/slot-1.png" height="0.8" width="0.5" depth="0.2" position="0 0.7 0.14">
-
+                    <a-obj-model class="js--interact" visible="true" book slotPos="0" src="#schrift1-obj" mtl="#schrift1-mtl" rotation="90 0 0" position="0 0 0.1"></a-obj-model>
                   </a-image>
                   <a-circle class="js--colorselect" position="0 -0.4 0.126" radius="0.5" color="#121212">
-                    <a-circle class="js--interact js--correctcolor" opacity="0.3" color="red" position="0 0.35 0.01" radius="0.1">
+                    <a-circle class="js--interact js--correctcolor" opacity="1w" color="red" position="0 0.35 0.01" radius="0.1">
 
                     </a-circle>
                     <a-circle class="js--interact" opacity="0.3" color="purple" position="0.35 0.05 0.01" radius="0.1">
@@ -588,7 +620,7 @@
                     </a-circle>
                   </a-circle>
                 </a-entity>
-                <a-entity class="js--puzzle5slot" position="-1.5 0 0.5" geometry="primitive: box; height: 2.5; width: 1.25; depth: 0.25;" material="color: black">
+                <a-entity class="js--puzzle5slot" position="-1.5 0 1.5" geometry="primitive: box; height: 2.5; width: 1.25; depth: 0.25;" material="color: black">
                   <a-image schriftslot slotPos="1" class="js--interact" src="img/slot-2.png" height="0.8" width="0.5" depth="0.2" position="0 0.7 0.14">
 
                   </a-image>
@@ -610,7 +642,7 @@
                     </a-circle>
                   </a-circle>
                 </a-entity>
-                <a-entity class="js--puzzle5slot" class="js--puzzle5slot" position="0 0 0.5" geometry="primitive: box; height: 2.5; width: 1.25; depth: 0.25;" material="color: black">
+                <a-entity class="js--puzzle5slot" class="js--puzzle5slot" position="0 0 1.5" geometry="primitive: box; height: 2.5; width: 1.25; depth: 0.25;" material="color: black">
                   <a-image schriftslot slotPos="2" class="js--interact" src="img/slot-3.png" height="0.8" width="0.5" depth="0.2" position="0 0.7 0.14">
 
                   </a-image>
@@ -632,7 +664,7 @@
                     </a-circle>
                   </a-circle>
                 </a-entity>
-                <a-entity class="js--puzzle5slot" class="js--puzzle5slot" position="1.5 0 0.5" geometry="primitive: box; height: 2.5; width: 1.25; depth: 0.25;" material="color: black">
+                <a-entity class="js--puzzle5slot" class="js--puzzle5slot" position="1.5 0 1.5" geometry="primitive: box; height: 2.5; width: 1.25; depth: 0.25;" material="color: black">
                   <a-image schriftslot slotPos="3" class="js--interact" src="img/slot-4.png" height="0.8" width="0.5" depth="0.2" position="0 0.7 0.14">
 
                   </a-image>
@@ -654,7 +686,7 @@
                     </a-circle>
                   </a-circle>
                 </a-entity>
-                <a-entity class="js--puzzle5slot" class="js--puzzle5slot" position="3 0 0.5" geometry="primitive: box; height: 2.5; width: 1.25; depth: 0.25;" material="color: black">
+                <a-entity class="js--puzzle5slot" class="js--puzzle5slot" position="3 0 1.5" geometry="primitive: box; height: 2.5; width: 1.25; depth: 0.25;" material="color: black">
                   <a-image schriftslot slotPos="4" class="js--interact" src="img/slot-4.png" height="0.8" width="0.5" depth="0.2" position="0 0.7 0.14">
 
                   </a-image>
