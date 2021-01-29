@@ -1,0 +1,110 @@
+{
+    "asset" : {
+        "generator" : "Khronos glTF Blender I/O v1.4.40",
+        "version" : "2.0"
+    },
+    "scene" : 0,
+    "scenes" : [
+        {
+            "name" : "Scene",
+            "nodes" : [
+                0
+            ]
+        }
+    ],
+    "nodes" : [
+        {
+            "mesh" : 0,
+            "name" : "Inhoud.003",
+            "scale" : [
+                0.05624999850988388,
+                0.040000006556510925,
+                0.15200001001358032
+            ],
+            "translation" : [
+                -1.7863807678222656,
+                -0.0007459216867573559,
+                0.07183987647294998
+            ]
+        }
+    ],
+    "meshes" : [
+        {
+            "name" : "Cube.004",
+            "primitives" : [
+                {
+                    "attributes" : {
+                        "POSITION" : 0,
+                        "NORMAL" : 1,
+                        "TEXCOORD_0" : 2
+                    },
+                    "indices" : 3
+                }
+            ]
+        }
+    ],
+    "accessors" : [
+        {
+            "bufferView" : 0,
+            "componentType" : 5126,
+            "count" : 34,
+            "max" : [
+                4.068687438964844,
+                1.9999996423721313,
+                2.5245299339294434
+            ],
+            "min" : [
+                -3.931312322616577,
+                -1.9999996423721313,
+                -2.4754695892333984
+            ],
+            "type" : "VEC3"
+        },
+        {
+            "bufferView" : 1,
+            "componentType" : 5126,
+            "count" : 34,
+            "type" : "VEC3"
+        },
+        {
+            "bufferView" : 2,
+            "componentType" : 5126,
+            "count" : 34,
+            "type" : "VEC2"
+        },
+        {
+            "bufferView" : 3,
+            "componentType" : 5123,
+            "count" : 60,
+            "type" : "SCALAR"
+        }
+    ],
+    "bufferViews" : [
+        {
+            "buffer" : 0,
+            "byteLength" : 408,
+            "byteOffset" : 0
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 408,
+            "byteOffset" : 408
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 272,
+            "byteOffset" : 816
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 120,
+            "byteOffset" : 1088
+        }
+    ],
+    "buffers" : [
+        {
+            "byteLength" : 1208,
+            "uri" : "data:application/octet-stream;base64,n5p7wP3//7/mkSFAn5p7wP3//7/mkSFAn5p7wP3//7/mkSFAn5p7wP3//z/mkSFAn5p7wP3//z/mkSFAn5p7wP3//z/mkSFAn5p7wP3//78Ybh7An5p7wP3//78Ybh7An5p7wP3//z8Ybh7An5p7wP3//z8Ybh7An5p7wP3//z8Ybh7AsDKCQP3//7/mkSFAsDKCQP3//7/mkSFAsDKCQP3//z/mkSFAsDKCQP3//z/mkSFAsDKCQP3//z/mkSFAsDKCQP3//78Ybh7AsDKCQP3//78Ybh7AsDKCQP3//z8Ybh7AsDKCQP3//z8Ybh7AsDKCQP3//z8Ybh7An5p7wP3//7/mkSFAn5p7wP3//7/mkSFAn5p7wP3//7/mkSFAn5p7wP3//7/mkSFAn5p7wP3//78Ybh7An5p7wP3//78Ybh7An5p7wP3//78Ybh7AsDKCQP3//78Ybh7AsDKCQP3//78Ybh7AsDKCQP3//78Ybh7AsDKCQP3//7/mkSFAsDKCQP3//7/mkSFAsDKCQP3//7/mkSFAAAAAAAAAgL8AAACAAAAAAAAAgD8AAACAAAAAAAAAgD8AAACAAACAvwAAAAAAAAAAAAAAAAAAAAAAAIA/AAAAAAAAgD8AAAAAAAAAAAAAgL8AAACAAAAAAAAAgD8AAACAAACAvwAAAAAAAAAAAAAAAAAAAIAAAIC/AAAAAAAAgD8AAAAAAAAAAAAAgL8AAACAAAAAAAAAgD8AAACAAAAAAAAAAAAAAIA/AAAAAAAAgD8AAAAAAACAPwAAAIAAAACAAAAAAAAAgL8AAACAAAAAAAAAgD8AAACAAAAAAAAAAIAAAIC/AAAAAAAAgD8AAAAAAACAPwAAAIAAAACAAACAvwAAAAAAAAAAAAAAAAAAAAAAAIA/AAAAAAAAgD8AAACAAAAAAAAAgD8AAACAAACAvwAAAAAAAAAAAAAAAAAAAIAAAIC/AAAAAAAAgD8AAACAAAAAAAAAAIAAAIC/AAAAAAAAgD8AAACAAACAPwAAAIAAAACAAAAAAAAAAAAAAIA/AAAAAAAAgD8AAACAAACAPwAAAIAAAACAAAAAPgAAgD4AAMA+AAAAAAAAwD4AAIA/AAAgPwAAgD8AACA/AAAAAAAAYD8AAIA+AAAAPgAAAD8AAMA+AABAPwAAID8AAEA/AAAgPwAAQD8AAGA/AAAAPwAAwD4AAIA+AADAPgAAgD4AACA/AACAPgAAID8AAIA+AAAgPwAAgD4AAMA+AAAAPwAAwD4AAAA/AAAgPwAAAD8AACA/AAAAPwAAID8AAAA/AADAPgAAgD8AAMA+AAAAAAAAwD4AAAAAAADAPgAAgD8AAMA+AABAPwAAwD4AAEA/AADAPgAAQD8AAMA+AAAAPwAAwD4AAAA/AADAPgAAAD8AAMA+AACAPgAAwD4AAIA+AADAPgAAgD4JABIAHAAJABwAGgAGABAACwAGAAsAAAATAAoABQATAAUADgAMACAAFwAMABcAAQARAB0AIAARACAADAAHABsAHQAHAB0AEQACABgAGwACABsABwANAAQAFgANABYAHwAUAA8AIQAUACEAHgAVAAMACAAVAAgAGQA="
+        }
+    ]
+}
