@@ -4,6 +4,9 @@ window.onload = () =>{
   const scene = document.getElementById("js--scene");
   const puzzleboxes = document.getElementsByClassName("js--puzzlebox");
   const puzzleslots = document.getElementsByClassName("js--puzzleslot");
+  const weatherPlayer = document.getElementById("js--weatherPlayer")
+
+  getWeather()
 
   // Puzzle 1
   let hold = false;
